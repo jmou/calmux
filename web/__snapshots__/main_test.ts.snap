@@ -9,7 +9,6 @@ snapshot[`isSnapshotMatch 1`] = `
       .calendar {
         display: grid;
         grid-template-columns: repeat(7, minmax(0, 1fr));
-        grid-template-areas: "ga-20241229 ga-20241230 ga-20241231 ga-20250101 ga-20250102 ga-20250103 ga-20250104" "ga-20250105 ga-20250106 ga-20250107 ga-20250108 ga-20250109 ga-20250110 ga-20250111" "ga-20250112 ga-20250113 ga-20250114 ga-20250115 ga-20250116 ga-20250117 ga-20250118" "ga-20250119 ga-20250120 ga-20250121 ga-20250122 ga-20250123 ga-20250124 ga-20250125" "ga-20250126 ga-20250127 ga-20250128 ga-20250129 ga-20250130 ga-20250131 ga-20250201" "ga-20250202 ga-20250203 ga-20250204 ga-20250205 ga-20250206 ga-20250207 ga-20250208" "ga-20250209 ga-20250210 ga-20250211 ga-20250212 ga-20250213 ga-20250214 ga-20250215" "ga-20250216 ga-20250217 ga-20250218 ga-20250219 ga-20250220 ga-20250221 ga-20250222" "ga-20250223 ga-20250224 ga-20250225 ga-20250226 ga-20250227 ga-20250228 ga-20250301" "ga-20250302 ga-20250303 ga-20250304 ga-20250305 ga-20250306 ga-20250307 ga-20250308" "ga-20250309 ga-20250310 ga-20250311 ga-20250312 ga-20250313 ga-20250314 ga-20250315" "ga-20250316 ga-20250317 ga-20250318 ga-20250319 ga-20250320 ga-20250321 ga-20250322" "ga-20250323 ga-20250324 ga-20250325 ga-20250326 ga-20250327 ga-20250328 ga-20250329" "ga-20250330 ga-20250331 ga-20250401 ga-20250402 ga-20250403 ga-20250404 ga-20250405" "ga-20250406 ga-20250407 ga-20250408 ga-20250409 ga-20250410 ga-20250411 ga-20250412" "ga-20250413 ga-20250414 ga-20250415 ga-20250416 ga-20250417 ga-20250418 ga-20250419" "ga-20250420 ga-20250421 ga-20250422 ga-20250423 ga-20250424 ga-20250425 ga-20250426" "ga-20250427 ga-20250428 ga-20250429 ga-20250430 ga-20250501 ga-20250502 ga-20250503" "ga-20250504 ga-20250505 ga-20250506 ga-20250507 ga-20250508 ga-20250509 ga-20250510" "ga-20250511 ga-20250512 ga-20250513 ga-20250514 ga-20250515 ga-20250516 ga-20250517" "ga-20250518 ga-20250519 ga-20250520 ga-20250521 ga-20250522 ga-20250523 ga-20250524" "ga-20250525 ga-20250526 ga-20250527 ga-20250528 ga-20250529 ga-20250530 ga-20250531" "ga-20250601 ga-20250602 ga-20250603 ga-20250604 ga-20250605 ga-20250606 ga-20250607" "ga-20250608 ga-20250609 ga-20250610 ga-20250611 ga-20250612 ga-20250613 ga-20250614" "ga-20250615 ga-20250616 ga-20250617 ga-20250618 ga-20250619 ga-20250620 ga-20250621" "ga-20250622 ga-20250623 ga-20250624 ga-20250625 ga-20250626 ga-20250627 ga-20250628" "ga-20250629 ga-20250630 ga-20250701 ga-20250702 ga-20250703 ga-20250704 ga-20250705" "ga-20250706 ga-20250707 ga-20250708 ga-20250709 ga-20250710 ga-20250711 ga-20250712" "ga-20250713 ga-20250714 ga-20250715 ga-20250716 ga-20250717 ga-20250718 ga-20250719" "ga-20250720 ga-20250721 ga-20250722 ga-20250723 ga-20250724 ga-20250725 ga-20250726" "ga-20250727 ga-20250728 ga-20250729 ga-20250730 ga-20250731 ga-20250801 ga-20250802" "ga-20250803 ga-20250804 ga-20250805 ga-20250806 ga-20250807 ga-20250808 ga-20250809" "ga-20250810 ga-20250811 ga-20250812 ga-20250813 ga-20250814 ga-20250815 ga-20250816" "ga-20250817 ga-20250818 ga-20250819 ga-20250820 ga-20250821 ga-20250822 ga-20250823" "ga-20250824 ga-20250825 ga-20250826 ga-20250827 ga-20250828 ga-20250829 ga-20250830" "ga-20250831 ga-20250901 ga-20250902 ga-20250903 ga-20250904 ga-20250905 ga-20250906" "ga-20250907 ga-20250908 ga-20250909 ga-20250910 ga-20250911 ga-20250912 ga-20250913" "ga-20250914 ga-20250915 ga-20250916 ga-20250917 ga-20250918 ga-20250919 ga-20250920" "ga-20250921 ga-20250922 ga-20250923 ga-20250924 ga-20250925 ga-20250926 ga-20250927" "ga-20250928 ga-20250929 ga-20250930 ga-20251001 ga-20251002 ga-20251003 ga-20251004" "ga-20251005 ga-20251006 ga-20251007 ga-20251008 ga-20251009 ga-20251010 ga-20251011" "ga-20251012 ga-20251013 ga-20251014 ga-20251015 ga-20251016 ga-20251017 ga-20251018" "ga-20251019 ga-20251020 ga-20251021 ga-20251022 ga-20251023 ga-20251024 ga-20251025" "ga-20251026 ga-20251027 ga-20251028 ga-20251029 ga-20251030 ga-20251031 ga-20251101" "ga-20251102 ga-20251103 ga-20251104 ga-20251105 ga-20251106 ga-20251107 ga-20251108" "ga-20251109 ga-20251110 ga-20251111 ga-20251112 ga-20251113 ga-20251114 ga-20251115" "ga-20251116 ga-20251117 ga-20251118 ga-20251119 ga-20251120 ga-20251121 ga-20251122" "ga-20251123 ga-20251124 ga-20251125 ga-20251126 ga-20251127 ga-20251128 ga-20251129" "ga-20251130 ga-20251201 ga-20251202 ga-20251203 ga-20251204 ga-20251205 ga-20251206" "ga-20251207 ga-20251208 ga-20251209 ga-20251210 ga-20251211 ga-20251212 ga-20251213" "ga-20251214 ga-20251215 ga-20251216 ga-20251217 ga-20251218 ga-20251219 ga-20251220" "ga-20251221 ga-20251222 ga-20251223 ga-20251224 ga-20251225 ga-20251226 ga-20251227" "ga-20251228 ga-20251229 ga-20251230 ga-20251231 ga-20260101 ga-20260102 ga-20260103";
       }
       .day {
         min-height: 2lh;
@@ -26,9 +25,8 @@ snapshot[`isSnapshotMatch 1`] = `
         white-space: nowrap;
       }
       .multi {
-        --start: attr(data-start type(<custom-ident>));
-        --end: attr(data-end type(<custom-ident>));
-        grid-area: var(--start) / var(--start) / var(--end) / var(--end);
+        --area: attr(data-area type(*));
+        grid-area: var(--area);
         height: 1lh;
         /* TODO proper styling */
         background: red;
@@ -41,2924 +39,2797 @@ snapshot[`isSnapshotMatch 1`] = `
     <h1>ASP 2025 + Calendar — Fort Greene Park Conservancy</h1>
     <div class=calendar>
       
-        <div class=day style="grid-area: ga-20241229">
-          <time datetime=2024-12-29>29</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20241230">
-          <time datetime=2024-12-30>30</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20241231">
-          <time datetime=2024-12-31>31</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250101">
-          <time datetime=2025-01-01>Jan 1</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250102">
-          <time datetime=2025-01-02>2</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250103">
-          <time datetime=2025-01-03>3</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250104">
-          <time datetime=2025-01-04>4</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250105">
-          <time datetime=2025-01-05>5</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250106">
-          <time datetime=2025-01-06>6</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250107">
-          <time datetime=2025-01-07>7</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250108">
-          <time datetime=2025-01-08>8</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250109">
-          <time datetime=2025-01-09>9</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250110">
-          <time datetime=2025-01-10>10</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250111">
-          <time datetime=2025-01-11>11</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250112">
-          <time datetime=2025-01-12>12</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250113">
-          <time datetime=2025-01-13>13</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250114">
-          <time datetime=2025-01-14>14</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250115">
-          <time datetime=2025-01-15>15</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250116">
-          <time datetime=2025-01-16>16</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250117">
-          <time datetime=2025-01-17>17</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250118">
-          <time datetime=2025-01-18>18</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250119">
-          <time datetime=2025-01-19>19</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250120">
-          <time datetime=2025-01-20>20</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250121">
-          <time datetime=2025-01-21>21</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250122">
-          <time datetime=2025-01-22>22</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250123">
-          <time datetime=2025-01-23>23</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250124">
-          <time datetime=2025-01-24>24</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250125">
-          <time datetime=2025-01-25>25</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250126">
-          <time datetime=2025-01-26>26</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250127">
-          <time datetime=2025-01-27>27</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250128">
-          <time datetime=2025-01-28>28</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250129">
-          <time datetime=2025-01-29>29</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250130">
-          <time datetime=2025-01-30>30</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250131">
-          <time datetime=2025-01-31>31</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250201">
-          <time datetime=2025-02-01>Feb 1</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250202">
-          <time datetime=2025-02-02>2</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250203">
-          <time datetime=2025-02-03>3</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250204">
-          <time datetime=2025-02-04>4</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250205">
-          <time datetime=2025-02-05>5</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250206">
-          <time datetime=2025-02-06>6</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250207">
-          <time datetime=2025-02-07>7</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250208">
-          <time datetime=2025-02-08>8</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250209">
-          <time datetime=2025-02-09>9</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250210">
-          <time datetime=2025-02-10>10</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250211">
-          <time datetime=2025-02-11>11</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250212">
-          <time datetime=2025-02-12>12</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250213">
-          <time datetime=2025-02-13>13</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250214">
-          <time datetime=2025-02-14>14</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250215">
-          <time datetime=2025-02-15>15</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250216">
-          <time datetime=2025-02-16>16</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250217">
-          <time datetime=2025-02-17>17</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250218">
-          <time datetime=2025-02-18>18</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250219">
-          <time datetime=2025-02-19>19</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250220">
-          <time datetime=2025-02-20>20</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250221">
-          <time datetime=2025-02-21>21</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250222">
-          <time datetime=2025-02-22>22</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250223">
-          <time datetime=2025-02-23>23</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250224">
-          <time datetime=2025-02-24>24</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250225">
-          <time datetime=2025-02-25>25</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250226">
-          <time datetime=2025-02-26>26</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250227">
-          <time datetime=2025-02-27>27</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250228">
-          <time datetime=2025-02-28>28</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250301">
-          <time datetime=2025-03-01>Mar 1</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250302">
-          <time datetime=2025-03-02>2</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250303">
-          <time datetime=2025-03-03>3</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250304">
-          <time datetime=2025-03-04>4</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250305">
-          <time datetime=2025-03-05>5</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250306">
-          <time datetime=2025-03-06>6</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250307">
-          <time datetime=2025-03-07>7</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250308">
-          <time datetime=2025-03-08>8</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250309">
-          <time datetime=2025-03-09>9</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250310">
-          <time datetime=2025-03-10>10</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250311">
-          <time datetime=2025-03-11>11</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250312">
-          <time datetime=2025-03-12>12</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250313">
-          <time datetime=2025-03-13>13</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250314">
-          <time datetime=2025-03-14>14</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250315">
-          <time datetime=2025-03-15>15</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250316">
-          <time datetime=2025-03-16>16</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250317">
-          <time datetime=2025-03-17>17</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250318">
-          <time datetime=2025-03-18>18</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250319">
-          <time datetime=2025-03-19>19</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250320">
-          <time datetime=2025-03-20>20</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250321">
-          <time datetime=2025-03-21>21</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250322">
-          <time datetime=2025-03-22>22</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250323">
-          <time datetime=2025-03-23>23</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250324">
-          <time datetime=2025-03-24>24</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250325">
-          <time datetime=2025-03-25>25</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250326">
-          <time datetime=2025-03-26>26</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250327">
-          <time datetime=2025-03-27>27</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250328">
-          <time datetime=2025-03-28>28</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250329">
-          <time datetime=2025-03-29>29</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250330">
-          <time datetime=2025-03-30>30</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250331">
-          <time datetime=2025-03-31>31</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250401">
-          <time datetime=2025-04-01>Apr 1</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250402">
-          <time datetime=2025-04-02>2</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250403">
-          <time datetime=2025-04-03>3</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250404">
-          <time datetime=2025-04-04>4</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250405">
-          <time datetime=2025-04-05>5</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250406">
-          <time datetime=2025-04-06>6</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250407">
-          <time datetime=2025-04-07>7</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250408">
-          <time datetime=2025-04-08>8</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250409">
-          <time datetime=2025-04-09>9</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250410">
-          <time datetime=2025-04-10>10</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250411">
-          <time datetime=2025-04-11>11</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250412">
-          <time datetime=2025-04-12>12</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250413">
-          <time datetime=2025-04-13>13</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250414">
-          <time datetime=2025-04-14>14</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250415">
-          <time datetime=2025-04-15>15</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250416">
-          <time datetime=2025-04-16>16</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250417">
-          <time datetime=2025-04-17>17</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250418">
-          <time datetime=2025-04-18>18</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250419">
-          <time datetime=2025-04-19>19</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250420">
-          <time datetime=2025-04-20>20</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250421">
-          <time datetime=2025-04-21>21</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250422">
-          <time datetime=2025-04-22>22</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250423">
-          <time datetime=2025-04-23>23</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250424">
-          <time datetime=2025-04-24>24</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250425">
-          <time datetime=2025-04-25>25</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250426">
-          <time datetime=2025-04-26>26</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250427">
-          <time datetime=2025-04-27>27</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250428">
-          <time datetime=2025-04-28>28</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250429">
-          <time datetime=2025-04-29>29</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250430">
-          <time datetime=2025-04-30>30</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250501">
-          <time datetime=2025-05-01>May 1</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250502">
-          <time datetime=2025-05-02>2</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250503">
-          <time datetime=2025-05-03>3</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250504">
-          <time datetime=2025-05-04>4</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250505">
-          <time datetime=2025-05-05>5</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250506">
-          <time datetime=2025-05-06>6</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250507">
-          <time datetime=2025-05-07>7</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250508">
-          <time datetime=2025-05-08>8</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250509">
-          <time datetime=2025-05-09>9</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250510">
-          <time datetime=2025-05-10>10</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250511">
-          <time datetime=2025-05-11>11</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250512">
-          <time datetime=2025-05-12>12</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250513">
-          <time datetime=2025-05-13>13</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250514">
-          <time datetime=2025-05-14>14</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250515">
-          <time datetime=2025-05-15>15</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250516">
-          <time datetime=2025-05-16>16</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250517">
-          <time datetime=2025-05-17>17</time>
-          
-          <div class=event title="NYC Big Spring Clean
+      <div class=day style="grid-area: 1 / 1">
+        <time datetime=2024-12-29>Dec 29</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 1 / 2">
+        <time datetime=2024-12-30>30</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 1 / 3">
+        <time datetime=2024-12-31>31</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 1 / 4">
+        <time datetime=2025-01-01>Jan 1</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 1 / 5">
+        <time datetime=2025-01-02>2</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 1 / 6">
+        <time datetime=2025-01-03>3</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 1 / 7">
+        <time datetime=2025-01-04>4</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 2 / 1">
+        <time datetime=2025-01-05>5</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 2 / 2">
+        <time datetime=2025-01-06>6</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 2 / 3">
+        <time datetime=2025-01-07>7</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 2 / 4">
+        <time datetime=2025-01-08>8</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 2 / 5">
+        <time datetime=2025-01-09>9</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 2 / 6">
+        <time datetime=2025-01-10>10</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 2 / 7">
+        <time datetime=2025-01-11>11</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 3 / 1">
+        <time datetime=2025-01-12>12</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 3 / 2">
+        <time datetime=2025-01-13>13</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 3 / 3">
+        <time datetime=2025-01-14>14</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 3 / 4">
+        <time datetime=2025-01-15>15</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 3 / 5">
+        <time datetime=2025-01-16>16</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 3 / 6">
+        <time datetime=2025-01-17>17</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 3 / 7">
+        <time datetime=2025-01-18>18</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 4 / 1">
+        <time datetime=2025-01-19>19</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 4 / 2">
+        <time datetime=2025-01-20>20</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 4 / 3">
+        <time datetime=2025-01-21>21</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 4 / 4">
+        <time datetime=2025-01-22>22</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 4 / 5">
+        <time datetime=2025-01-23>23</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 4 / 6">
+        <time datetime=2025-01-24>24</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 4 / 7">
+        <time datetime=2025-01-25>25</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 5 / 1">
+        <time datetime=2025-01-26>26</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 5 / 2">
+        <time datetime=2025-01-27>27</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 5 / 3">
+        <time datetime=2025-01-28>28</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 5 / 4">
+        <time datetime=2025-01-29>29</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 5 / 5">
+        <time datetime=2025-01-30>30</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 5 / 6">
+        <time datetime=2025-01-31>31</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 5 / 7">
+        <time datetime=2025-02-01>Feb 1</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 6 / 1">
+        <time datetime=2025-02-02>2</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 6 / 2">
+        <time datetime=2025-02-03>3</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 6 / 3">
+        <time datetime=2025-02-04>4</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 6 / 4">
+        <time datetime=2025-02-05>5</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 6 / 5">
+        <time datetime=2025-02-06>6</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 6 / 6">
+        <time datetime=2025-02-07>7</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 6 / 7">
+        <time datetime=2025-02-08>8</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 7 / 1">
+        <time datetime=2025-02-09>9</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 7 / 2">
+        <time datetime=2025-02-10>10</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 7 / 3">
+        <time datetime=2025-02-11>11</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 7 / 4">
+        <time datetime=2025-02-12>12</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 7 / 5">
+        <time datetime=2025-02-13>13</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 7 / 6">
+        <time datetime=2025-02-14>14</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 7 / 7">
+        <time datetime=2025-02-15>15</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 8 / 1">
+        <time datetime=2025-02-16>16</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 8 / 2">
+        <time datetime=2025-02-17>17</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 8 / 3">
+        <time datetime=2025-02-18>18</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 8 / 4">
+        <time datetime=2025-02-19>19</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 8 / 5">
+        <time datetime=2025-02-20>20</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 8 / 6">
+        <time datetime=2025-02-21>21</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 8 / 7">
+        <time datetime=2025-02-22>22</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 9 / 1">
+        <time datetime=2025-02-23>23</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 9 / 2">
+        <time datetime=2025-02-24>24</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 9 / 3">
+        <time datetime=2025-02-25>25</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 9 / 4">
+        <time datetime=2025-02-26>26</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 9 / 5">
+        <time datetime=2025-02-27>27</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 9 / 6">
+        <time datetime=2025-02-28>28</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 9 / 7">
+        <time datetime=2025-03-01>Mar 1</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 10 / 1">
+        <time datetime=2025-03-02>2</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 10 / 2">
+        <time datetime=2025-03-03>3</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 10 / 3">
+        <time datetime=2025-03-04>4</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 10 / 4">
+        <time datetime=2025-03-05>5</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 10 / 5">
+        <time datetime=2025-03-06>6</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 10 / 6">
+        <time datetime=2025-03-07>7</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 10 / 7">
+        <time datetime=2025-03-08>8</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 11 / 1">
+        <time datetime=2025-03-09>9</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 11 / 2">
+        <time datetime=2025-03-10>10</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 11 / 3">
+        <time datetime=2025-03-11>11</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 11 / 4">
+        <time datetime=2025-03-12>12</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 11 / 5">
+        <time datetime=2025-03-13>13</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 11 / 6">
+        <time datetime=2025-03-14>14</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 11 / 7">
+        <time datetime=2025-03-15>15</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 12 / 1">
+        <time datetime=2025-03-16>16</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 12 / 2">
+        <time datetime=2025-03-17>17</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 12 / 3">
+        <time datetime=2025-03-18>18</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 12 / 4">
+        <time datetime=2025-03-19>19</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 12 / 5">
+        <time datetime=2025-03-20>20</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 12 / 6">
+        <time datetime=2025-03-21>21</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 12 / 7">
+        <time datetime=2025-03-22>22</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 13 / 1">
+        <time datetime=2025-03-23>23</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 13 / 2">
+        <time datetime=2025-03-24>24</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 13 / 3">
+        <time datetime=2025-03-25>25</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 13 / 4">
+        <time datetime=2025-03-26>26</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 13 / 5">
+        <time datetime=2025-03-27>27</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 13 / 6">
+        <time datetime=2025-03-28>28</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 13 / 7">
+        <time datetime=2025-03-29>29</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 14 / 1">
+        <time datetime=2025-03-30>30</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 14 / 2">
+        <time datetime=2025-03-31>31</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 14 / 3">
+        <time datetime=2025-04-01>Apr 1</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 14 / 4">
+        <time datetime=2025-04-02>2</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 14 / 5">
+        <time datetime=2025-04-03>3</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 14 / 6">
+        <time datetime=2025-04-04>4</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 14 / 7">
+        <time datetime=2025-04-05>5</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 15 / 1">
+        <time datetime=2025-04-06>6</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 15 / 2">
+        <time datetime=2025-04-07>7</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 15 / 3">
+        <time datetime=2025-04-08>8</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 15 / 4">
+        <time datetime=2025-04-09>9</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 15 / 5">
+        <time datetime=2025-04-10>10</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 15 / 6">
+        <time datetime=2025-04-11>11</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 15 / 7">
+        <time datetime=2025-04-12>12</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 16 / 1">
+        <time datetime=2025-04-13>13</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 16 / 2">
+        <time datetime=2025-04-14>14</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 16 / 3">
+        <time datetime=2025-04-15>15</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 16 / 4">
+        <time datetime=2025-04-16>16</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 16 / 5">
+        <time datetime=2025-04-17>17</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 16 / 6">
+        <time datetime=2025-04-18>18</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 16 / 7">
+        <time datetime=2025-04-19>19</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 17 / 1">
+        <time datetime=2025-04-20>20</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 17 / 2">
+        <time datetime=2025-04-21>21</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 17 / 3">
+        <time datetime=2025-04-22>22</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 17 / 4">
+        <time datetime=2025-04-23>23</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 17 / 5">
+        <time datetime=2025-04-24>24</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 17 / 6">
+        <time datetime=2025-04-25>25</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 17 / 7">
+        <time datetime=2025-04-26>26</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 18 / 1">
+        <time datetime=2025-04-27>27</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 18 / 2">
+        <time datetime=2025-04-28>28</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 18 / 3">
+        <time datetime=2025-04-29>29</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 18 / 4">
+        <time datetime=2025-04-30>30</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 18 / 5">
+        <time datetime=2025-05-01>May 1</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 18 / 6">
+        <time datetime=2025-05-02>2</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 18 / 7">
+        <time datetime=2025-05-03>3</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 19 / 1">
+        <time datetime=2025-05-04>4</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 19 / 2">
+        <time datetime=2025-05-05>5</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 19 / 3">
+        <time datetime=2025-05-06>6</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 19 / 4">
+        <time datetime=2025-05-07>7</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 19 / 5">
+        <time datetime=2025-05-08>8</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 19 / 6">
+        <time datetime=2025-05-09>9</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 19 / 7">
+        <time datetime=2025-05-10>10</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 20 / 1">
+        <time datetime=2025-05-11>11</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 20 / 2">
+        <time datetime=2025-05-12>12</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 20 / 3">
+        <time datetime=2025-05-13>13</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 20 / 4">
+        <time datetime=2025-05-14>14</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 20 / 5">
+        <time datetime=2025-05-15>15</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 20 / 6">
+        <time datetime=2025-05-16>16</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 20 / 7">
+        <time datetime=2025-05-17>17</time>
+        
+        <div class=event title="NYC Big Spring Clean
 May 17 10am&ndash;noon
 We&apos;re excited to join forces with the Sanitation Foundation to help power one of NYC&apos;s biggest volunteer litter cleanups ever. This community-based event is part of the NYC Big Spring Clean - a citywide initiative to create a cleaner and more sustainable city for all New Yorkers. Throughout April and May, you can join over 150 cleanups and activities through the five boroughs. Step up and clean up!">
-            
+          
       <time datetime="2025-05-17T10:00:00-04:00">10am</time>
       NYC Big Spring Clean
     
-          </div>
-        
-          <div class=event title="Shala Yoga
+        </div>
+      
+        <div class=event title="Shala Yoga
 May 17 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-05-17T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
-        
-          <div class=event title="Black History And Culture Tour Of Fort Greene
+        </div>
+      
+        <div class=event title="Black History And Culture Tour Of Fort Greene
 May 17 11am&ndash;12:30pm
 Join us for the Black History and Culture of Fort Greene Tour led by historian Suzanne Spellen with a special tour spot at Brooklyn Paramount. Working together with Spellen and the Tour Advisory Committee, we develop and refine the route and educational content to help retell Fort Greene’s deep roots in Black history and culture for a personal, on-the-ground look at this important historical context.Meet us for this free event at the Fort Greene Park entrance at the corner of Dekalb Avenue and Washington Park.">
-            
+          
       <time datetime="2025-05-17T11:00:00-04:00">11am</time>
       Black History And Culture Tour Of Fort Greene
     
-          </div>
-        
-          <div class=event title="Living Well, Living Strong: Free Health Fest and Fun Beats
+        </div>
+      
+        <div class=event title="Living Well, Living Strong: Free Health Fest and Fun Beats
 May 17 noon&ndash;5pm
 It&apos;s the health event of the year for the community as Brooklyn Community Board 2 brings you &quot;Living Well, Living Strong, Free Health Fest and Fun Beats! Get your services, get tested, and get ready for a fun day in the park! There will be music, free healthy food, a prostate screening truck (free PSA blood test!, not invasive), a DJ, medical professionals on site with practical services, blood pressure testing, a panel discussion on maternal health, kids&apos; activities, and so much more! Rain Date: May 31">
-            
+          
       <time datetime="2025-05-17T12:00:00-04:00">noon</time>
       Living Well, Living Strong: Free Health Fest and Fun Beats
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 21 / 1">
+        <time datetime=2025-05-18>18</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250518">
-          <time datetime=2025-05-18>18</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250519">
-          <time datetime=2025-05-19>19</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 21 / 2">
+        <time datetime=2025-05-19>19</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 May 19 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-05-19T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 21 / 3">
+        <time datetime=2025-05-20>20</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250520">
-          <time datetime=2025-05-20>20</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250521">
-          <time datetime=2025-05-21>21</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250522">
-          <time datetime=2025-05-22>22</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 21 / 4">
+        <time datetime=2025-05-21>21</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 21 / 5">
+        <time datetime=2025-05-22>22</time>
+        
+        <div class=event title="Storytime in the Park
 May 22 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-05-22T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
-        
-          <div class=event title="Chinese and Spanish Language Film Series: Comrades: Almost a love story
+        </div>
+      
+        <div class=event title="Chinese and Spanish Language Film Series: Comrades: Almost a love story
 May 22 7pm&ndash;11pm
 Join us on the Myrtle Lawn for our free Chinese and Spanish Language Film Series, which showcases a Chinese or Spanish language film for Fort Greene’s Taishanese and Spanish-speaking residents to enjoy. Seating is first come, first served.">
-            
+          
       <time datetime="2025-05-22T19:00:00-04:00">7pm</time>
       Chinese and Spanish Language Film Series: Comrades: Almost a love story
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 21 / 6">
+        <time datetime=2025-05-23>23</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250523">
-          <time datetime=2025-05-23>23</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250524">
-          <time datetime=2025-05-24>24</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 21 / 7">
+        <time datetime=2025-05-24>24</time>
+        
+        <div class=event title="Shala Yoga
 May 24 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-05-24T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 22 / 1">
+        <time datetime=2025-05-25>25</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250525">
-          <time datetime=2025-05-25>25</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250526">
-          <time datetime=2025-05-26>26</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250527">
-          <time datetime=2025-05-27>27</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250528">
-          <time datetime=2025-05-28>28</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250529">
-          <time datetime=2025-05-29>29</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 22 / 2">
+        <time datetime=2025-05-26>26</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 22 / 3">
+        <time datetime=2025-05-27>27</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 22 / 4">
+        <time datetime=2025-05-28>28</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 22 / 5">
+        <time datetime=2025-05-29>29</time>
+        
+        <div class=event title="Storytime in the Park
 May 29 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-05-29T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
-        
-          <div class=event title="Chinese and Spanish Language Film SerieS: In The Mood For Love
+        </div>
+      
+        <div class=event title="Chinese and Spanish Language Film SerieS: In The Mood For Love
 May 29 7pm&ndash;10pm
 Due to projected rain, we are moving forward with the rain date Thursday, May 29. Join us on the Myrtle Lawn for our free Chinese and Spanish Language Film Series, which showcases a Chinese or Spanish language film for Fort Greene’s Taishanese and Spanish-speaking residents to enjoy. Seating is first come, first served.">
-            
+          
       <time datetime="2025-05-29T19:00:00-04:00">7pm</time>
       Chinese and Spanish Language Film SerieS: In The Mood For Love
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 22 / 6">
+        <time datetime=2025-05-30>30</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250530">
-          <time datetime=2025-05-30>30</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250531">
-          <time datetime=2025-05-31>31</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 22 / 7">
+        <time datetime=2025-05-31>31</time>
+        
+        <div class=event title="Shala Yoga
 May 31 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-05-31T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 23 / 1">
+        <time datetime=2025-06-01>Jun 1</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250601">
-          <time datetime=2025-06-01>Jun 1</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250602">
-          <time datetime=2025-06-02>2</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 23 / 2">
+        <time datetime=2025-06-02>2</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Jun 2 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-06-02T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 23 / 3">
+        <time datetime=2025-06-03>3</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250603">
-          <time datetime=2025-06-03>3</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250604">
-          <time datetime=2025-06-04>4</time>
-          
-          <div class=event title="Chinese and Spanish Language Film Series: Vidas Vibrantes
+      </div>
+    
+      <div class=day style="grid-area: 23 / 4">
+        <time datetime=2025-06-04>4</time>
+        
+        <div class=event title="Chinese and Spanish Language Film Series: Vidas Vibrantes
 Jun 4 7pm&ndash;10pm
 Join us on the Myrtle Lawn for our free Chinese and Spanish Language Film Series, which showcases a Chinese or Spanish language film for Fort Greene’s Taishanese and Spanish-speaking residents to enjoy. Seating is first come, first served.Rain Date: June 5">
-            
+          
       <time datetime="2025-06-04T19:00:00-04:00">7pm</time>
       Chinese and Spanish Language Film Series: Vidas Vibrantes
     
-          </div>
-        
         </div>
       
-        <div class=day style="grid-area: ga-20250605">
-          <time datetime=2025-06-05>5</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 23 / 5">
+        <time datetime=2025-06-05>5</time>
+        
+        <div class=event title="Storytime in the Park
 Jun 5 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-06-05T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 23 / 6">
+        <time datetime=2025-06-06>6</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250606">
-          <time datetime=2025-06-06>6</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250607">
-          <time datetime=2025-06-07>7</time>
-          
-          <div class=event title="Shala Yoga 
+      </div>
+    
+      <div class=day style="grid-area: 23 / 7">
+        <time datetime=2025-06-07>7</time>
+        
+        <div class=event title="Shala Yoga 
 Jun 7 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-06-07T11:00:00-04:00">11am</time>
       Shala Yoga 
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 24 / 1">
+        <time datetime=2025-06-08>8</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250608">
-          <time datetime=2025-06-08>8</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250609">
-          <time datetime=2025-06-09>9</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 24 / 2">
+        <time datetime=2025-06-09>9</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Jun 9 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-06-09T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 24 / 3">
+        <time datetime=2025-06-10>10</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250610">
-          <time datetime=2025-06-10>10</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250611">
-          <time datetime=2025-06-11>11</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250612">
-          <time datetime=2025-06-12>12</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 24 / 4">
+        <time datetime=2025-06-11>11</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 24 / 5">
+        <time datetime=2025-06-12>12</time>
+        
+        <div class=event title="Storytime in the Park
 Jun 12 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-06-12T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
-        
-          <div class=event title="Chinese and Spanish Language Film Series: Corina
+        </div>
+      
+        <div class=event title="Chinese and Spanish Language Film Series: Corina
 Jun 12 7pm&ndash;10pm
 Join us on the Myrtle Lawn for our free Chinese and Spanish Language Film Series, which showcases a Chinese or Spanish language film for Fort Greene’s Taishanese and Spanish-speaking residents to enjoy. Seating is first come, first served.Rain Date: June 17">
-            
+          
       <time datetime="2025-06-12T19:00:00-04:00">7pm</time>
       Chinese and Spanish Language Film Series: Corina
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 24 / 6">
+        <time datetime=2025-06-13>13</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250613">
-          <time datetime=2025-06-13>13</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250614">
-          <time datetime=2025-06-14>14</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 24 / 7">
+        <time datetime=2025-06-14>14</time>
+        
+        <div class=event title="Shala Yoga
 Jun 14 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-06-14T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
-        
         </div>
       
-
-        <div class=day style="grid-area: ga-20250615">
-          <time datetime=2025-06-15>15</time>
-          
-          <div class=event title="Black History And Culture Tour Of Fort Greene
+      </div>
+    
+      <div class=day style="grid-area: 25 / 1">
+        <time datetime=2025-06-15>15</time>
+        
+        <div class=event title="Black History And Culture Tour Of Fort Greene
 Jun 15 noon&ndash;12:45pm
 Join us for the Black History and Culture of Fort Greene Tour led by historian Suzanne Spellen with a special tour spot at Brooklyn Paramount. Working together with Spellen and the Tour Advisory Committee, we develop and refine the route and educational content to help retell Fort Greene’s deep roots in Black history and culture for a personal, on-the-ground look at this important historical context.Meet us for this free event at the Fort Greene Park entrance at the corner of Dekalb Avenue and Washington Park.">
-            
+          
       <time datetime="2025-06-15T12:00:00-04:00">noon</time>
       Black History And Culture Tour Of Fort Greene
     
-          </div>
-        
         </div>
       
-        <div class=day style="grid-area: ga-20250616">
-          <time datetime=2025-06-16>16</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 25 / 2">
+        <time datetime=2025-06-16>16</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Jun 16 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-06-16T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 25 / 3">
+        <time datetime=2025-06-17>17</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250617">
-          <time datetime=2025-06-17>17</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250618">
-          <time datetime=2025-06-18>18</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250619">
-          <time datetime=2025-06-19>19</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 25 / 4">
+        <time datetime=2025-06-18>18</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 25 / 5">
+        <time datetime=2025-06-19>19</time>
+        
+        <div class=event title="Storytime in the Park
 Jun 19 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-06-19T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 25 / 6">
+        <time datetime=2025-06-20>20</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250620">
-          <time datetime=2025-06-20>20</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250621">
-          <time datetime=2025-06-21>21</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 25 / 7">
+        <time datetime=2025-06-21>21</time>
+        
+        <div class=event title="Shala Yoga
 Jun 21 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-06-21T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 26 / 1">
+        <time datetime=2025-06-22>22</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250622">
-          <time datetime=2025-06-22>22</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250623">
-          <time datetime=2025-06-23>23</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 26 / 2">
+        <time datetime=2025-06-23>23</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Jun 23 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-06-23T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 26 / 3">
+        <time datetime=2025-06-24>24</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250624">
-          <time datetime=2025-06-24>24</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250625">
-          <time datetime=2025-06-25>25</time>
-          
-          <div class=event title="Queerly Beloved: Pride Shorts in the Park
+      </div>
+    
+      <div class=day style="grid-area: 26 / 4">
+        <time datetime=2025-06-25>25</time>
+        
+        <div class=event title="Queerly Beloved: Pride Shorts in the Park
 Jun 25 8pm&ndash;11pm
 Join us on Myrtle Lawn to celebrate NYC Pride with an illuminating showcase of LGBTQIA+ stories from around the world.Rain Date: Thursday, June 26">
-            
+          
       <time datetime="2025-06-25T20:00:00-04:00">8pm</time>
       Queerly Beloved: Pride Shorts in the Park
     
-          </div>
-        
         </div>
       
-        <div class=day style="grid-area: ga-20250626">
-          <time datetime=2025-06-26>26</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 26 / 5">
+        <time datetime=2025-06-26>26</time>
+        
+        <div class=event title="Storytime in the Park
 Jun 26 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-06-26T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 26 / 6">
+        <time datetime=2025-06-27>27</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250627">
-          <time datetime=2025-06-27>27</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250628">
-          <time datetime=2025-06-28>28</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 26 / 7">
+        <time datetime=2025-06-28>28</time>
+        
+        <div class=event title="Shala Yoga
 Jun 28 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-06-28T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 27 / 1">
+        <time datetime=2025-06-29>29</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250629">
-          <time datetime=2025-06-29>29</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250630">
-          <time datetime=2025-06-30>30</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 27 / 2">
+        <time datetime=2025-06-30>30</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Jun 30 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-06-30T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 27 / 3">
+        <time datetime=2025-07-01>Jul 1</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250701">
-          <time datetime=2025-07-01>Jul 1</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250702">
-          <time datetime=2025-07-02>2</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250703">
-          <time datetime=2025-07-03>3</time>
-          
-          <div class=event title="Paramount+ Movie Nights in Brooklyn: Call Me by your name
+      </div>
+    
+      <div class=day style="grid-area: 27 / 4">
+        <time datetime=2025-07-02>2</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 27 / 5">
+        <time datetime=2025-07-03>3</time>
+        
+        <div class=event title="Paramount+ Movie Nights in Brooklyn: Call Me by your name
 Jul 3 8:30pm&ndash;10pm
 Join us on the Myrtle Lawn for our Paramount+ Movie Nights in Brooklyn Series hosted by Brooklyn Mag!">
-            
+          
       <time datetime="2025-07-03T20:30:00-04:00">8:30pm</time>
       Paramount+ Movie Nights in Brooklyn: Call Me by your name
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 27 / 6">
+        <time datetime=2025-07-04>4</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250704">
-          <time datetime=2025-07-04>4</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250705">
-          <time datetime=2025-07-05>5</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 27 / 7">
+        <time datetime=2025-07-05>5</time>
+        
+        <div class=event title="Shala Yoga
 Jul 5 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-07-05T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 28 / 1">
+        <time datetime=2025-07-06>6</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250706">
-          <time datetime=2025-07-06>6</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250707">
-          <time datetime=2025-07-07>7</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 28 / 2">
+        <time datetime=2025-07-07>7</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Jul 7 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-07-07T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 28 / 3">
+        <time datetime=2025-07-08>8</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250708">
-          <time datetime=2025-07-08>8</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250709">
-          <time datetime=2025-07-09>9</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250710">
-          <time datetime=2025-07-10>10</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 28 / 4">
+        <time datetime=2025-07-09>9</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 28 / 5">
+        <time datetime=2025-07-10>10</time>
+        
+        <div class=event title="Storytime in the Park
 Jul 10 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-07-10T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 28 / 6">
+        <time datetime=2025-07-11>11</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250711">
-          <time datetime=2025-07-11>11</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250712">
-          <time datetime=2025-07-12>12</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 28 / 7">
+        <time datetime=2025-07-12>12</time>
+        
+        <div class=event title="Shala Yoga
 Jul 12 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-07-12T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 29 / 1">
+        <time datetime=2025-07-13>13</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250713">
-          <time datetime=2025-07-13>13</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250714">
-          <time datetime=2025-07-14>14</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 29 / 2">
+        <time datetime=2025-07-14>14</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Jul 14 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-07-14T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 29 / 3">
+        <time datetime=2025-07-15>15</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250715">
-          <time datetime=2025-07-15>15</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250716">
-          <time datetime=2025-07-16>16</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250717">
-          <time datetime=2025-07-17>17</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 29 / 4">
+        <time datetime=2025-07-16>16</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 29 / 5">
+        <time datetime=2025-07-17>17</time>
+        
+        <div class=event title="Storytime in the Park
 Jul 17 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-07-17T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 29 / 6">
+        <time datetime=2025-07-18>18</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250718">
-          <time datetime=2025-07-18>18</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250719">
-          <time datetime=2025-07-19>19</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 29 / 7">
+        <time datetime=2025-07-19>19</time>
+        
+        <div class=event title="Shala Yoga
 Jul 19 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-07-19T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 30 / 1">
+        <time datetime=2025-07-20>20</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250720">
-          <time datetime=2025-07-20>20</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250721">
-          <time datetime=2025-07-21>21</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 30 / 2">
+        <time datetime=2025-07-21>21</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Jul 21 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-07-21T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 30 / 3">
+        <time datetime=2025-07-22>22</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250722">
-          <time datetime=2025-07-22>22</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250723">
-          <time datetime=2025-07-23>23</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250724">
-          <time datetime=2025-07-24>24</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 30 / 4">
+        <time datetime=2025-07-23>23</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 30 / 5">
+        <time datetime=2025-07-24>24</time>
+        
+        <div class=event title="Storytime in the Park
 Jul 24 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-07-24T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 30 / 6">
+        <time datetime=2025-07-25>25</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250725">
-          <time datetime=2025-07-25>25</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250726">
-          <time datetime=2025-07-26>26</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 30 / 7">
+        <time datetime=2025-07-26>26</time>
+        
+        <div class=event title="Shala Yoga
 Jul 26 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-07-26T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 31 / 1">
+        <time datetime=2025-07-27>27</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250727">
-          <time datetime=2025-07-27>27</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250728">
-          <time datetime=2025-07-28>28</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 31 / 2">
+        <time datetime=2025-07-28>28</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Jul 28 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-07-28T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 31 / 3">
+        <time datetime=2025-07-29>29</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250729">
-          <time datetime=2025-07-29>29</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250730">
-          <time datetime=2025-07-30>30</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250731">
-          <time datetime=2025-07-31>31</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 31 / 4">
+        <time datetime=2025-07-30>30</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 31 / 5">
+        <time datetime=2025-07-31>31</time>
+        
+        <div class=event title="Storytime in the Park
 Jul 31 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-07-31T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 31 / 6">
+        <time datetime=2025-08-01>Aug 1</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250801">
-          <time datetime=2025-08-01>Aug 1</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250802">
-          <time datetime=2025-08-02>2</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 31 / 7">
+        <time datetime=2025-08-02>2</time>
+        
+        <div class=event title="Shala Yoga
 Aug 2 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-08-02T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 32 / 1">
+        <time datetime=2025-08-03>3</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250803">
-          <time datetime=2025-08-03>3</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250804">
-          <time datetime=2025-08-04>4</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 32 / 2">
+        <time datetime=2025-08-04>4</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Aug 4 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-08-04T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 32 / 3">
+        <time datetime=2025-08-05>5</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250805">
-          <time datetime=2025-08-05>5</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250806">
-          <time datetime=2025-08-06>6</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250807">
-          <time datetime=2025-08-07>7</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 32 / 4">
+        <time datetime=2025-08-06>6</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 32 / 5">
+        <time datetime=2025-08-07>7</time>
+        
+        <div class=event title="Storytime in the Park
 Aug 7 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-08-07T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 32 / 6">
+        <time datetime=2025-08-08>8</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250808">
-          <time datetime=2025-08-08>8</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250809">
-          <time datetime=2025-08-09>9</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 32 / 7">
+        <time datetime=2025-08-09>9</time>
+        
+        <div class=event title="Shala Yoga
 Aug 9 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-08-09T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 33 / 1">
+        <time datetime=2025-08-10>10</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250810">
-          <time datetime=2025-08-10>10</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250811">
-          <time datetime=2025-08-11>11</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 33 / 2">
+        <time datetime=2025-08-11>11</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Aug 11 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-08-11T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 33 / 3">
+        <time datetime=2025-08-12>12</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250812">
-          <time datetime=2025-08-12>12</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250813">
-          <time datetime=2025-08-13>13</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250814">
-          <time datetime=2025-08-14>14</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 33 / 4">
+        <time datetime=2025-08-13>13</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 33 / 5">
+        <time datetime=2025-08-14>14</time>
+        
+        <div class=event title="Storytime in the Park
 Aug 14 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-08-14T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 33 / 6">
+        <time datetime=2025-08-15>15</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250815">
-          <time datetime=2025-08-15>15</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250816">
-          <time datetime=2025-08-16>16</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250817">
-          <time datetime=2025-08-17>17</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250818">
-          <time datetime=2025-08-18>18</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 33 / 7">
+        <time datetime=2025-08-16>16</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 34 / 1">
+        <time datetime=2025-08-17>17</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 34 / 2">
+        <time datetime=2025-08-18>18</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Aug 18 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-08-18T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 34 / 3">
+        <time datetime=2025-08-19>19</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250819">
-          <time datetime=2025-08-19>19</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250820">
-          <time datetime=2025-08-20>20</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250821">
-          <time datetime=2025-08-21>21</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 34 / 4">
+        <time datetime=2025-08-20>20</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 34 / 5">
+        <time datetime=2025-08-21>21</time>
+        
+        <div class=event title="Storytime in the Park
 Aug 21 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-08-21T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 34 / 6">
+        <time datetime=2025-08-22>22</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250822">
-          <time datetime=2025-08-22>22</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250823">
-          <time datetime=2025-08-23>23</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 34 / 7">
+        <time datetime=2025-08-23>23</time>
+        
+        <div class=event title="Shala Yoga
 Aug 23 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-08-23T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 35 / 1">
+        <time datetime=2025-08-24>24</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250824">
-          <time datetime=2025-08-24>24</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250825">
-          <time datetime=2025-08-25>25</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 35 / 2">
+        <time datetime=2025-08-25>25</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Aug 25 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-08-25T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 35 / 3">
+        <time datetime=2025-08-26>26</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250826">
-          <time datetime=2025-08-26>26</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250827">
-          <time datetime=2025-08-27>27</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250828">
-          <time datetime=2025-08-28>28</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 35 / 4">
+        <time datetime=2025-08-27>27</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 35 / 5">
+        <time datetime=2025-08-28>28</time>
+        
+        <div class=event title="Storytime in the Park
 Aug 28 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-08-28T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 35 / 6">
+        <time datetime=2025-08-29>29</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250829">
-          <time datetime=2025-08-29>29</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250830">
-          <time datetime=2025-08-30>30</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 35 / 7">
+        <time datetime=2025-08-30>30</time>
+        
+        <div class=event title="Shala Yoga
 Aug 30 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-08-30T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 36 / 1">
+        <time datetime=2025-08-31>31</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250831">
-          <time datetime=2025-08-31>31</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250901">
-          <time datetime=2025-09-01>Sep 1</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250902">
-          <time datetime=2025-09-02>2</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250903">
-          <time datetime=2025-09-03>3</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250904">
-          <time datetime=2025-09-04>4</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 36 / 2">
+        <time datetime=2025-09-01>Sep 1</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 36 / 3">
+        <time datetime=2025-09-02>2</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 36 / 4">
+        <time datetime=2025-09-03>3</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 36 / 5">
+        <time datetime=2025-09-04>4</time>
+        
+        <div class=event title="Storytime in the Park
 Sep 4 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-09-04T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 36 / 6">
+        <time datetime=2025-09-05>5</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250905">
-          <time datetime=2025-09-05>5</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250906">
-          <time datetime=2025-09-06>6</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 36 / 7">
+        <time datetime=2025-09-06>6</time>
+        
+        <div class=event title="Shala Yoga
 Sep 6 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-09-06T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 37 / 1">
+        <time datetime=2025-09-07>7</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250907">
-          <time datetime=2025-09-07>7</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250908">
-          <time datetime=2025-09-08>8</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 37 / 2">
+        <time datetime=2025-09-08>8</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Sep 8 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-09-08T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 37 / 3">
+        <time datetime=2025-09-09>9</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250909">
-          <time datetime=2025-09-09>9</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250910">
-          <time datetime=2025-09-10>10</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250911">
-          <time datetime=2025-09-11>11</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 37 / 4">
+        <time datetime=2025-09-10>10</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 37 / 5">
+        <time datetime=2025-09-11>11</time>
+        
+        <div class=event title="Storytime in the Park
 Sep 11 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-09-11T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 37 / 6">
+        <time datetime=2025-09-12>12</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250912">
-          <time datetime=2025-09-12>12</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250913">
-          <time datetime=2025-09-13>13</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 37 / 7">
+        <time datetime=2025-09-13>13</time>
+        
+        <div class=event title="Shala Yoga
 Sep 13 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-09-13T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 38 / 1">
+        <time datetime=2025-09-14>14</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250914">
-          <time datetime=2025-09-14>14</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250915">
-          <time datetime=2025-09-15>15</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 38 / 2">
+        <time datetime=2025-09-15>15</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Sep 15 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-09-15T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 38 / 3">
+        <time datetime=2025-09-16>16</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250916">
-          <time datetime=2025-09-16>16</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250917">
-          <time datetime=2025-09-17>17</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250918">
-          <time datetime=2025-09-18>18</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 38 / 4">
+        <time datetime=2025-09-17>17</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 38 / 5">
+        <time datetime=2025-09-18>18</time>
+        
+        <div class=event title="Storytime in the Park
 Sep 18 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-09-18T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 38 / 6">
+        <time datetime=2025-09-19>19</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250919">
-          <time datetime=2025-09-19>19</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250920">
-          <time datetime=2025-09-20>20</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 38 / 7">
+        <time datetime=2025-09-20>20</time>
+        
+        <div class=event title="Shala Yoga
 Sep 20 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-09-20T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 39 / 1">
+        <time datetime=2025-09-21>21</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250921">
-          <time datetime=2025-09-21>21</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250922">
-          <time datetime=2025-09-22>22</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 39 / 2">
+        <time datetime=2025-09-22>22</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Sep 22 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-09-22T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 39 / 3">
+        <time datetime=2025-09-23>23</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250923">
-          <time datetime=2025-09-23>23</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250924">
-          <time datetime=2025-09-24>24</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250925">
-          <time datetime=2025-09-25>25</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250926">
-          <time datetime=2025-09-26>26</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250927">
-          <time datetime=2025-09-27>27</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 39 / 4">
+        <time datetime=2025-09-24>24</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 39 / 5">
+        <time datetime=2025-09-25>25</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 39 / 6">
+        <time datetime=2025-09-26>26</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 39 / 7">
+        <time datetime=2025-09-27>27</time>
+        
+        <div class=event title="Shala Yoga
 Sep 27 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-09-27T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 40 / 1">
+        <time datetime=2025-09-28>28</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20250928">
-          <time datetime=2025-09-28>28</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20250929">
-          <time datetime=2025-09-29>29</time>
-          
-          <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
+      </div>
+    
+      <div class=day style="grid-area: 40 / 2">
+        <time datetime=2025-09-29>29</time>
+        
+        <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Sep 29 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
-            
+          
       <time datetime="2025-09-29T18:00:00-04:00">6pm</time>
       AMP&apos;d Class with Chelsea Piers Fitness
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 40 / 3">
+        <time datetime=2025-09-30>30</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20250930">
-          <time datetime=2025-09-30>30</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251001">
-          <time datetime=2025-10-01>Oct 1</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251002">
-          <time datetime=2025-10-02>2</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 40 / 4">
+        <time datetime=2025-10-01>Oct 1</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 40 / 5">
+        <time datetime=2025-10-02>2</time>
+        
+        <div class=event title="Storytime in the Park
 Oct 2 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-10-02T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 40 / 6">
+        <time datetime=2025-10-03>3</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20251003">
-          <time datetime=2025-10-03>3</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251004">
-          <time datetime=2025-10-04>4</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 40 / 7">
+        <time datetime=2025-10-04>4</time>
+        
+        <div class=event title="Shala Yoga
 Oct 4 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-10-04T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 41 / 1">
+        <time datetime=2025-10-05>5</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20251005">
-          <time datetime=2025-10-05>5</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251006">
-          <time datetime=2025-10-06>6</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251007">
-          <time datetime=2025-10-07>7</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251008">
-          <time datetime=2025-10-08>8</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251009">
-          <time datetime=2025-10-09>9</time>
-          
-          <div class=event title="Storytime in the Park
+      </div>
+    
+      <div class=day style="grid-area: 41 / 2">
+        <time datetime=2025-10-06>6</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 41 / 3">
+        <time datetime=2025-10-07>7</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 41 / 4">
+        <time datetime=2025-10-08>8</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 41 / 5">
+        <time datetime=2025-10-09>9</time>
+        
+        <div class=event title="Storytime in the Park
 Oct 9 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
-            
+          
       <time datetime="2025-10-09T11:00:00-04:00">11am</time>
       Storytime in the Park
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 41 / 6">
+        <time datetime=2025-10-10>10</time>
         
-        </div>
-      
-        <div class=day style="grid-area: ga-20251010">
-          <time datetime=2025-10-10>10</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251011">
-          <time datetime=2025-10-11>11</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 41 / 7">
+        <time datetime=2025-10-11>11</time>
+        
+        <div class=event title="Shala Yoga
 Oct 11 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-10-11T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 42 / 1">
+        <time datetime=2025-10-12>12</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20251012">
-          <time datetime=2025-10-12>12</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251013">
-          <time datetime=2025-10-13>13</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251014">
-          <time datetime=2025-10-14>14</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251015">
-          <time datetime=2025-10-15>15</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251016">
-          <time datetime=2025-10-16>16</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251017">
-          <time datetime=2025-10-17>17</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251018">
-          <time datetime=2025-10-18>18</time>
-          
-          <div class=event title="Shala Yoga
+      </div>
+    
+      <div class=day style="grid-area: 42 / 2">
+        <time datetime=2025-10-13>13</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 42 / 3">
+        <time datetime=2025-10-14>14</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 42 / 4">
+        <time datetime=2025-10-15>15</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 42 / 5">
+        <time datetime=2025-10-16>16</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 42 / 6">
+        <time datetime=2025-10-17>17</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 42 / 7">
+        <time datetime=2025-10-18>18</time>
+        
+        <div class=event title="Shala Yoga
 Oct 18 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
-            
+          
       <time datetime="2025-10-18T11:00:00-04:00">11am</time>
       Shala Yoga
     
-          </div>
+        </div>
+      
+      </div>
+    
+      <div class=day style="grid-area: 43 / 1">
+        <time datetime=2025-10-19>19</time>
         
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20251019">
-          <time datetime=2025-10-19>19</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251020">
-          <time datetime=2025-10-20>20</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251021">
-          <time datetime=2025-10-21>21</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251022">
-          <time datetime=2025-10-22>22</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251023">
-          <time datetime=2025-10-23>23</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251024">
-          <time datetime=2025-10-24>24</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251025">
-          <time datetime=2025-10-25>25</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20251026">
-          <time datetime=2025-10-26>26</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251027">
-          <time datetime=2025-10-27>27</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251028">
-          <time datetime=2025-10-28>28</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251029">
-          <time datetime=2025-10-29>29</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251030">
-          <time datetime=2025-10-30>30</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251031">
-          <time datetime=2025-10-31>31</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251101">
-          <time datetime=2025-11-01>Nov 1</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20251102">
-          <time datetime=2025-11-02>2</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251103">
-          <time datetime=2025-11-03>3</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251104">
-          <time datetime=2025-11-04>4</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251105">
-          <time datetime=2025-11-05>5</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251106">
-          <time datetime=2025-11-06>6</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251107">
-          <time datetime=2025-11-07>7</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251108">
-          <time datetime=2025-11-08>8</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20251109">
-          <time datetime=2025-11-09>9</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251110">
-          <time datetime=2025-11-10>10</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251111">
-          <time datetime=2025-11-11>11</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251112">
-          <time datetime=2025-11-12>12</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251113">
-          <time datetime=2025-11-13>13</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251114">
-          <time datetime=2025-11-14>14</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251115">
-          <time datetime=2025-11-15>15</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20251116">
-          <time datetime=2025-11-16>16</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251117">
-          <time datetime=2025-11-17>17</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251118">
-          <time datetime=2025-11-18>18</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251119">
-          <time datetime=2025-11-19>19</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251120">
-          <time datetime=2025-11-20>20</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251121">
-          <time datetime=2025-11-21>21</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251122">
-          <time datetime=2025-11-22>22</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20251123">
-          <time datetime=2025-11-23>23</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251124">
-          <time datetime=2025-11-24>24</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251125">
-          <time datetime=2025-11-25>25</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251126">
-          <time datetime=2025-11-26>26</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251127">
-          <time datetime=2025-11-27>27</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251128">
-          <time datetime=2025-11-28>28</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251129">
-          <time datetime=2025-11-29>29</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20251130">
-          <time datetime=2025-11-30>30</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251201">
-          <time datetime=2025-12-01>Dec 1</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251202">
-          <time datetime=2025-12-02>2</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251203">
-          <time datetime=2025-12-03>3</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251204">
-          <time datetime=2025-12-04>4</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251205">
-          <time datetime=2025-12-05>5</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251206">
-          <time datetime=2025-12-06>6</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20251207">
-          <time datetime=2025-12-07>7</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251208">
-          <time datetime=2025-12-08>8</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251209">
-          <time datetime=2025-12-09>9</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251210">
-          <time datetime=2025-12-10>10</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251211">
-          <time datetime=2025-12-11>11</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251212">
-          <time datetime=2025-12-12>12</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251213">
-          <time datetime=2025-12-13>13</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20251214">
-          <time datetime=2025-12-14>14</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251215">
-          <time datetime=2025-12-15>15</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251216">
-          <time datetime=2025-12-16>16</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251217">
-          <time datetime=2025-12-17>17</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251218">
-          <time datetime=2025-12-18>18</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251219">
-          <time datetime=2025-12-19>19</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251220">
-          <time datetime=2025-12-20>20</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20251221">
-          <time datetime=2025-12-21>21</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251222">
-          <time datetime=2025-12-22>22</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251223">
-          <time datetime=2025-12-23>23</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251224">
-          <time datetime=2025-12-24>24</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251225">
-          <time datetime=2025-12-25>25</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251226">
-          <time datetime=2025-12-26>26</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251227">
-          <time datetime=2025-12-27>27</time>
-          
-        </div>
-      
-
-        <div class=day style="grid-area: ga-20251228">
-          <time datetime=2025-12-28>28</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251229">
-          <time datetime=2025-12-29>29</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251230">
-          <time datetime=2025-12-30>30</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20251231">
-          <time datetime=2025-12-31>31</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20260101">
-          <time datetime=2026-01-01>Jan 1</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20260102">
-          <time datetime=2026-01-02>2</time>
-          
-        </div>
-      
-        <div class=day style="grid-area: ga-20260103">
-          <time datetime=2026-01-03>3</time>
-          
-        </div>
-      
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20251225"
-           data-end="ga-20251225"
-           title="Alternate Side Parking Suspended
+      </div>
+    
+      <div class=day style="grid-area: 43 / 2">
+        <time datetime=2025-10-20>20</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 43 / 3">
+        <time datetime=2025-10-21>21</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 43 / 4">
+        <time datetime=2025-10-22>22</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 43 / 5">
+        <time datetime=2025-10-23>23</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 43 / 6">
+        <time datetime=2025-10-24>24</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 43 / 7">
+        <time datetime=2025-10-25>25</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 44 / 1">
+        <time datetime=2025-10-26>26</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 44 / 2">
+        <time datetime=2025-10-27>27</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 44 / 3">
+        <time datetime=2025-10-28>28</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 44 / 4">
+        <time datetime=2025-10-29>29</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 44 / 5">
+        <time datetime=2025-10-30>30</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 44 / 6">
+        <time datetime=2025-10-31>31</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 44 / 7">
+        <time datetime=2025-11-01>Nov 1</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 45 / 1">
+        <time datetime=2025-11-02>2</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 45 / 2">
+        <time datetime=2025-11-03>3</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 45 / 3">
+        <time datetime=2025-11-04>4</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 45 / 4">
+        <time datetime=2025-11-05>5</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 45 / 5">
+        <time datetime=2025-11-06>6</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 45 / 6">
+        <time datetime=2025-11-07>7</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 45 / 7">
+        <time datetime=2025-11-08>8</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 46 / 1">
+        <time datetime=2025-11-09>9</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 46 / 2">
+        <time datetime=2025-11-10>10</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 46 / 3">
+        <time datetime=2025-11-11>11</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 46 / 4">
+        <time datetime=2025-11-12>12</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 46 / 5">
+        <time datetime=2025-11-13>13</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 46 / 6">
+        <time datetime=2025-11-14>14</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 46 / 7">
+        <time datetime=2025-11-15>15</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 47 / 1">
+        <time datetime=2025-11-16>16</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 47 / 2">
+        <time datetime=2025-11-17>17</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 47 / 3">
+        <time datetime=2025-11-18>18</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 47 / 4">
+        <time datetime=2025-11-19>19</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 47 / 5">
+        <time datetime=2025-11-20>20</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 47 / 6">
+        <time datetime=2025-11-21>21</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 47 / 7">
+        <time datetime=2025-11-22>22</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 48 / 1">
+        <time datetime=2025-11-23>23</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 48 / 2">
+        <time datetime=2025-11-24>24</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 48 / 3">
+        <time datetime=2025-11-25>25</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 48 / 4">
+        <time datetime=2025-11-26>26</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 48 / 5">
+        <time datetime=2025-11-27>27</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 48 / 6">
+        <time datetime=2025-11-28>28</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 48 / 7">
+        <time datetime=2025-11-29>29</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 49 / 1">
+        <time datetime=2025-11-30>30</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 49 / 2">
+        <time datetime=2025-12-01>Dec 1</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 49 / 3">
+        <time datetime=2025-12-02>2</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 49 / 4">
+        <time datetime=2025-12-03>3</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 49 / 5">
+        <time datetime=2025-12-04>4</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 49 / 6">
+        <time datetime=2025-12-05>5</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 49 / 7">
+        <time datetime=2025-12-06>6</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 50 / 1">
+        <time datetime=2025-12-07>7</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 50 / 2">
+        <time datetime=2025-12-08>8</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 50 / 3">
+        <time datetime=2025-12-09>9</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 50 / 4">
+        <time datetime=2025-12-10>10</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 50 / 5">
+        <time datetime=2025-12-11>11</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 50 / 6">
+        <time datetime=2025-12-12>12</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 50 / 7">
+        <time datetime=2025-12-13>13</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 51 / 1">
+        <time datetime=2025-12-14>14</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 51 / 2">
+        <time datetime=2025-12-15>15</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 51 / 3">
+        <time datetime=2025-12-16>16</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 51 / 4">
+        <time datetime=2025-12-17>17</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 51 / 5">
+        <time datetime=2025-12-18>18</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 51 / 6">
+        <time datetime=2025-12-19>19</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 51 / 7">
+        <time datetime=2025-12-20>20</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 52 / 1">
+        <time datetime=2025-12-21>21</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 52 / 2">
+        <time datetime=2025-12-22>22</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 52 / 3">
+        <time datetime=2025-12-23>23</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 52 / 4">
+        <time datetime=2025-12-24>24</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 52 / 5">
+        <time datetime=2025-12-25>25</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 52 / 6">
+        <time datetime=2025-12-26>26</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 52 / 7">
+        <time datetime=2025-12-27>27</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 53 / 1">
+        <time datetime=2025-12-28>28</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 53 / 2">
+        <time datetime=2025-12-29>29</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 53 / 3">
+        <time datetime=2025-12-30>30</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 53 / 4">
+        <time datetime=2025-12-31>31</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 53 / 5">
+        <time datetime=2026-01-01>Jan 1</time>
+        
+      </div>
+    
+      <div class=day style="grid-area: 53 / 6">
+        <time datetime=2026-01-02>2</time>
+        
+      </div>
+    
+        <div class="event multi" style="--index: 0"
+             data-area="52 / 5 / 52 / 6"
+             title="Alternate Side Parking Suspended
 Dec 25
 Alternate Side Parking suspended for Christmas Day. Parking meters will not be in effect. Stopping, standing and parking are permitted, except in areas where stopping, standing and parking rules are in effect seven days a week (for example, “No  Standing Anytime”).">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20251208"
-           data-end="ga-20251208"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="50 / 2 / 50 / 3"
+             title="Alternate Side Parking Suspended
 Dec 8
 Alternate Side Parking suspended for Immaculate Conception. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20251127"
-           data-end="ga-20251127"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="48 / 5 / 48 / 6"
+             title="Alternate Side Parking Suspended
 Nov 27
 Alternate Side Parking suspended for Thanksgiving Day. Parking meters will not be in effect. Stopping, standing and parking are permitted, except in areas where stopping, standing and parking rules are in effect seven days a week (for example, “No  Standing Anytime”).">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20251111"
-           data-end="ga-20251111"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="46 / 3 / 46 / 4"
+             title="Alternate Side Parking Suspended
 Nov 11
 Alternate Side Parking suspended for Veterans Day. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20251104"
-           data-end="ga-20251104"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="45 / 3 / 45 / 4"
+             title="Alternate Side Parking Suspended
 Nov 4
 Alternate Side Parking suspended for Election Day. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20251101"
-           data-end="ga-20251101"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="44 / 7 / 44 / 8"
+             title="Alternate Side Parking Suspended
 Nov 1
 Alternate Side Parking suspended for All Saints&apos; Day. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20251020"
-           data-end="ga-20251020"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="43 / 2 / 43 / 3"
+             title="Alternate Side Parking Suspended
 Oct 20
 Alternate Side Parking suspended for Diwali. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20251015"
-           data-end="ga-20251015"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="42 / 4 / 42 / 5"
+             title="Alternate Side Parking Suspended
 Oct 15
 Alternate Side Parking suspended for Simchas Torah. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20251014"
-           data-end="ga-20251014"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="42 / 3 / 42 / 4"
+             title="Alternate Side Parking Suspended
 Oct 14
 Alternate Side Parking suspended for Shemini Atzereth. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20251013"
-           data-end="ga-20251013"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="42 / 2 / 42 / 3"
+             title="Alternate Side Parking Suspended
 Oct 13
 Alternate Side Parking suspended for Columbus Day. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20251007"
-           data-end="ga-20251008"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="41 / 3 / 41 / 5"
+             title="Alternate Side Parking Suspended
 Oct 7&ndash;8
 Alternate Side Parking suspended for Succoth. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20251002"
-           data-end="ga-20251002"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="40 / 5 / 40 / 6"
+             title="Alternate Side Parking Suspended
 Oct 2
 Alternate Side Parking suspended for Yom Kippur. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250923"
-           data-end="ga-20250924"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="39 / 3 / 39 / 5"
+             title="Alternate Side Parking Suspended
 Sep 23&ndash;24
 Alternate Side Parking suspended for Rosh Hashanah. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250901"
-           data-end="ga-20250901"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="36 / 2 / 36 / 3"
+             title="Alternate Side Parking Suspended
 Sep 1
 Alternate Side Parking suspended for Labor Day. Parking meters will not be in effect. Stopping, standing and parking are permitted, except in areas where stopping, standing and parking rules are in effect seven days a week (for example, “No Standing Anytime”).">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250815"
-           data-end="ga-20250815"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="33 / 6 / 33 / 7"
+             title="Alternate Side Parking Suspended
 Aug 15
 Alternate Side Parking suspended for Feast of the Assumption. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250803"
-           data-end="ga-20250803"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="32 / 1 / 32 / 2"
+             title="Alternate Side Parking Suspended
 Aug 3
 Alternate Side Parking suspended for Tisha B&apos;Av. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250704"
-           data-end="ga-20250704"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="27 / 6 / 27 / 7"
+             title="Alternate Side Parking Suspended
 Jul 4
 Alternate Side Parking suspended for Independence Day. Parking meters will not be in effect. Stopping, standing and parking are permitted, except in areas where stopping, standing and parking rules are in effect seven days a week (for example, “No  Standing Anytime”).">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250619"
-           data-end="ga-20250619"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="25 / 5 / 25 / 6"
+             title="Alternate Side Parking Suspended
 Jun 19
 Alternate Side Parking suspended for Juneteenth. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250606"
-           data-end="ga-20250607"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="23 / 6 / 23 / 8"
+             title="Alternate Side Parking Suspended
 Jun 6&ndash;7
 Alternate Side Parking suspended for Idul-Adha (Eid Al-Adha). Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250602"
-           data-end="ga-20250603"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="23 / 2 / 23 / 4"
+             title="Alternate Side Parking Suspended
 Jun 2&ndash;3
 Alternate Side Parking suspended for Shavuot. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250529"
-           data-end="ga-20250529"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="22 / 5 / 22 / 6"
+             title="Alternate Side Parking Suspended
 May 29
 Alternate Side Parking suspended for Solemnity of the Ascension. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250526"
-           data-end="ga-20250526"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="22 / 2 / 22 / 3"
+             title="Alternate Side Parking Suspended
 May 26
 Alternate Side Parking suspended for Memorial Day. Parking meters will not be in effect. Stopping, standing and parking are permitted, except in areas where stopping, standing and parking rules are in effect seven days a week (for example, “No  Standing Anytime”).">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250419"
-           data-end="ga-20250420"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="16 / 7 / 16 / -1"
+             title="Alternate Side Parking Suspended
 Apr 19&ndash;20
 Alternate Side Parking suspended for the seventh and eighth days of Passover. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250418"
-           data-end="ga-20250418"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="17 / 1 / 17 / 2"
+             title="Alternate Side Parking Suspended
+Apr 19&ndash;20
+Alternate Side Parking suspended for the seventh and eighth days of Passover. Parking meters will be in effect.">
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="16 / 6 / 16 / 7"
+             title="Alternate Side Parking Suspended
 Apr 18
 Alternate Side Parking suspended for Orthodox Good Friday. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250418"
-           data-end="ga-20250418"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="16 / 6 / 16 / 7"
+             title="Alternate Side Parking Suspended
 Apr 18
 Alternate Side Parking suspended for Good Friday. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250417"
-           data-end="ga-20250417"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="16 / 5 / 16 / 6"
+             title="Alternate Side Parking Suspended
 Apr 17
 Alternate Side Parking suspended for Orthodox Holy Thursday. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250417"
-           data-end="ga-20250417"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="16 / 5 / 16 / 6"
+             title="Alternate Side Parking Suspended
 Apr 17
 Alternate Side Parking suspended for Holy Thursday. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250413"
-           data-end="ga-20250414"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="16 / 1 / 16 / 3"
+             title="Alternate Side Parking Suspended
 Apr 13&ndash;14
 Alternate Side Parking suspended for the Passover. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250331"
-           data-end="ga-20250401"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="14 / 2 / 14 / 4"
+             title="Alternate Side Parking Suspended
 Mar 31&ndash;Apr 1
 Alternate Side Parking suspended for Idul-Fitr (Eid Al-Fitr). Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250314"
-           data-end="ga-20250314"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="11 / 6 / 11 / 7"
+             title="Alternate Side Parking Suspended
 Mar 14
 Alternate Side Parking suspended for Purim. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250305"
-           data-end="ga-20250305"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="10 / 4 / 10 / 5"
+             title="Alternate Side Parking Suspended
 Mar 5
 Alternate Side Parking suspended for Ash Wednesday. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250228"
-           data-end="ga-20250228"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="9 / 6 / 9 / 7"
+             title="Alternate Side Parking Suspended
 Feb 28
 Alternate Side Parking suspended for Losar. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250217"
-           data-end="ga-20250217"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="8 / 2 / 8 / 3"
+             title="Alternate Side Parking Suspended
 Feb 17
 Alternate Side Parking suspended for Washington’s Birthday (Presidents Day). Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250212"
-           data-end="ga-20250212"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="7 / 4 / 7 / 5"
+             title="Alternate Side Parking Suspended
 Feb 12
 Alternate Side Parking suspended for Lincoln’s Birthday. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250129"
-           data-end="ga-20250129"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="5 / 4 / 5 / 5"
+             title="Alternate Side Parking Suspended
 Jan 29
 Alternate Side Parking suspended for Lunar New Year. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250128"
-           data-end="ga-20250128"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="5 / 3 / 5 / 4"
+             title="Alternate Side Parking Suspended
 Jan 28
 Alternate Side Parking suspended for Lunar New Year’s Eve. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250120"
-           data-end="ga-20250120"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="4 / 2 / 4 / 3"
+             title="Alternate Side Parking Suspended
 Jan 20
 Alternate Side Parking suspended for Martin Luther King Jr.’s Birthday. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250106"
-           data-end="ga-20250106"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="2 / 2 / 2 / 3"
+             title="Alternate Side Parking Suspended
 Jan 6
 Alternate Side Parking suspended for Three Kings&apos; Day. Parking meters will be in effect.">
-        Alternate Side Parking Suspended
-      </div>
-    
-
-      <div class="event multi" style="--index: 0"
-           data-start="ga-20250101"
-           data-end="ga-20250101"
-           title="Alternate Side Parking Suspended
+          Alternate Side Parking Suspended
+        </div>
+      
+        <div class="event multi" style="--index: 0"
+             data-area="1 / 4 / 1 / 5"
+             title="Alternate Side Parking Suspended
 Jan 1
 Alternate Side Parking suspended for New Year’s Day. Parking meters will not be in effect. Stopping, standing and parking are permitted, except in areas where stopping, standing and parking rules are in effect seven days a week (for example, “No Standing Anytime”).">
-        Alternate Side Parking Suspended
-      </div>
-    
+          Alternate Side Parking Suspended
+        </div>
+      
     </div>
     <script>
       // Hackily relies on en-CA locale date format to be %Y-%m-%d.

@@ -19,10 +19,6 @@ function localDateTime(iso: string) {
   );
 }
 
-function formatISODateShort(date: Temporal.PlainDate) {
-  return date.toString().replaceAll("-", "");
-}
-
 function formatMonDate(date: Temporal.PlainDate) {
   // toLocaleString() returns in the format "Jan 1, 2025", but the year should
   // not be included. Explicitly remove it.
@@ -49,10 +45,6 @@ function escapeHtml(s: string) {
     .replaceAll("'", "&apos;");
 }
 
-function gridArea(date: Temporal.PlainDate) {
-  return "ga-" + formatISODateShort(date);
-}
-
 abstract class Event {
   constructor(protected readonly data: EventData) {}
 
@@ -62,10 +54,10 @@ abstract class Event {
   abstract get endDate(): Temporal.PlainDate;
 
   get gridStart() {
-    return gridArea(this.startDate);
+    return this.startDate;
   }
 
-  abstract get gridEnd(): string;
+  abstract get gridEnd(): Temporal.PlainDate;
 
   protected abstract formatTime(): string;
   abstract renderHeadline(): string;
@@ -92,7 +84,7 @@ class DateEvent extends Event {
   }
 
   get gridEnd() {
-    return gridArea(this.endDate);
+    return this.endDate;
   }
 
   protected formatTime() {
@@ -116,7 +108,7 @@ class DateEvent extends Event {
 
 class DateTimeEvent extends Event {
   get multi() {
-    return this.gridStart != this.gridEnd;
+    return !this.gridStart.equals(this.gridEnd);
   }
 
   private get startAt() {
@@ -136,12 +128,10 @@ class DateTimeEvent extends Event {
   }
 
   get gridEnd() {
-    return gridArea(
-      this.startDate.equals(this.endDate)
-        ? this.endDate
-        // Google Calendar includes the end day if past noon.
-        : this.endAt.subtract({ hours: 12 }).toPlainDate(),
-    );
+    return this.startDate.equals(this.endDate)
+      ? this.endDate
+      // Google Calendar includes the end day if past noon.
+      : this.endAt.subtract({ hours: 12 }).toPlainDate();
   }
 
   compare(other: DateTimeEvent) {
@@ -171,41 +161,64 @@ class DateTimeEvent extends Event {
 }
 
 export class CalendarRenderer {
-  constructor(private year: number, private data: CalendarData) {}
+  private calendarStart: Temporal.PlainDate;
+  private calendarDays: number;
 
-  private renderWeek(week: Temporal.PlainDate, stack: Event[]) {
+  constructor(year: number, private data: CalendarData) {
+    const jan1 = new Temporal.PlainDate(year, 1, 1);
+    this.calendarStart = jan1.subtract({ days: jan1.dayOfWeek });
+    const dec31 = new Temporal.PlainDate(year, 12, 31);
+    const limit = dec31.add({ days: 6 - dec31.dayOfWeek });
+    this.calendarDays = this.calendarStart.until(limit).days;
+  }
+
+  private gridCoords(date: Temporal.PlainDate) {
+    const index = date.since(this.calendarStart).days;
+    const row = Math.floor(index / 7) + 1;
+    const col = index % 7 + 1;
+    return { row, col };
+  }
+
+  private renderDay(
+    day: Temporal.PlainDate,
+    stack: Event[],
+    includeMonth: boolean,
+  ) {
+    const text = includeMonth ? formatMonDate(day) : day.day.toString();
+    const events = [];
+    while (stack.at(-1)?.startDate?.equals(day)) {
+      const event = stack.pop() as Event;
+      events.push(`
+        <div class=event title="${event.renderTitleAttr()}">
+          ${event.renderHeadline()}
+        </div>
+      `);
+    }
+    const { row, col } = this.gridCoords(day);
+    return `
+      <div class=day style="grid-area: ${row} / ${col}">
+        <time datetime=${day}>${text}</time>
+        ${events.join("")}
+      </div>
+    `;
+  }
+
+  private renderMultiDayEvent(event: Event) {
+    const start = this.gridCoords(event.gridStart);
+    const end = this.gridCoords(event.gridEnd);
     const result = [];
-    for (let days = 0; days < 7; days++) {
-      const day = week.add({ days });
-      const text = day.day === 1 ? formatMonDate(day) : day.day.toString();
-      const events = [];
-      while (stack.at(-1)?.startDate?.equals(day)) {
-        const event = stack.pop() as Event;
-        events.push(`
-          <div class=event title="${event.renderTitleAttr()}">
-            ${event.renderHeadline()}
-          </div>
-        `);
-      }
+    for (let row = start.row; row <= end.row; row++) {
+      const left = row == start.row ? start.col : 1;
+      const right = row == end.row ? end.col + 1 : -1;
       result.push(`
-        <div class=day style="grid-area: ${gridArea(day)}">
-          <time datetime=${day}>${text}</time>
-          ${events.join("")}
+        <div class="event multi" style="--index: 0"
+             data-area="${row} / ${left} / ${row} / ${right}"
+             title="${event.renderTitleAttr()}">
+          ${event.renderHeadline()}
         </div>
       `);
     }
     return result.join("");
-  }
-
-  private renderMultiDayEvent(event: Event) {
-    return `
-      <div class="event multi" style="--index: 0"
-           data-start="${event.gridStart}"
-           data-end="${event.gridEnd}"
-           title="${event.renderTitleAttr()}">
-        ${event.renderHeadline()}
-      </div>
-    `;
   }
 
   private renderVariables() {
@@ -228,18 +241,11 @@ export class CalendarRenderer {
     normal.sort((a, b) => b.compare(a));
 
     const content = [];
-    const gtaRows = [];
 
-    const jan1 = new Temporal.PlainDate(this.year, 1, 1);
-    let week = jan1.subtract({ days: jan1.dayOfWeek });
-    const limit = new Temporal.PlainDate(this.year + 1, 1, 1);
-    while (Temporal.PlainDate.compare(week, limit) < 0) {
-      content.push(this.renderWeek(week, normal));
-      const gtaRow = [0, 1, 2, 3, 4, 5, 6].map((days) =>
-        gridArea(week.add({ days }))
-      ).join(" ");
-      gtaRows.push(`"${gtaRow}"`);
-      week = week.add({ weeks: 1 });
+    for (let i = 0; i < this.calendarDays; i++) {
+      const day = this.calendarStart.add({ days: i });
+      const includeMonth = day.day === 1 || day.equals(this.calendarStart);
+      content.push(this.renderDay(day, normal, includeMonth));
     }
 
     for (const event of multi) {
@@ -248,18 +254,16 @@ export class CalendarRenderer {
 
     return {
       name: this.data.name,
-      content: content.join("\n"),
-      gridTemplateAreas: gtaRows.join(" "),
+      content: content.join(""),
     };
   }
 
   async render() {
     const template = await Deno.readTextFile("template.html");
-    const { name, content, gridTemplateAreas } = this.renderVariables();
+    const { name, content } = this.renderVariables();
     return template
       .replace("{{ name }}", name)
-      .replace("{{ content }}", content)
-      .replace("{{ gridTemplateAreas }}", gridTemplateAreas);
+      .replace("{{ content }}", content);
   }
 }
 

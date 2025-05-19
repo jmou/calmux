@@ -6,7 +6,6 @@
       .calendar {
         display: grid;
         grid-template-columns: repeat(7, minmax(0, 1fr));
-        grid-template-areas: {{ gridTemplateAreas }};
       }
       .day {
         min-height: 2lh;
@@ -23,9 +22,8 @@
         white-space: nowrap;
       }
       .multi {
-        --start: attr(data-start type(<custom-ident>));
-        --end: attr(data-end type(<custom-ident>));
-        grid-area: var(--start) / var(--start) / var(--end) / var(--end);
+        --area: attr(data-area type(*));
+        grid-area: var(--area);
         height: 1lh;
         /* TODO proper styling */
         background: red;
