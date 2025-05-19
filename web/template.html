@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Calendar</title>
+    <style>
+      .calendar {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        grid-template-areas: {{ gridTemplateAreas }};
+      }
+      .day {
+        min-height: 2lh;
+      }
+      .today {
+        background: #ddd;
+        > time {
+          font-weight: bold;
+        }
+      }
+      .event {
+        height: 1lh;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .multi {
+        --start: attr(data-start type(<custom-ident>));
+        --end: attr(data-end type(<custom-ident>));
+        grid-area: var(--start) / var(--start) / var(--end) / var(--end);
+        height: 1lh;
+        /* TODO proper styling */
+        background: red;
+        opacity: .5;
+        margin-top: calc(1lh + var(--index) * 1lh);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>{{ name }}</h1>
+    <div class=calendar>
+      {{ content }}
+    </div>
+    <script>
+      // Hackily relies on en-CA locale date format to be %Y-%m-%d.
+      const today = new Date().toLocaleDateString("en-CA");
+      document.querySelector(`[datetime="${today}"]`).parentElement.classList.add("today");
+    </script>
+  </body>
+</html>
