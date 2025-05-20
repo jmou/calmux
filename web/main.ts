@@ -197,7 +197,7 @@ export class CalendarRenderer {
 
     const content = [];
     if (space > 0) {
-      content.push(`<div class=space data-num-places="${space}"></div>`);
+      content.push(`<div class=space style="--num-places: ${space}"></div>`);
     }
     while (stack.at(-1)?.startDate?.equals(date)) {
       const event = stack.pop() as Event;
@@ -291,8 +291,8 @@ export class CalendarRenderer {
     if (!prev.definite) classes.push("indefinite-start");
     if (!edge.definite) classes.push("indefinite-end");
     return `
-      <div class="${classes.join(" ")}" data-place="${prev.place}"
-           data-grid-area="${gridArea}"
+      <div class="${classes.join(" ")}"
+           style="grid-area: ${gridArea}; --place: ${prev.place}"
            title="${event.renderTitleAttr()}">
         ${event.renderHeadline()}
       </div>

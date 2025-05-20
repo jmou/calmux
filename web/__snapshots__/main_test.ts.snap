@@ -74,7 +74,6 @@ snapshot[`isSnapshotMatch 1`] = `
       }
 
       .space {
-        --num-places: attr(data-num-places type(<number>));
         height: calc(var(--num-places) * var(--placement-height));
       }
       .event {
@@ -93,8 +92,6 @@ snapshot[`isSnapshotMatch 1`] = `
         }
       }
       .multi {
-        --place: attr(data-place type(<number>));
-        grid-area: attr(data-grid-area type(*));
         margin: var(--gutter-demi-width);
         margin-top: calc((1 + var(--place)) * var(--placement-height) + var(--gutter-demi-width));
         /* Match .day border-right */
@@ -143,7 +140,7 @@ snapshot[`isSnapshotMatch 1`] = `
     
       <div class="day first-week" style="grid-area: 2 / 4">
         <time datetime=2025-01-01>Jan 1</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day first-week" style="grid-area: 2 / 5">
@@ -168,7 +165,7 @@ snapshot[`isSnapshotMatch 1`] = `
     
       <div class="day first-week" style="grid-area: 3 / 2">
         <time datetime=2025-01-06>6</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day first-week" style="grid-area: 3 / 3">
@@ -238,7 +235,7 @@ snapshot[`isSnapshotMatch 1`] = `
     
       <div class="day" style="grid-area: 5 / 2">
         <time datetime=2025-01-20>20</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 5 / 3">
@@ -278,12 +275,12 @@ snapshot[`isSnapshotMatch 1`] = `
     
       <div class="day" style="grid-area: 6 / 3">
         <time datetime=2025-01-28>28</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 6 / 4">
         <time datetime=2025-01-29>29</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 6 / 5">
@@ -353,7 +350,7 @@ snapshot[`isSnapshotMatch 1`] = `
     
       <div class="day" style="grid-area: 8 / 4">
         <time datetime=2025-02-12>12</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 8 / 5">
@@ -378,7 +375,7 @@ snapshot[`isSnapshotMatch 1`] = `
     
       <div class="day" style="grid-area: 9 / 2">
         <time datetime=2025-02-17>17</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 9 / 3">
@@ -433,7 +430,7 @@ snapshot[`isSnapshotMatch 1`] = `
     
       <div class="day" style="grid-area: 10 / 6">
         <time datetime=2025-02-28>28</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day first-week" style="grid-area: 10 / 7">
@@ -458,7 +455,7 @@ snapshot[`isSnapshotMatch 1`] = `
     
       <div class="day first-week" style="grid-area: 11 / 4">
         <time datetime=2025-03-05>5</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day first-week" style="grid-area: 11 / 5">
@@ -503,7 +500,7 @@ snapshot[`isSnapshotMatch 1`] = `
     
       <div class="day" style="grid-area: 12 / 6">
         <time datetime=2025-03-14>14</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 12 / 7">
@@ -588,12 +585,12 @@ snapshot[`isSnapshotMatch 1`] = `
     
       <div class="day" style="grid-area: 15 / 2">
         <time datetime=2025-03-31>31</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day first-week" style="grid-area: 15 / 3">
         <time datetime=2025-04-01>Apr 1</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day first-week" style="grid-area: 15 / 4">
@@ -653,12 +650,12 @@ snapshot[`isSnapshotMatch 1`] = `
     
       <div class="day" style="grid-area: 17 / 1">
         <time datetime=2025-04-13>13</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 17 / 2">
         <time datetime=2025-04-14>14</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 17 / 3">
@@ -673,22 +670,22 @@ snapshot[`isSnapshotMatch 1`] = `
     
       <div class="day" style="grid-area: 17 / 5">
         <time datetime=2025-04-17>17</time>
-        <div class=space data-num-places="2"></div>
+        <div class=space style="--num-places: 2"></div>
       </div>
     
       <div class="day" style="grid-area: 17 / 6">
         <time datetime=2025-04-18>18</time>
-        <div class=space data-num-places="2"></div>
+        <div class=space style="--num-places: 2"></div>
       </div>
     
       <div class="day" style="grid-area: 17 / 7">
         <time datetime=2025-04-19>19</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 18 / 1">
         <time datetime=2025-04-20>20</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 18 / 2">
@@ -940,7 +937,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day" style="grid-area: 23 / 2">
         <time datetime=2025-05-26>26</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 23 / 3">
@@ -955,7 +952,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day" style="grid-area: 23 / 5">
         <time datetime=2025-05-29>29</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
         <div class=event title="Storytime in the Park
 May 29 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
@@ -1002,7 +999,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day first-week" style="grid-area: 24 / 2">
         <time datetime=2025-06-02>2</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
         <div class=event title="AMP&apos;d Class with Chelsea Piers Fitness
 Jun 2 6pm&ndash;7pm
 Hit the grass and push your body to new limits with Chelsea Pier’s Coach Declan Julien at the top of Fort Greene Park, right next to the monument! This free, high-intensity interval training class will challenge your body and boost your energy with a mix of bodyweight strength and cardio exercises.All levels are welcome to join. Please bring your own mat or towel, as those will not be provided, and be prepared with water, sunblock and anything you need to remain comfortable in the sun.">
@@ -1016,7 +1013,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
     
       <div class="day first-week" style="grid-area: 24 / 3">
         <time datetime=2025-06-03>3</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day first-week" style="grid-area: 24 / 4">
@@ -1049,12 +1046,12 @@ Sing, read, and play with librarians from Brooklyn Public Library! Have fun hear
     
       <div class="day first-week" style="grid-area: 24 / 6">
         <time datetime=2025-06-06>6</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day first-week" style="grid-area: 24 / 7">
         <time datetime=2025-06-07>7</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
         <div class=event title="Shala Yoga 
 Jun 7 11am&ndash;noon
 Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
@@ -1177,7 +1174,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
     
       <div class="day" style="grid-area: 26 / 5">
         <time datetime=2025-06-19>19</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
         <div class=event title="Storytime in the Park
 Jun 19 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
@@ -1324,7 +1321,7 @@ Join us on the Myrtle Lawn for our Paramount+ Movie Nights in Brooklyn Series ho
     
       <div class="day first-week" style="grid-area: 28 / 6">
         <time datetime=2025-07-04>4</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day first-week" style="grid-area: 28 / 7">
@@ -1591,7 +1588,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day first-week" style="grid-area: 33 / 1">
         <time datetime=2025-08-03>3</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day first-week" style="grid-area: 33 / 2">
@@ -1696,7 +1693,7 @@ Sing, read, and play with librarians from Brooklyn Public Library! Have fun hear
     
       <div class="day" style="grid-area: 34 / 6">
         <time datetime=2025-08-15>15</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 34 / 7">
@@ -1835,7 +1832,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day first-week" style="grid-area: 37 / 2">
         <time datetime=2025-09-01>Sep 1</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day first-week" style="grid-area: 37 / 3">
@@ -2026,12 +2023,12 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
     
       <div class="day" style="grid-area: 40 / 3">
         <time datetime=2025-09-23>23</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 40 / 4">
         <time datetime=2025-09-24>24</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 40 / 5">
@@ -2089,7 +2086,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
     
       <div class="day first-week" style="grid-area: 41 / 5">
         <time datetime=2025-10-02>2</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
         <div class=event title="Storytime in the Park
 Oct 2 11am&ndash;11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers.">
@@ -2132,12 +2129,12 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day first-week" style="grid-area: 42 / 3">
         <time datetime=2025-10-07>7</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 42 / 4">
         <time datetime=2025-10-08>8</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 42 / 5">
@@ -2180,17 +2177,17 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day" style="grid-area: 43 / 2">
         <time datetime=2025-10-13>13</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 43 / 3">
         <time datetime=2025-10-14>14</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 43 / 4">
         <time datetime=2025-10-15>15</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 43 / 5">
@@ -2224,7 +2221,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day" style="grid-area: 44 / 2">
         <time datetime=2025-10-20>20</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 44 / 3">
@@ -2284,7 +2281,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day first-week" style="grid-area: 45 / 7">
         <time datetime=2025-11-01>Nov 1</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day first-week" style="grid-area: 46 / 1">
@@ -2299,7 +2296,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day first-week" style="grid-area: 46 / 3">
         <time datetime=2025-11-04>4</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day first-week" style="grid-area: 46 / 4">
@@ -2334,7 +2331,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day" style="grid-area: 47 / 3">
         <time datetime=2025-11-11>11</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 47 / 4">
@@ -2414,7 +2411,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day" style="grid-area: 49 / 5">
         <time datetime=2025-11-27>27</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 49 / 6">
@@ -2469,7 +2466,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day" style="grid-area: 51 / 2">
         <time datetime=2025-12-08>8</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 51 / 3">
@@ -2554,7 +2551,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
     
       <div class="day" style="grid-area: 53 / 5">
         <time datetime=2025-12-25>25</time>
-        <div class=space data-num-places="1"></div>
+        <div class=space style="--num-places: 1"></div>
       </div>
     
       <div class="day" style="grid-area: 53 / 6">
@@ -2602,320 +2599,320 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument.">
         
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="2 / 4 / 2 / 5"
+      <div class="event multi"
+           style="grid-area: 2 / 4 / 2 / 5; --place: 0"
            title="Alternate Side Parking Suspended
 Jan 1
 Alternate Side Parking suspended for New Year’s Day. Parking meters will not be in effect. Stopping, standing and parking are permitted, except in areas where stopping, standing and parking rules are in effect seven days a week (for example, “No Standing Anytime”).">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="3 / 2 / 3 / 3"
+      <div class="event multi"
+           style="grid-area: 3 / 2 / 3 / 3; --place: 0"
            title="Alternate Side Parking Suspended
 Jan 6
 Alternate Side Parking suspended for Three Kings&apos; Day. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="5 / 2 / 5 / 3"
+      <div class="event multi"
+           style="grid-area: 5 / 2 / 5 / 3; --place: 0"
            title="Alternate Side Parking Suspended
 Jan 20
 Alternate Side Parking suspended for Martin Luther King Jr.’s Birthday. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="6 / 3 / 6 / 4"
+      <div class="event multi"
+           style="grid-area: 6 / 3 / 6 / 4; --place: 0"
            title="Alternate Side Parking Suspended
 Jan 28
 Alternate Side Parking suspended for Lunar New Year’s Eve. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="6 / 4 / 6 / 5"
+      <div class="event multi"
+           style="grid-area: 6 / 4 / 6 / 5; --place: 0"
            title="Alternate Side Parking Suspended
 Jan 29
 Alternate Side Parking suspended for Lunar New Year. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="8 / 4 / 8 / 5"
+      <div class="event multi"
+           style="grid-area: 8 / 4 / 8 / 5; --place: 0"
            title="Alternate Side Parking Suspended
 Feb 12
 Alternate Side Parking suspended for Lincoln’s Birthday. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="9 / 2 / 9 / 3"
+      <div class="event multi"
+           style="grid-area: 9 / 2 / 9 / 3; --place: 0"
            title="Alternate Side Parking Suspended
 Feb 17
 Alternate Side Parking suspended for Washington’s Birthday (Presidents Day). Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="10 / 6 / 10 / 7"
+      <div class="event multi"
+           style="grid-area: 10 / 6 / 10 / 7; --place: 0"
            title="Alternate Side Parking Suspended
 Feb 28
 Alternate Side Parking suspended for Losar. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="11 / 4 / 11 / 5"
+      <div class="event multi"
+           style="grid-area: 11 / 4 / 11 / 5; --place: 0"
            title="Alternate Side Parking Suspended
 Mar 5
 Alternate Side Parking suspended for Ash Wednesday. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="12 / 6 / 12 / 7"
+      <div class="event multi"
+           style="grid-area: 12 / 6 / 12 / 7; --place: 0"
            title="Alternate Side Parking Suspended
 Mar 14
 Alternate Side Parking suspended for Purim. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="15 / 2 / 15 / 4"
+      <div class="event multi"
+           style="grid-area: 15 / 2 / 15 / 4; --place: 0"
            title="Alternate Side Parking Suspended
 Mar 31&ndash;Apr 1
 Alternate Side Parking suspended for Idul-Fitr (Eid Al-Fitr). Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="17 / 1 / 17 / 3"
+      <div class="event multi"
+           style="grid-area: 17 / 1 / 17 / 3; --place: 0"
            title="Alternate Side Parking Suspended
 Apr 13&ndash;14
 Alternate Side Parking suspended for the Passover. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="1"
-           data-grid-area="17 / 5 / 17 / 6"
+      <div class="event multi"
+           style="grid-area: 17 / 5 / 17 / 6; --place: 1"
            title="Alternate Side Parking Suspended
 Apr 17
 Alternate Side Parking suspended for Holy Thursday. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="17 / 5 / 17 / 6"
+      <div class="event multi"
+           style="grid-area: 17 / 5 / 17 / 6; --place: 0"
            title="Alternate Side Parking Suspended
 Apr 17
 Alternate Side Parking suspended for Orthodox Holy Thursday. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="1"
-           data-grid-area="17 / 6 / 17 / 7"
+      <div class="event multi"
+           style="grid-area: 17 / 6 / 17 / 7; --place: 1"
            title="Alternate Side Parking Suspended
 Apr 18
 Alternate Side Parking suspended for Good Friday. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="17 / 6 / 17 / 7"
+      <div class="event multi"
+           style="grid-area: 17 / 6 / 17 / 7; --place: 0"
            title="Alternate Side Parking Suspended
 Apr 18
 Alternate Side Parking suspended for Orthodox Good Friday. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi indefinite-end" data-place="0"
-           data-grid-area="17 / 7 / 17 / 8"
+      <div class="event multi indefinite-end"
+           style="grid-area: 17 / 7 / 17 / 8; --place: 0"
            title="Alternate Side Parking Suspended
 Apr 19&ndash;20
 Alternate Side Parking suspended for the seventh and eighth days of Passover. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi indefinite-start" data-place="0"
-           data-grid-area="18 / 1 / 18 / 2"
+      <div class="event multi indefinite-start"
+           style="grid-area: 18 / 1 / 18 / 2; --place: 0"
            title="Alternate Side Parking Suspended
 Apr 19&ndash;20
 Alternate Side Parking suspended for the seventh and eighth days of Passover. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="23 / 2 / 23 / 3"
+      <div class="event multi"
+           style="grid-area: 23 / 2 / 23 / 3; --place: 0"
            title="Alternate Side Parking Suspended
 May 26
 Alternate Side Parking suspended for Memorial Day. Parking meters will not be in effect. Stopping, standing and parking are permitted, except in areas where stopping, standing and parking rules are in effect seven days a week (for example, “No  Standing Anytime”).">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="23 / 5 / 23 / 6"
+      <div class="event multi"
+           style="grid-area: 23 / 5 / 23 / 6; --place: 0"
            title="Alternate Side Parking Suspended
 May 29
 Alternate Side Parking suspended for Solemnity of the Ascension. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="24 / 2 / 24 / 4"
+      <div class="event multi"
+           style="grid-area: 24 / 2 / 24 / 4; --place: 0"
            title="Alternate Side Parking Suspended
 Jun 2&ndash;3
 Alternate Side Parking suspended for Shavuot. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="24 / 6 / 24 / 8"
+      <div class="event multi"
+           style="grid-area: 24 / 6 / 24 / 8; --place: 0"
            title="Alternate Side Parking Suspended
 Jun 6&ndash;7
 Alternate Side Parking suspended for Idul-Adha (Eid Al-Adha). Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="26 / 5 / 26 / 6"
+      <div class="event multi"
+           style="grid-area: 26 / 5 / 26 / 6; --place: 0"
            title="Alternate Side Parking Suspended
 Jun 19
 Alternate Side Parking suspended for Juneteenth. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="28 / 6 / 28 / 7"
+      <div class="event multi"
+           style="grid-area: 28 / 6 / 28 / 7; --place: 0"
            title="Alternate Side Parking Suspended
 Jul 4
 Alternate Side Parking suspended for Independence Day. Parking meters will not be in effect. Stopping, standing and parking are permitted, except in areas where stopping, standing and parking rules are in effect seven days a week (for example, “No  Standing Anytime”).">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="33 / 1 / 33 / 2"
+      <div class="event multi"
+           style="grid-area: 33 / 1 / 33 / 2; --place: 0"
            title="Alternate Side Parking Suspended
 Aug 3
 Alternate Side Parking suspended for Tisha B&apos;Av. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="34 / 6 / 34 / 7"
+      <div class="event multi"
+           style="grid-area: 34 / 6 / 34 / 7; --place: 0"
            title="Alternate Side Parking Suspended
 Aug 15
 Alternate Side Parking suspended for Feast of the Assumption. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="37 / 2 / 37 / 3"
+      <div class="event multi"
+           style="grid-area: 37 / 2 / 37 / 3; --place: 0"
            title="Alternate Side Parking Suspended
 Sep 1
 Alternate Side Parking suspended for Labor Day. Parking meters will not be in effect. Stopping, standing and parking are permitted, except in areas where stopping, standing and parking rules are in effect seven days a week (for example, “No Standing Anytime”).">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="40 / 3 / 40 / 5"
+      <div class="event multi"
+           style="grid-area: 40 / 3 / 40 / 5; --place: 0"
            title="Alternate Side Parking Suspended
 Sep 23&ndash;24
 Alternate Side Parking suspended for Rosh Hashanah. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="41 / 5 / 41 / 6"
+      <div class="event multi"
+           style="grid-area: 41 / 5 / 41 / 6; --place: 0"
            title="Alternate Side Parking Suspended
 Oct 2
 Alternate Side Parking suspended for Yom Kippur. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="42 / 3 / 42 / 5"
+      <div class="event multi"
+           style="grid-area: 42 / 3 / 42 / 5; --place: 0"
            title="Alternate Side Parking Suspended
 Oct 7&ndash;8
 Alternate Side Parking suspended for Succoth. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="43 / 2 / 43 / 3"
+      <div class="event multi"
+           style="grid-area: 43 / 2 / 43 / 3; --place: 0"
            title="Alternate Side Parking Suspended
 Oct 13
 Alternate Side Parking suspended for Columbus Day. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="43 / 3 / 43 / 4"
+      <div class="event multi"
+           style="grid-area: 43 / 3 / 43 / 4; --place: 0"
            title="Alternate Side Parking Suspended
 Oct 14
 Alternate Side Parking suspended for Shemini Atzereth. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="43 / 4 / 43 / 5"
+      <div class="event multi"
+           style="grid-area: 43 / 4 / 43 / 5; --place: 0"
            title="Alternate Side Parking Suspended
 Oct 15
 Alternate Side Parking suspended for Simchas Torah. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="44 / 2 / 44 / 3"
+      <div class="event multi"
+           style="grid-area: 44 / 2 / 44 / 3; --place: 0"
            title="Alternate Side Parking Suspended
 Oct 20
 Alternate Side Parking suspended for Diwali. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="45 / 7 / 45 / 8"
+      <div class="event multi"
+           style="grid-area: 45 / 7 / 45 / 8; --place: 0"
            title="Alternate Side Parking Suspended
 Nov 1
 Alternate Side Parking suspended for All Saints&apos; Day. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="46 / 3 / 46 / 4"
+      <div class="event multi"
+           style="grid-area: 46 / 3 / 46 / 4; --place: 0"
            title="Alternate Side Parking Suspended
 Nov 4
 Alternate Side Parking suspended for Election Day. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="47 / 3 / 47 / 4"
+      <div class="event multi"
+           style="grid-area: 47 / 3 / 47 / 4; --place: 0"
            title="Alternate Side Parking Suspended
 Nov 11
 Alternate Side Parking suspended for Veterans Day. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="49 / 5 / 49 / 6"
+      <div class="event multi"
+           style="grid-area: 49 / 5 / 49 / 6; --place: 0"
            title="Alternate Side Parking Suspended
 Nov 27
 Alternate Side Parking suspended for Thanksgiving Day. Parking meters will not be in effect. Stopping, standing and parking are permitted, except in areas where stopping, standing and parking rules are in effect seven days a week (for example, “No  Standing Anytime”).">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="51 / 2 / 51 / 3"
+      <div class="event multi"
+           style="grid-area: 51 / 2 / 51 / 3; --place: 0"
            title="Alternate Side Parking Suspended
 Dec 8
 Alternate Side Parking suspended for Immaculate Conception. Parking meters will be in effect.">
         Alternate Side Parking Suspended
       </div>
     
-      <div class="event multi" data-place="0"
-           data-grid-area="53 / 5 / 53 / 6"
+      <div class="event multi"
+           style="grid-area: 53 / 5 / 53 / 6; --place: 0"
            title="Alternate Side Parking Suspended
 Dec 25
 Alternate Side Parking suspended for Christmas Day. Parking meters will not be in effect. Stopping, standing and parking are permitted, except in areas where stopping, standing and parking rules are in effect seven days a week (for example, “No  Standing Anytime”).">

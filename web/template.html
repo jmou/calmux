@@ -71,7 +71,6 @@
       }
 
       .space {
-        --num-places: attr(data-num-places type(<number>));
         height: calc(var(--num-places) * var(--placement-height));
       }
       .event {
@@ -90,8 +89,6 @@
         }
       }
       .multi {
-        --place: attr(data-place type(<number>));
-        grid-area: attr(data-grid-area type(*));
         margin: var(--gutter-demi-width);
         margin-top: calc((1 + var(--place)) * var(--placement-height) + var(--gutter-demi-width));
         /* Match .day border-right */
