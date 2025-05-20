@@ -16,19 +16,23 @@
           font-weight: bold;
         }
       }
+      .space {
+        --num-places: attr(data-num-places type(<number>));
+        height: calc(var(--num-places) * 1lh);
+      }
       .event {
         height: 1lh;
         overflow: hidden;
         white-space: nowrap;
       }
       .multi {
-        --area: attr(data-area type(*));
-        grid-area: var(--area);
+        --place: attr(data-place type(<number>));
+        grid-area: attr(data-grid-area type(*));
         height: 1lh;
+        margin-top: calc(1lh + var(--place) * 1lh);
         /* TODO proper styling */
         background: red;
         opacity: .5;
-        margin-top: calc(1lh + var(--index) * 1lh);
       }
     </style>
   </head>
