@@ -3,65 +3,134 @@
   <head>
     <title>Calendar</title>
     <style>
+      body {
+        --bg-color: #fff;
+        --header-bg-color: #ddd;
+        --border-color: #000;
+        background: var(--bg-color);
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14px;
+      }
+
       .calendar {
         display: grid;
         grid-template-columns: repeat(7, minmax(0, 1fr));
+        line-height: 1.15lh;
 
         --border-width: 1px;
-        --border: var(--border-width) solid #000;
+        --border: var(--border-width) solid var(--border-color);
+        --accent-border: 2px solid var(--border-color);
+        --margin-offset: calc(-1 * var(--border-width));
+        --gutter-demi-width: .05lh;
+        --placement-height: calc(1lh + 2 * var(--gutter-demi-width));
         border: var(--border);
 
-        .day {
-          min-height: 2lh;
-          border: solid transparent;
-          /* Avoid the negative margins from .first-week */
-          border-width: 0 var(--border-width) var(--border-width) 0;
-        }
-        .first-week {
-          border-top: var(--border);
-          margin-top: calc(-1 * var(--border-width));
-        }
-        .first-week:not(.first-week + .first-week) {
+        > header {
+          position: sticky;
+          top: 0;
+          border-bottom: var(--accent-border);
           border-left: var(--border);
-          margin-left: calc(-1 * var(--border-width));
+          margin-left: var(--margin-offset);
+          background: var(--header-bg-color);
+          text-align: center;
+          /* Keep above multi events. */
+          z-index: 1;
         }
-        .today {
-          background: #ddd;
-          > time {
-            font-weight: bold;
-          }
+      }
+
+      .day {
+        min-height: calc(4 * var(--placement-height));
+        border: solid transparent;
+        /* Avoid the negative margins from .first-week */
+        border-width: 0 var(--border-width) var(--border-width) 0;
+        > time {
+          margin: var(--gutter-demi-width);
+          display: block;
+          text-align: center;
+          font-weight: bold;
         }
+      }
+      .first-week {
+        border-top: var(--border);
+        margin-top: var(--margin-offset);
+        border-left: var(--border);
+        margin-left: var(--margin-offset);
+      }
+      .first-week + .first-week {
+        border-left: 0;
+        margin-left: 0;
+      }
+      /* Remove double border from under a header (7 grid positions away) */
+      header + * + * + * + * + * + * + .first-week {
+        border-top: 0;
+        margin-top: 0;
+      }
+      .today > time {
+        background: var(--header-bg-color);
+        outline: var(--accent-border);
       }
 
       .space {
         --num-places: attr(data-num-places type(<number>));
-        height: calc(var(--num-places) * 1lh);
+        height: calc(var(--num-places) * var(--placement-height));
       }
       .event {
         height: 1lh;
+        margin: var(--gutter-demi-width);
+        border: solid transparent;
+        border-width: 0 var(--gutter-demi-width);
         overflow: hidden;
         white-space: nowrap;
+        > time {
+          font-style: italic;
+        }
+        /* Compensate for margin collapsing. */
+        &:where(.event + .event) {
+          margin-top: calc(2 * var(--gutter-demi-width));
+        }
       }
       .multi {
         --place: attr(data-place type(<number>));
         grid-area: attr(data-grid-area type(*));
-        height: 1lh;
-        margin-top: calc(1lh + var(--place) * 1lh);
-        /* TODO proper styling */
-        background: red;
-        opacity: .5;
+        margin: var(--gutter-demi-width);
+        margin-top: calc((1 + var(--place)) * var(--placement-height) + var(--gutter-demi-width));
+        /* Match .day border-right */
+        margin-right: calc(var(--border-width) + var(--gutter-demi-width));
+        border-radius: .3lh;
+        background: var(--header-bg-color);
+      }
+      .indefinite-start {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        margin-left: 0;
+        padding-left: var(--gutter-demi-width);
+      }
+      .indefinite-end {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-right: 0;
       }
     </style>
   </head>
   <body>
     <h1>{{ name }}</h1>
     <div class=calendar>
+      <header>Sunday</header>
+      <header>Monday</header>
+      <header>Tuesday</header>
+      <header>Wednesday</header>
+      <header>Thursday</header>
+      <header>Friday</header>
+      <header>Saturday</header>
       {{ content }}
     </div>
     <script>
       // Hackily relies on en-CA locale date format to be %Y-%m-%d.
       const today = new Date().toLocaleDateString("en-CA");
       document.querySelector(`[datetime="${today}"]`).parentElement.classList.add("today");
+      if (window.scrollY === 0) {
+        document.querySelector(".today").scrollIntoView({behavior: "smooth", block: "center"});
+      }
     </script>
   </body>
 </html>

@@ -178,7 +178,7 @@ export class CalendarRenderer {
   }
 
   private gridRow(ord: number) {
-    return Math.floor(ord / 7) + 1;
+    return Math.floor(ord / 7) + 2;
   }
 
   private gridCol(ord: number) {
@@ -285,10 +285,14 @@ export class CalendarRenderer {
     const inclusiveEnd = edge.gridOrd - 1;
     console.assert(row === this.gridRow(inclusiveEnd));
     const right = this.gridCol(inclusiveEnd) + 1;
-    // TODO style indefinite edges
+    const gridArea = `${row} / ${left} / ${row} / ${right}`;
+
+    const classes = ["event", "multi"];
+    if (!prev.definite) classes.push("indefinite-start");
+    if (!edge.definite) classes.push("indefinite-end");
     return `
-      <div class="event multi" data-place="${prev.place}"
-           data-grid-area="${row} / ${left} / ${row} / ${right}"
+      <div class="${classes.join(" ")}" data-place="${prev.place}"
+           data-grid-area="${gridArea}"
            title="${event.renderTitleAttr()}">
         ${event.renderHeadline()}
       </div>
