@@ -23,6 +23,7 @@ snapshot[`isSnapshotMatch 1`] = `
         --border-width: 1px;
         --border: var(--border-width) solid var(--border-color);
         --accent-border: 2px solid var(--border-color);
+        --indefinite-border: var(--border-width) dashed var(--border-color);
         --margin-offset: calc(-1 * var(--border-width));
         --gutter-demi-width: .05lh;
         --placement-height: calc(1lh + 2 * var(--gutter-demi-width));
@@ -103,12 +104,14 @@ snapshot[`isSnapshotMatch 1`] = `
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         margin-left: 0;
+        border-left: var(--indefinite-border);
         padding-left: var(--gutter-demi-width);
       }
       .indefinite-end {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         margin-right: 0;
+        border-right: var(--indefinite-border);
       }
     </style>
   </head>
