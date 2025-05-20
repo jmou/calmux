@@ -210,8 +210,10 @@ export class CalendarRenderer {
 
     const row = this.gridRow(ord);
     const col = this.gridCol(ord);
+    const classes = ["day"];
+    if (date.day <= 7) classes.push("first-week");
     return `
-      <div class=day style="grid-area: ${row} / ${col}">
+      <div class="${classes.join(" ")}" style="grid-area: ${row} / ${col}">
         <time datetime=${date}>${text}</time>
         ${content.join("")}
       </div>

@@ -6,16 +6,33 @@
       .calendar {
         display: grid;
         grid-template-columns: repeat(7, minmax(0, 1fr));
-      }
-      .day {
-        min-height: 2lh;
-      }
-      .today {
-        background: #ddd;
-        > time {
-          font-weight: bold;
+
+        --border-width: 1px;
+        --border: var(--border-width) solid #000;
+        border: var(--border);
+
+        .day {
+          min-height: 2lh;
+          border: solid transparent;
+          /* Avoid the negative margins from .first-week */
+          border-width: 0 var(--border-width) var(--border-width) 0;
+        }
+        .first-week {
+          border-top: var(--border);
+          margin-top: calc(-1 * var(--border-width));
+        }
+        .first-week:not(.first-week + .first-week) {
+          border-left: var(--border);
+          margin-left: calc(-1 * var(--border-width));
+        }
+        .today {
+          background: #ddd;
+          > time {
+            font-weight: bold;
+          }
         }
       }
+
       .space {
         --num-places: attr(data-num-places type(<number>));
         height: calc(var(--num-places) * 1lh);
