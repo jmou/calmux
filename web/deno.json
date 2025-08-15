@@ -1,8 +1,4 @@
 {
-  "tasks": {
-    "build": "deno run --allow-read main.ts ../merge.json > _site/index.html",
-    "update-snapshots": "deno test --allow-read=. --allow-write=__snapshots__ -- --update"
-  },
   "unstable": [
     "temporal"
   ],
