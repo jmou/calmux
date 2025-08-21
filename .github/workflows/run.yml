@@ -8,6 +8,7 @@ on:
   schedule:
     # Every Sunday at 4:30 am UTC.
     - cron: '30 4 * * 0'
+  workflow_dispatch:
 
 jobs:
   make:
@@ -21,6 +22,8 @@ jobs:
       with:
         deno-version: v2.x
 
+    # Note this uses a Python package cache by default that is never
+    # invalidated (without pyproject.toml, uv.lock, etc.).
     - name: Install uv
       uses: astral-sh/setup-uv@v6
 
@@ -28,7 +31,28 @@ jobs:
       run: make -j4 -k
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-pages-artifact@v3
       with:
-        name: site
         path: web/_site/
+
+
+  publish:
+    if: github.event_name == 'push'
+    needs: make
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    concurrency:
+      group: "pages"
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
