@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  make:
+  run:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,18 +27,26 @@ jobs:
     - name: Install uv
       uses: astral-sh/setup-uv@v6
 
-    - name: make
-      run: make -j4 -k
+    - name: Install knit
+      run: |
+        curl -fsSL https://github.com/jmou/knit/releases/download/latest/knit-ubuntu-latest.tar.gz | tar xzC "$RUNNER_TEMP"
+        echo "$RUNNER_TEMP/knit-ubuntu-latest" >> $GITHUB_PATH
+
+    - name: knit
+      run: |
+        knit init
+        knit run-plan
+        knit unpack production @ --remove-prefix out/result/web/_site/ _site
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: web/_site/
+        path: _site/
 
 
   publish:
     if: github.event_name == 'push'
-    needs: make
+    needs: run
     runs-on: ubuntu-latest
 
     permissions:

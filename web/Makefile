@@ -1,5 +1,5 @@
-_site/index.html: main.ts ../merge.json
-	deno run --allow-read=.. $^ > $@
+_site/index.html: _params/merge.json main.ts template.html deno.json deno.lock
+	deno run --allow-read=.. main.ts $< > $@
 
 test:
 	deno test --allow-read=.

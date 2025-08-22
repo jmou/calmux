@@ -1,0 +1,6 @@
+step plan: cmd "sh" "in/plan.sh"
+    plan.sh = "python3 in/make_to_plan.py in/Makefile all > out/plan.knit"
+    make_to_plan.py = ./make_to_plan.py
+    Makefile = ./Makefile
+
+step flow: flow ./ plan:plan.knit

@@ -9,7 +9,10 @@ asp/asp.json:
 ftgreene-park/cal.json:
 	$(MAKE) -C ftgreene-park cal.json
 
-web/_site/index.html: merge.json
+web/_params/: merge.json
+	cp $^ $@
+
+web/_site/index.html: web/_params/
 	$(MAKE) -C web _site/index.html
 
 .PHONY: all
