@@ -358,7 +358,7 @@ if (import.meta.main) {
   }
 
   const data = JSON.parse(Deno.readTextFileSync(Deno.args[0]));
-  const renderer = new CalendarRenderer(2025);
+  const renderer = new CalendarRenderer(2026);
 
   console.log(await renderer.render(data));
 }

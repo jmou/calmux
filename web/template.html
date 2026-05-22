@@ -110,6 +110,39 @@
         margin-right: 0;
         border-right: var(--indefinite-border);
       }
+
+      @media print {
+        html, body { height: 100%; }
+        body {
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+          font-size: 10px;
+        }
+        .calendar {
+          flex: 1;
+          align-content: stretch;
+          grid-template-rows: auto;
+          grid-auto-rows: 1fr;
+        }
+        .calendar > header {
+          position: static;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .multi {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .today > time {
+          outline: var(--accent-border);
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .day {
+          break-inside: avoid;
+        }
+      }
     </style>
   </head>
   <body>
