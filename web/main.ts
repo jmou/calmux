@@ -176,12 +176,15 @@ export class CalendarRenderer {
   private calendarStart: Temporal.PlainDate;
   private calendarDays: number;
 
-  constructor(year: number) {
-    const jan1 = new Temporal.PlainDate(year, 1, 1);
-    this.calendarStart = jan1.subtract({ days: jan1.dayOfWeek });
+  constructor(
+    year: number,
+    range?: { from: Temporal.PlainDate; to: Temporal.PlainDate },
+  ) {
+    const start = range?.from ?? new Temporal.PlainDate(year, 1, 1);
+    const end = range?.to ?? new Temporal.PlainDate(year, 12, 31);
 
-    const dec31 = new Temporal.PlainDate(year, 12, 31);
-    const inclusiveEnd = dec31.add({ days: 6 - dec31.dayOfWeek });
+    this.calendarStart = start.subtract({ days: start.dayOfWeek });
+    const inclusiveEnd = end.add({ days: 6 - end.dayOfWeek });
     this.calendarDays = this.calendarStart.until(inclusiveEnd).days + 1;
   }
 
@@ -357,13 +360,30 @@ export class CalendarRenderer {
 }
 
 if (import.meta.main) {
-  if (Deno.args.length !== 1) {
-    console.error("usage: main.ts calendar.json");
+  let from: Temporal.PlainDate | undefined;
+  let to: Temporal.PlainDate | undefined;
+  const positional: string[] = [];
+
+  for (let i = 0; i < Deno.args.length; i++) {
+    if (Deno.args[i] === "--from") {
+      from = Temporal.PlainDate.from(Deno.args[++i]);
+    } else if (Deno.args[i] === "--to") {
+      to = Temporal.PlainDate.from(Deno.args[++i]);
+    } else {
+      positional.push(Deno.args[i]);
+    }
+  }
+
+  if (positional.length !== 1) {
+    console.error("usage: main.ts [--from YYYY-MM-DD] [--to YYYY-MM-DD] calendar.json");
     Deno.exit(1);
   }
 
-  const data = JSON.parse(Deno.readTextFileSync(Deno.args[0]));
-  const renderer = new CalendarRenderer(2026);
+  const year = (from ?? to ?? Temporal.Now.plainDateISO()).year;
+  const range = from && to ? { from, to } : undefined;
+
+  const data = JSON.parse(Deno.readTextFileSync(positional[0]));
+  const renderer = new CalendarRenderer(year, range);
 
   console.log(await renderer.render(data));
 }
