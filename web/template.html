@@ -88,7 +88,7 @@
         border: solid transparent;
         border-width: 0 var(--gutter-demi-width);
         overflow: hidden;
-        background: var(--header-bg-color);
+        &[href] { background: var(--header-bg-color); }
         > time {
           font-style: italic;
         }
@@ -116,6 +116,32 @@
         border-bottom-right-radius: 0;
         margin-right: 0;
         border-right: var(--indefinite-border);
+      }
+
+      #tip-anchor {
+        position: fixed;
+        width: 1px;
+        height: 1px;
+        anchor-name: --tip;
+        pointer-events: none;
+      }
+      #tip {
+        position: fixed;
+        position-anchor: --tip;
+        top: anchor(bottom);
+        left: anchor(right);
+        margin-top: 8px;
+        margin-left: 8px;
+        position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+        background: #333;
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        white-space: pre;
+        pointer-events: none;
+        display: none;
+        z-index: 100;
       }
 
       @media print {
@@ -170,9 +196,15 @@
         document.querySelector(".today").scrollIntoView({behavior: "smooth", block: "center"});
       }
 
+      const tipAnchor = document.createElement("div");
+      tipAnchor.id = "tip-anchor";
+      tipAnchor.inert = true;
+      document.body.appendChild(tipAnchor);
+
       const tip = document.createElement("div");
-      tip.style.cssText = "position:fixed;background:#333;color:#fff;padding:4px 8px;border-radius:4px;font-size:12px;white-space:pre;pointer-events:none;display:none;z-index:100";
+      tip.id = "tip";
       document.body.appendChild(tip);
+
       document.addEventListener("mouseover", e => {
         const el = e.target.closest(".event[data-tip]");
         if (el) {
@@ -193,8 +225,8 @@
         if (e.target.closest(".event[data-tip]")) tip.style.display = "none";
       });
       document.addEventListener("mousemove", e => {
-        tip.style.left = e.clientX + 14 + "px";
-        tip.style.top  = e.clientY + 14 + "px";
+        tipAnchor.style.left = e.clientX + "px";
+        tipAnchor.style.top = e.clientY + "px";
       });
     </script>
   </body>
