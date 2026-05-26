@@ -24,7 +24,7 @@
         --indefinite-border: var(--border-width) dashed var(--border-color);
         --margin-offset: calc(-1 * var(--border-width));
         --gutter-demi-width: .05lh;
-        --placement-height: calc(1lh + 2 * var(--gutter-demi-width));
+        --placement-height: calc(2lh + 2 * var(--gutter-demi-width));
         border: var(--border);
 
         > header {
@@ -41,7 +41,7 @@
       }
 
       .day {
-        min-height: calc(4 * var(--placement-height));
+        min-height: calc(1lh + 3 * var(--gutter-demi-width) + 2 * var(--placement-height));
         border: solid transparent;
         /* Avoid the negative margins from .first-week */
         border-width: 0 var(--border-width) var(--border-width) 0;
@@ -80,13 +80,15 @@
         display: block;
         color: inherit;
         text-decoration: none;
+        cursor: default;
+        &[href] { cursor: pointer; }
 
-        height: 1lh;
+        height: 2lh;
         margin: var(--gutter-demi-width);
         border: solid transparent;
         border-width: 0 var(--gutter-demi-width);
         overflow: hidden;
-        white-space: nowrap;
+        background: var(--header-bg-color);
         > time {
           font-style: italic;
         }
@@ -97,11 +99,10 @@
       }
       .multi {
         margin: var(--gutter-demi-width);
-        margin-top: calc((1 + var(--place)) * var(--placement-height) + var(--gutter-demi-width));
+        margin-top: calc(1lh + 3 * var(--gutter-demi-width) + var(--place) * var(--placement-height));
         /* Match .day border-right */
         margin-right: calc(var(--border-width) + var(--gutter-demi-width));
         border-radius: .3lh;
-        background: var(--header-bg-color);
       }
       .indefinite-start {
         border-top-left-radius: 0;
@@ -131,16 +132,14 @@
           grid-template-rows: auto;
           grid-auto-rows: 1fr;
         }
+        .calendar > header, .event {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
         .calendar > header {
           position: static;
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
         }
-        .multi {
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
-        }
-        .today > time {
+.today > time {
           outline: var(--accent-border);
           -webkit-print-color-adjust: exact;
           print-color-adjust: exact;
