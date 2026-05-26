@@ -67,9 +67,23 @@ abstract class Event {
   abstract renderHeadline(): string;
 
   renderTitleAttr() {
-    const title = `${escapeHtml(this.data.title)}\n${(this).formatTime()}`;
+    const title = `${this.data.title}\n${this.formatTime()}`;
     if (this.data.description == null) return title;
-    return `${title}\n${escapeHtml(this.data.description)}`;
+    return `${title}\n${this.data.description}`;
+  }
+
+  renderEvent(classes: string[], style?: string) {
+    const attrs: Record<string, string> = {
+      class: classes.join(" "),
+      "data-tip": this.renderTitleAttr(),
+    };
+    if (style) attrs.style = style;
+    if (this.data.url) attrs.href = this.data.url;
+    if (this.data.imageUrl) attrs["data-image-url"] = this.data.imageUrl;
+    const attrStr = Object.entries(attrs).map(([k, v]) =>
+      `${k}="${escapeHtml(v)}"`
+    ).join(" ");
+    return `<a ${attrStr}>${this.renderHeadline()}</a>`;
   }
 }
 
@@ -93,11 +107,9 @@ class DateEvent extends Event {
     } else if (
       this.startDate.with({ day: inclusiveEnd.day }).equals(inclusiveEnd)
     ) {
-      return `${formatMonDate(this.startDate)}&ndash;${inclusiveEnd.day}`;
+      return `${formatMonDate(this.startDate)}–${inclusiveEnd.day}`;
     } else {
-      return `${formatMonDate(this.startDate)}&ndash;${
-        formatMonDate(inclusiveEnd)
-      }`;
+      return `${formatMonDate(this.startDate)}–${formatMonDate(inclusiveEnd)}`;
     }
   }
 
@@ -139,8 +151,8 @@ class DateTimeEvent extends Event {
     const prettyEndDate = formatMonDate(this.endDate);
     const briefEndTime = formatBriefTime(this.endAt.toPlainTime());
     return this.startDate.equals(this.endDate)
-      ? `${prettyStartDate} ${this.briefStartTime}&ndash;${briefEndTime}`
-      : `${prettyStartDate} ${this.briefStartTime}&ndash;${prettyEndDate} ${briefEndTime}`;
+      ? `${prettyStartDate} ${this.briefStartTime}–${briefEndTime}`
+      : `${prettyStartDate} ${this.briefStartTime}–${prettyEndDate} ${briefEndTime}`;
   }
 
   renderHeadline() {
@@ -201,11 +213,7 @@ export class CalendarRenderer {
     }
     while (stack.at(-1)?.startDate?.equals(date)) {
       const event = stack.pop() as Event;
-      content.push(`
-        <div class=event title="${event.renderTitleAttr()}">
-          ${event.renderHeadline()}
-        </div>
-      `);
+      content.push(event.renderEvent(["event"]));
     }
 
     const row = this.gridRow(ord);
@@ -290,13 +298,10 @@ export class CalendarRenderer {
     const classes = ["event", "multi"];
     if (!prev.definite) classes.push("indefinite-start");
     if (!edge.definite) classes.push("indefinite-end");
-    return `
-      <div class="${classes.join(" ")}"
-           style="grid-area: ${gridArea}; --place: ${prev.place}"
-           title="${event.renderTitleAttr()}">
-        ${event.renderHeadline()}
-      </div>
-    `;
+    return event.renderEvent(
+      classes,
+      `grid-area: ${gridArea}; --place: ${prev.place}`,
+    );
   }
 
   private renderVariables(data: CalendarData) {

@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Calendar</title>
     <style>
       body {
@@ -75,6 +76,11 @@
         height: calc(var(--num-places) * var(--placement-height));
       }
       .event {
+        /* Reset <a> styles. */
+        display: block;
+        color: inherit;
+        text-decoration: none;
+
         height: 1lh;
         margin: var(--gutter-demi-width);
         border: solid transparent;
@@ -164,6 +170,33 @@
       if (window.scrollY === 0) {
         document.querySelector(".today").scrollIntoView({behavior: "smooth", block: "center"});
       }
+
+      const tip = document.createElement("div");
+      tip.style.cssText = "position:fixed;background:#333;color:#fff;padding:4px 8px;border-radius:4px;font-size:12px;white-space:pre;pointer-events:none;display:none;z-index:100";
+      document.body.appendChild(tip);
+      document.addEventListener("mouseover", e => {
+        const el = e.target.closest(".event[data-tip]");
+        if (el) {
+          tip.innerHTML = "";
+          const text = document.createElement("div");
+          text.textContent = el.dataset.tip;
+          tip.appendChild(text);
+          if (el.dataset.imageUrl) {
+            const img = document.createElement("img");
+            img.src = el.dataset.imageUrl;
+            img.style.cssText = "display:block;max-width:200px;margin-top:4px";
+            tip.appendChild(img);
+          }
+          tip.style.display = "block";
+        }
+      });
+      document.addEventListener("mouseout", e => {
+        if (e.target.closest(".event[data-tip]")) tip.style.display = "none";
+      });
+      document.addEventListener("mousemove", e => {
+        tip.style.left = e.clientX + 14 + "px";
+        tip.style.top  = e.clientY + 14 + "px";
+      });
     </script>
   </body>
 </html>
