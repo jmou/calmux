@@ -183,8 +183,9 @@ export class CalendarRenderer {
     const start = range?.from ?? new Temporal.PlainDate(year, 1, 1);
     const end = range?.to ?? new Temporal.PlainDate(year, 12, 31);
 
-    this.calendarStart = start.subtract({ days: start.dayOfWeek });
-    const inclusiveEnd = end.add({ days: 6 - end.dayOfWeek });
+    // Sunday's dayOfWeek is 7 but we want it to be 0 to start the week.
+    this.calendarStart = start.subtract({ days: start.dayOfWeek % 7 });
+    const inclusiveEnd = end.add({ days: 6 - (end.dayOfWeek % 7) });
     this.calendarDays = this.calendarStart.until(inclusiveEnd).days + 1;
   }
 
