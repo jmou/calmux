@@ -1,4 +1,6 @@
-interface EventData {
+import { join } from "@std/path";
+
+export interface EventData {
   title: string;
   startAt: string;
   endAt: string;
@@ -8,7 +10,7 @@ interface EventData {
   categories?: string[];
 }
 
-interface CalendarData {
+export interface CalendarData {
   name: string;
   events: EventData[];
 }
@@ -36,7 +38,7 @@ function formatBriefTime(time: Temporal.PlainTime) {
   return s;
 }
 
-function escapeHtml(s: string) {
+export function escapeHtml(s: string) {
   return s
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
@@ -80,9 +82,7 @@ abstract class Event {
     if (style) attrs.style = style;
     if (this.data.url) attrs.href = this.data.url;
     if (this.data.imageUrl) attrs["data-image-url"] = this.data.imageUrl;
-    const attrStr = Object.entries(attrs).map(([k, v]) =>
-      `${k}="${escapeHtml(v)}"`
-    ).join(" ");
+    const attrStr = Object.entries(attrs).map(([k, v]) => `${k}="${escapeHtml(v)}"`).join(" ");
     return `<a ${attrStr}>${this.renderHeadline()}</a>`;
   }
 }
@@ -351,12 +351,17 @@ export class CalendarRenderer {
     };
   }
 
-  async render(data: CalendarData) {
-    const template = await Deno.readTextFile("template.html");
-    const { name, content } = this.renderVariables(data);
-    return template
-      .replace("{{ name }}", name)
-      .replace("{{ content }}", content);
+  private static readonly PLACEHOLDER = /\{\{ (\w+) \}\}/g;
+
+  async render(data: CalendarData, extra: Record<string, string> = {}) {
+    const template = await Deno.readTextFile(
+      join(import.meta.dirname!, "template.html"),
+    );
+    const vars: Record<string, string> = { ...this.renderVariables(data), ...extra };
+    return template.replace(
+      CalendarRenderer.PLACEHOLDER,
+      (_, key: string) => vars[key] ?? "",
+    );
   }
 }
 

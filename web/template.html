@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -25,7 +25,7 @@
         --accent-border: 2px solid var(--border-color);
         --indefinite-border: var(--border-width) dashed var(--border-color);
         --margin-offset: calc(-1 * var(--border-width));
-        --gutter-demi-width: .05lh;
+        --gutter-demi-width: 0.05lh;
         --placement-height: calc(2lh + 2 * var(--gutter-demi-width));
         border: var(--border);
 
@@ -83,14 +83,18 @@
         color: inherit;
         text-decoration: none;
         cursor: default;
-        &[href] { cursor: pointer; }
+        &[href] {
+          cursor: pointer;
+        }
 
         height: 2lh;
         margin: var(--gutter-demi-width);
         border: solid transparent;
         border-width: 0 var(--gutter-demi-width);
         overflow: hidden;
-        &[href] { background: var(--header-bg-color); }
+        &[href] {
+          background: var(--header-bg-color);
+        }
         > time {
           font-style: italic;
         }
@@ -101,10 +105,12 @@
       }
       .multi {
         margin: var(--gutter-demi-width);
-        margin-top: calc(1lh + 3 * var(--gutter-demi-width) + var(--place) * var(--placement-height));
+        margin-top: calc(
+          1lh + 3 * var(--gutter-demi-width) + var(--place) * var(--placement-height)
+        );
         /* Match .day border-right */
         margin-right: calc(var(--border-width) + var(--gutter-demi-width));
-        border-radius: .3lh;
+        border-radius: 0.3lh;
       }
       .indefinite-start {
         border-top-left-radius: 0;
@@ -143,12 +149,56 @@
         white-space: pre;
         text-decoration: inherit;
         display: none;
-        &[href] > div:first-child { text-decoration: underline; }
+        &[href] > div:first-child {
+          text-decoration: underline;
+        }
         z-index: 100;
       }
 
+      form {
+        border: var(--border);
+        max-width: 32em;
+        margin-bottom: 1em;
+        padding: 0.5em 0.75em 0.75em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        .field {
+          display: flex;
+          flex-direction: column;
+          gap: 0.15em;
+          font-size: 12px;
+        }
+        .field-inline {
+          display: flex;
+          align-items: center;
+          gap: 0.4em;
+          font-size: 12px;
+        }
+        .field-row {
+          display: flex;
+          gap: 1em;
+          > .field {
+            flex: 1;
+          }
+        }
+        input, textarea, button {
+          font: inherit;
+        }
+        textarea {
+          resize: vertical;
+          min-height: 3lh;
+        }
+        button {
+          align-self: flex-start;
+        }
+      }
+
       @media print {
-        html, body { height: 100%; }
+        html, body {
+          height: 100%;
+        }
         body {
           display: flex;
           flex-direction: column;
@@ -168,7 +218,7 @@
         .calendar > header {
           position: static;
         }
-.today > time {
+        .today > time {
           outline: var(--accent-border);
           -webkit-print-color-adjust: exact;
           print-color-adjust: exact;
@@ -181,7 +231,8 @@
   </head>
   <body>
     <h1>{{ name }}</h1>
-    <div class=calendar>
+    {{ form }}
+    <div class="calendar">
       <header>Sunday</header>
       <header>Monday</header>
       <header>Tuesday</header>
@@ -196,7 +247,10 @@
       const today = new Date().toLocaleDateString("en-CA");
       document.querySelector(`[datetime="${today}"]`).parentElement.classList.add("today");
       if (window.scrollY === 0) {
-        document.querySelector(".today").scrollIntoView({behavior: "smooth", block: "center"});
+        document.querySelector(".today").scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
       }
 
       const tipAnchor = document.createElement("div");
@@ -219,7 +273,8 @@
           img.style.cssText = "display:block;max-width:200px;margin-top:4px";
           tip.appendChild(img);
         }
-        if (el.href) tip.href = el.href; else tip.removeAttribute("href");
+        if (el.href) tip.href = el.href;
+        else tip.removeAttribute("href");
         tip.style.display = "block";
       }
 
@@ -233,12 +288,15 @@
       let currentTip = null;
       let suppressClick = false;
 
-      document.addEventListener("pointerover", e => {
+      document.addEventListener("pointerover", (e) => {
         if (e.pointerType === "touch") return;
         const el = e.target.closest(".event[data-tip]");
-        if (el) { showTip(el); currentTip = el; }
+        if (el) {
+          showTip(el);
+          currentTip = el;
+        }
       });
-      document.addEventListener("pointerout", e => {
+      document.addEventListener("pointerout", (e) => {
         if (e.pointerType === "touch") return;
         const from = e.target;
         if (!from.closest(".event[data-tip]") && !tip.contains(from)) return;
@@ -247,11 +305,11 @@
         tip.style.display = "none";
         currentTip = null;
       });
-      document.addEventListener("pointermove", e => {
+      document.addEventListener("pointermove", (e) => {
         if (tip.contains(e.target)) return;
         anchorToCursor(e.clientX, e.clientY);
       });
-      document.addEventListener("pointerdown", e => {
+      document.addEventListener("pointerdown", (e) => {
         if (tip.contains(e.target)) return;
         const el = e.target.closest(".event[data-tip]");
         if (el) {
@@ -264,7 +322,7 @@
           tip.style.display = "none";
         }
       });
-      document.addEventListener("click", e => {
+      document.addEventListener("click", (e) => {
         if (suppressClick) {
           e.preventDefault();
           suppressClick = false;
