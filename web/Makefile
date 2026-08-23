@@ -7,7 +7,12 @@ test:
 update-snapshots:
 	deno test --allow-read=. --allow-write=. -- --update
 
+# TODO should ignore data directories
+deploy:
+	rsync -av . elmo:/opt/cal/
+	ssh elmo sudo systemctl restart cal.service
+
 serve:
 	deno run --allow-net=0.0.0.0:8000 --allow-read=. --allow-write=events,_site server.ts
 
-.PHONY: test update-snapshots serve
+.PHONY: test update-snapshots deploy serve

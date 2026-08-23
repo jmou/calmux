@@ -17,48 +17,62 @@ function form(fields: Record<string, string>): FormData {
   return fd;
 }
 
-Deno.test("formDataToEvent - timed event produces a UTC instant", () => {
+Deno.test("formDataToEvent - a date plus both times produces a UTC instant", () => {
   const event = formDataToEvent(form({
     title: "Standup",
-    startAt: "2026-08-24T09:00",
-    endAt: "2026-08-24T09:15",
+    date: "2026-08-24",
+    startTime: "09:00",
+    endTime: "09:15",
   }));
   assertEquals(event.title, "Standup");
   assert(event.startAt.includes("T"));
   assert(event.startAt.endsWith("Z"));
   assert(event.endAt.endsWith("Z"));
-  // Round-trips through Temporal.Instant without throwing.
-  Temporal.Instant.from(event.startAt);
-  Temporal.Instant.from(event.endAt);
+  // The instants land on the given date in the local zone.
+  const zone = Temporal.Now.timeZoneId();
+  const start = Temporal.Instant.from(event.startAt).toZonedDateTimeISO(zone);
+  assertEquals(start.toPlainDate().toString(), "2026-08-24");
+  assertEquals(start.toPlainTime().toString(), "09:00:00");
+  assertEquals(
+    Temporal.Instant.from(event.endAt).toZonedDateTimeISO(zone).toPlainTime().toString(),
+    "09:15:00",
+  );
 });
 
-Deno.test("formDataToEvent - all-day event has bare dates and an exclusive endAt", () => {
+Deno.test("formDataToEvent - no times makes an all-day event with an exclusive endAt", () => {
   const event = formDataToEvent(form({
     title: "Conference",
-    allDay: "on",
-    startDate: "2026-08-24",
-    endDate: "2026-08-24", // inclusive: a single day
+    date: "2026-08-24",
+    startTime: "",
+    endTime: "",
   }));
   assertEquals(event.startAt, "2026-08-24");
   assertEquals(event.endAt, "2026-08-25");
 });
 
-Deno.test("formDataToEvent - multi-day all-day event adds one day past the inclusive end", () => {
-  const event = formDataToEvent(form({
-    title: "Conference",
-    allDay: "on",
-    startDate: "2026-08-24",
-    endDate: "2026-08-26",
-  }));
-  assertEquals(event.startAt, "2026-08-24");
-  assertEquals(event.endAt, "2026-08-27");
+Deno.test("formDataToEvent - rejects only one of the two times", () => {
+  const cases: Record<string, string>[] = [{ startTime: "09:00" }, { endTime: "09:15" }];
+  for (const times of cases) {
+    assertThrows(
+      () => formDataToEvent(form({ title: "Standup", date: "2026-08-24", ...times })),
+      ValidationError,
+    );
+  }
+});
+
+Deno.test("formDataToEvent - rejects a missing date", () => {
+  assertThrows(
+    () => formDataToEvent(form({ title: "Standup" })),
+    ValidationError,
+  );
 });
 
 Deno.test("formDataToEvent - blank optional fields are omitted, not empty", () => {
   const event = formDataToEvent(form({
     title: "Standup",
-    startAt: "2026-08-24T09:00",
-    endAt: "2026-08-24T09:15",
+    date: "2026-08-24",
+    startTime: "09:00",
+    endTime: "09:15",
     description: "",
     url: "",
     imageUrl: "",
@@ -70,8 +84,9 @@ Deno.test("formDataToEvent - blank optional fields are omitted, not empty", () =
 Deno.test("formDataToEvent - categories are split, trimmed, and empties dropped", () => {
   const event = formDataToEvent(form({
     title: "Standup",
-    startAt: "2026-08-24T09:00",
-    endAt: "2026-08-24T09:15",
+    date: "2026-08-24",
+    startTime: "09:00",
+    endTime: "09:15",
     categories: " Work, , Standup ,Daily",
   }));
   assertEquals(event.categories, ["Work", "Standup", "Daily"]);
@@ -82,33 +97,22 @@ Deno.test("formDataToEvent - rejects an empty title", () => {
     () =>
       formDataToEvent(form({
         title: "   ",
-        startAt: "2026-08-24T09:00",
-        endAt: "2026-08-24T09:15",
+        date: "2026-08-24",
+        startTime: "09:00",
+        endTime: "09:15",
       })),
     ValidationError,
   );
 });
 
-Deno.test("formDataToEvent - rejects endAt before startAt", () => {
+Deno.test("formDataToEvent - rejects an end time before the start time", () => {
   assertThrows(
     () =>
       formDataToEvent(form({
         title: "Standup",
-        startAt: "2026-08-24T09:15",
-        endAt: "2026-08-24T09:00",
-      })),
-    ValidationError,
-  );
-});
-
-Deno.test("formDataToEvent - rejects endDate before startDate for all-day events", () => {
-  assertThrows(
-    () =>
-      formDataToEvent(form({
-        title: "Conference",
-        allDay: "on",
-        startDate: "2026-08-24",
-        endDate: "2026-08-23",
+        date: "2026-08-24",
+        startTime: "09:15",
+        endTime: "09:00",
       })),
     ValidationError,
   );
@@ -119,8 +123,9 @@ Deno.test("formDataToEvent - rejects a javascript: url", () => {
     () =>
       formDataToEvent(form({
         title: "Standup",
-        startAt: "2026-08-24T09:00",
-        endAt: "2026-08-24T09:15",
+        date: "2026-08-24",
+        startTime: "09:00",
+        endTime: "09:15",
         url: "javascript:alert(1)",
       })),
     ValidationError,
@@ -132,8 +137,7 @@ Deno.test("formDataToEvent - rejects an unparseable date", () => {
     () =>
       formDataToEvent(form({
         title: "Standup",
-        startAt: "not-a-date",
-        endAt: "2026-08-24T09:15",
+        date: "not-a-date",
       })),
     ValidationError,
   );
@@ -247,8 +251,9 @@ Deno.test("end-to-end: POST writes the event, GET serves the rendered page", asy
         method: "POST",
         body: new URLSearchParams({
           title: "Smoke Test Event",
-          startAt: `${today}T09:00`,
-          endAt: `${today}T09:15`,
+          date: today,
+          startTime: "09:00",
+          endTime: "09:15",
         }),
         redirect: "manual",
       });

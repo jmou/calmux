@@ -21,31 +21,40 @@ function parseDate(raw: string, field: string): Temporal.PlainDate {
   }
 }
 
-function parseLocalDateTime(raw: string, field: string): Temporal.ZonedDateTime {
+function parseTimeOnDate(
+  date: Temporal.PlainDate,
+  raw: string,
+  field: string,
+): Temporal.Instant {
   try {
-    return Temporal.PlainDateTime.from(raw).toZonedDateTime(Temporal.Now.timeZoneId());
+    return date.toPlainDateTime(Temporal.PlainTime.from(raw))
+      .toZonedDateTime(Temporal.Now.timeZoneId())
+      .toInstant();
   } catch {
     throw new ValidationError(`${field} is invalid.`);
   }
 }
 
-function parseTimedRange(form: FormData): { startAt: string; endAt: string } {
-  const start = parseLocalDateTime(getTrimmed(form, "startAt"), "Start time").toInstant();
-  const end = parseLocalDateTime(getTrimmed(form, "endAt"), "End time").toInstant();
+// The form is one date plus two optional times: leaving both times blank is how
+// you get an all-day event, which is a bare date whose endAt is exclusive.
+function parseRange(form: FormData): { startAt: string; endAt: string } {
+  const date = parseDate(getTrimmed(form, "date"), "Date");
+  const startTime = getTrimmed(form, "startTime");
+  const endTime = getTrimmed(form, "endTime");
+
+  if (!startTime && !endTime) {
+    return { startAt: date.toString(), endAt: date.add({ days: 1 }).toString() };
+  }
+  if (!startTime || !endTime) {
+    throw new ValidationError("Give both a start and end time, or neither.");
+  }
+
+  const start = parseTimeOnDate(date, startTime, "Start time");
+  const end = parseTimeOnDate(date, endTime, "End time");
   if (Temporal.Instant.compare(end, start) < 0) {
     throw new ValidationError("End time must not be before start time.");
   }
   return { startAt: start.toString(), endAt: end.toString() };
-}
-
-function parseAllDayRange(form: FormData): { startAt: string; endAt: string } {
-  const start = parseDate(getTrimmed(form, "startDate"), "Start date");
-  // The form's end date is inclusive; DateEvent's endAt is exclusive.
-  const inclusiveEnd = parseDate(getTrimmed(form, "endDate"), "End date");
-  if (Temporal.PlainDate.compare(inclusiveEnd, start) < 0) {
-    throw new ValidationError("End date must not be before start date.");
-  }
-  return { startAt: start.toString(), endAt: inclusiveEnd.add({ days: 1 }).toString() };
 }
 
 function parseOptionalUrl(form: FormData, key: string, label: string): string | undefined {
@@ -76,9 +85,8 @@ export function formDataToEvent(form: FormData): EventData {
   if (!title) throw new ValidationError("Title is required.");
   if (title.length > MAX_TITLE_LENGTH) throw new ValidationError("Title is too long.");
 
-  const allDay = form.get("allDay") != null;
-  const { startAt, endAt } = allDay ? parseAllDayRange(form) : parseTimedRange(form);
-  // Structurally guaranteed by the branch above; assert it anyway.
+  const { startAt, endAt } = parseRange(form);
+  // Structurally guaranteed by parseRange(); assert it anyway.
   if (startAt.includes("T") !== endAt.includes("T")) {
     throw new Error("Date/DateTime mismatch");
   }
@@ -93,9 +101,9 @@ export function formDataToEvent(form: FormData): EventData {
     event.description = description;
   }
 
-  const url = parseOptionalUrl(form, "url", "URL");
+  const url = parseOptionalUrl(form, "url", "Web page");
   if (url) event.url = url;
-  const imageUrl = parseOptionalUrl(form, "imageUrl", "Image URL");
+  const imageUrl = parseOptionalUrl(form, "imageUrl", "Image link");
   if (imageUrl) event.imageUrl = imageUrl;
 
   const categories = parseCategories(form);
@@ -175,67 +183,39 @@ export function inWindow(
 // --- HTTP server --------------------------------------------------------------
 
 const FORM_HTML = `
+<details class=add-event>
+<summary>Add event</summary>
 <form method=post action="/events">
   <label class=field>
     Title
     <input type=text name=title required maxlength="200">
   </label>
-  <label class=field-inline>
-    <input type=checkbox name=allDay id=form-all-day>
-    All day
-  </label>
-  <div class=field-row data-role=timed>
+  <div class=field-row>
+    <label class=field>
+      Date
+      <input type=date name=date required>
+    </label>
     <label class=field>
       Start
-      <input type=datetime-local name=startAt required>
+      <input type=time name=startTime>
     </label>
     <label class=field>
       End
-      <input type=datetime-local name=endAt required>
+      <input type=time name=endTime>
     </label>
   </div>
-  <div class=field-row data-role=all-day hidden>
-    <label class=field>
-      Start date
-      <input type=date name=startDate>
-    </label>
-    <label class=field>
-      End date (inclusive)
-      <input type=date name=endDate>
-    </label>
-  </div>
+  <p class=hint>Leave the times blank for an all-day event.</p>
   <label class=field>
-    Description
-    <textarea name=description maxlength="2000"></textarea>
-  </label>
-  <label class=field>
-    URL
+    Web page
     <input type=url name=url>
   </label>
   <label class=field>
-    Image URL
+    Image link
     <input type=url name=imageUrl>
-  </label>
-  <label class=field>
-    Categories
-    <input type=text name=categories placeholder="comma, separated">
   </label>
   <button type=submit>Add event</button>
 </form>
-<script>
-  {
-    const form = document.currentScript.previousElementSibling;
-    const allDay = form.querySelector("#form-all-day");
-    const timed = form.querySelector("[data-role=timed]");
-    const dateRow = form.querySelector("[data-role=all-day]");
-    const sync = () => {
-      timed.hidden = allDay.checked;
-      dateRow.hidden = !allDay.checked;
-    };
-    allDay.addEventListener("change", sync);
-    sync();
-  }
-</script>
+</details>
 `;
 
 function renderErrorPage(message: string): string {

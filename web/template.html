@@ -155,10 +155,19 @@
         z-index: 100;
       }
 
+      .add-event {
+        margin-top: 1em;
+
+        > summary {
+          font-size: 12px;
+          cursor: pointer;
+        }
+      }
+
       form {
         border: var(--border);
         max-width: 32em;
-        margin-bottom: 1em;
+        margin-top: 0.5em;
         padding: 0.5em 0.75em 0.75em;
         display: flex;
         flex-direction: column;
@@ -170,25 +179,25 @@
           gap: 0.15em;
           font-size: 12px;
         }
-        .field-inline {
-          display: flex;
-          align-items: center;
-          gap: 0.4em;
+        .hint {
+          margin: 0;
           font-size: 12px;
+          color: #666;
         }
         .field-row {
           display: flex;
-          gap: 1em;
+          flex-wrap: wrap;
+          gap: 0.5em 1em;
           > .field {
             flex: 1;
+            min-width: 8em;
           }
         }
-        input, textarea, button {
-          font: inherit;
+        .hint + .field {
+          margin-top: 0.25em;
         }
-        textarea {
-          resize: vertical;
-          min-height: 3lh;
+        input, button {
+          font: inherit;
         }
         button {
           align-self: flex-start;
@@ -231,7 +240,6 @@
   </head>
   <body>
     <h1>{{ name }}</h1>
-    {{ form }}
     <div class="calendar">
       <header>Sunday</header>
       <header>Monday</header>
@@ -242,6 +250,7 @@
       <header>Saturday</header>
       {{ content }}
     </div>
+    {{ form }}
     <script>
       // Hackily relies on en-CA locale date format to be %Y-%m-%d.
       const today = new Date().toLocaleDateString("en-CA");
