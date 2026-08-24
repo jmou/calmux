@@ -1,5 +1,7 @@
-import { join } from "@std/path";
+import { mkdir, readdir, readFile, rename, writeFile } from "node:fs/promises";
+import { join } from "node:path";
 
+import { serve } from "./http.ts";
 import { CalendarRenderer, escapeHtml, type EventData } from "./main.ts";
 
 const CALENDAR_NAME = "Calendar";
@@ -7,6 +9,10 @@ const MAX_TITLE_LENGTH = 200;
 const MAX_DESCRIPTION_LENGTH = 2000;
 
 export class ValidationError extends Error {}
+
+function isNotFound(e: unknown): boolean {
+  return (e as NodeJS.ErrnoException)?.code === "ENOENT";
+}
 
 function getTrimmed(form: FormData, key: string): string {
   const v = form.get(key);
@@ -117,11 +123,11 @@ export function formDataToEvent(form: FormData): EventData {
 export async function loadEvents(dir: string): Promise<EventData[]> {
   const names: string[] = [];
   try {
-    for await (const entry of Deno.readDir(dir)) {
-      if (entry.isFile && entry.name.endsWith(".json")) names.push(entry.name);
+    for (const entry of await readdir(dir, { withFileTypes: true })) {
+      if (entry.isFile() && entry.name.endsWith(".json")) names.push(entry.name);
     }
   } catch (e) {
-    if (e instanceof Deno.errors.NotFound) return [];
+    if (isNotFound(e)) return [];
     throw e;
   }
   names.sort(); // filenames start with startAt, so this is chronological
@@ -129,7 +135,7 @@ export async function loadEvents(dir: string): Promise<EventData[]> {
   const events: EventData[] = [];
   for (const name of names) {
     try {
-      events.push(JSON.parse(await Deno.readTextFile(join(dir, name))));
+      events.push(JSON.parse(await readFile(join(dir, name), "utf-8")));
     } catch (e) {
       console.warn(`Skipping malformed event file ${name}:`, e);
     }
@@ -138,17 +144,17 @@ export async function loadEvents(dir: string): Promise<EventData[]> {
 }
 
 export async function writeEvent(dir: string, event: EventData): Promise<string> {
-  await Deno.mkdir(dir, { recursive: true });
+  await mkdir(dir, { recursive: true });
   const basic = event.startAt.replaceAll(/[-:]/g, "");
   const path = join(dir, `${basic}-${crypto.randomUUID().slice(0, 8)}.json`);
-  await Deno.writeTextFile(path, JSON.stringify(event));
+  await writeFile(path, JSON.stringify(event));
   return path;
 }
 
 async function atomicWrite(path: string, content: string): Promise<void> {
   const tmp = `${path}.tmp-${crypto.randomUUID()}`;
-  await Deno.writeTextFile(tmp, content);
-  await Deno.rename(tmp, path);
+  await writeFile(tmp, content);
+  await rename(tmp, path);
 }
 
 // --- The 6-week render window ------------------------------------------------
@@ -264,7 +270,7 @@ export function createApp(config: ServerConfig) {
 
     if (req.method === "GET" && url.pathname === "/") {
       try {
-        const html = await Deno.readFile(config.outPath);
+        const html = await readFile(config.outPath);
         return new Response(html, {
           headers: {
             "content-type": "text/html; charset=utf-8",
@@ -272,7 +278,7 @@ export function createApp(config: ServerConfig) {
           },
         });
       } catch (e) {
-        if (e instanceof Deno.errors.NotFound) {
+        if (isNotFound(e)) {
           return new Response("Calendar not yet rendered.", { status: 503 });
         }
         throw e;
@@ -324,23 +330,24 @@ function scheduleMidnightRerender(rerender: () => Promise<unknown>): void {
 }
 
 if (import.meta.main) {
+  const args = process.argv.slice(2);
   let port = 8000;
-  let outPath = join(import.meta.dirname!, "_site", "index.html");
-  const eventsDir = join(import.meta.dirname!, "events");
+  let outPath = join(import.meta.dirname, "_site", "index.html");
+  const eventsDir = join(import.meta.dirname, "events");
 
-  for (let i = 0; i < Deno.args.length; i++) {
-    if (Deno.args[i] === "--port") {
-      port = Number(Deno.args[++i]);
-    } else if (Deno.args[i] === "--out") {
-      outPath = Deno.args[++i];
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === "--port") {
+      port = Number(args[++i]);
+    } else if (args[i] === "--out") {
+      outPath = args[++i];
     } else {
       console.error("usage: server.ts [--port N] [--out path]");
-      Deno.exit(1);
+      process.exit(1);
     }
   }
 
   const app = createApp({ eventsDir, outPath });
   await app.rerender();
   scheduleMidnightRerender(app.rerender);
-  Deno.serve({ port }, app.handler);
+  await serve(app.handler, { port, hostname: "0.0.0.0" });
 }

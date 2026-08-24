@@ -1,7 +1,5 @@
-export const snapshot = {};
-
-snapshot[`isSnapshotMatch 1`] = `
-'<!DOCTYPE html>
+exports[`isSnapshotMatch 1`] = `
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -955,7 +953,7 @@ We&apos;re excited to join forces with the Sanitation Foundation to help power o
       <time datetime="2025-05-17T10:00:00-04:00">10am</time>
       NYC Big Spring Clean
     </a><a class="event" data-tip="Black History And Culture Tour Of Fort Greene
-May 17 11am–noon
+May 17 11am–12:30pm
 Join us for the Black History and Culture of Fort Greene Tour led by historian Suzanne Spellen with a special tour spot at Brooklyn Paramount. Working together with Spellen and the Tour Advisory Committee, we develop and refine the route and educational content to help retell Fort Greene’s deep roots in Black history and culture for a personal, on-the-ground look at this important historical context.Meet us for this free event at the Fort Greene Park entrance at the corner of Dekalb Avenue and Washington Park." href="https://www.fortgreenepark.org/calendar/black-history-culture-tour-051725" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737475692128-K0J91WEKW6XLW1CCGJ3J/Instagram+Black+History+Tour+%2813%29.png">
       <time datetime="2025-05-17T11:00:00-04:00">11am</time>
       Black History And Culture Tour Of Fort Greene
@@ -1000,7 +998,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day" style="grid-area: 22 / 5">
         <time datetime=2025-05-22>22</time>
         <a class="event" data-tip="Storytime in the Park
-May 22 11am–11am
+May 22 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-052225" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-05-22T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1050,7 +1048,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument." href=
       <div class="day" style="grid-area: 23 / 5">
         <time datetime=2025-05-29>29</time>
         <div class=space style="--num-places: 1"></div><a class="event" data-tip="Storytime in the Park
-May 29 11am–11am
+May 29 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-052925" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-05-29T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1110,7 +1108,7 @@ Join us on the Myrtle Lawn for our free Chinese and Spanish Language Film Series
       <div class="day first-week" style="grid-area: 24 / 5">
         <time datetime=2025-06-05>5</time>
         <a class="event" data-tip="Storytime in the Park
-Jun 5 11am–11am
+Jun 5 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-060525" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-06-05T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1160,7 +1158,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day" style="grid-area: 25 / 5">
         <time datetime=2025-06-12>12</time>
         <a class="event" data-tip="Storytime in the Park
-Jun 12 11am–11am
+Jun 12 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-061225" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-06-12T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1190,7 +1188,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument." href=
       <div class="day" style="grid-area: 26 / 1">
         <time datetime=2025-06-15>15</time>
         <a class="event" data-tip="Black History And Culture Tour Of Fort Greene
-Jun 15 noon–noon
+Jun 15 noon–12:45pm
 Join us for the Black History and Culture of Fort Greene Tour led by historian Suzanne Spellen with a special tour spot at Brooklyn Paramount. Working together with Spellen and the Tour Advisory Committee, we develop and refine the route and educational content to help retell Fort Greene’s deep roots in Black history and culture for a personal, on-the-ground look at this important historical context.Meet us for this free event at the Fort Greene Park entrance at the corner of Dekalb Avenue and Washington Park." href="https://www.fortgreenepark.org/calendar/black-history-culture-tour-061525" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737475692128-K0J91WEKW6XLW1CCGJ3J/Instagram+Black+History+Tour+%2813%29.png">
       <time datetime="2025-06-15T12:00:00-04:00">noon</time>
       Black History And Culture Tour Of Fort Greene
@@ -1220,7 +1218,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day" style="grid-area: 26 / 5">
         <time datetime=2025-06-19>19</time>
         <div class=space style="--num-places: 1"></div><a class="event" data-tip="Storytime in the Park
-Jun 19 11am–11am
+Jun 19 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-061925" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-06-19T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1275,7 +1273,7 @@ Join us on Myrtle Lawn to celebrate NYC Pride with an illuminating showcase of L
       <div class="day" style="grid-area: 27 / 5">
         <time datetime=2025-06-26>26</time>
         <a class="event" data-tip="Storytime in the Park
-Jun 26 11am–11am
+Jun 26 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-062625" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-06-26T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1325,9 +1323,9 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day first-week" style="grid-area: 28 / 5">
         <time datetime=2025-07-03>3</time>
         <a class="event" data-tip="Paramount+ Movie Nights in Brooklyn: Call Me by your name
-Jul 3 8pm–10pm
+Jul 3 8:30pm–10pm
 Join us on the Myrtle Lawn for our Paramount+ Movie Nights in Brooklyn Series hosted by Brooklyn Mag!" href="https://www.fortgreenepark.org/calendar/paramount-movie-nights-in-brooklyn-070325" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1747406020799-18COEDZCI3JKBZ4N6X7E/BKMAG_25_MITP_FtGreene_FullList_4x5_R3_1x1.jpg">
-      <time datetime="2025-07-03T20:30:00-04:00">8pm</time>
+      <time datetime="2025-07-03T20:30:00-04:00">8:30pm</time>
       Paramount+ Movie Nights in Brooklyn: Call Me by your name
     </a>
       </div>
@@ -1375,7 +1373,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day" style="grid-area: 29 / 5">
         <time datetime=2025-07-10>10</time>
         <a class="event" data-tip="Storytime in the Park
-Jul 10 11am–11am
+Jul 10 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-071025" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-07-10T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1425,7 +1423,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day" style="grid-area: 30 / 5">
         <time datetime=2025-07-17>17</time>
         <a class="event" data-tip="Storytime in the Park
-Jul 17 11am–11am
+Jul 17 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-071725" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-07-17T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1475,7 +1473,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day" style="grid-area: 31 / 5">
         <time datetime=2025-07-24>24</time>
         <a class="event" data-tip="Storytime in the Park
-Jul 24 11am–11am
+Jul 24 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-072425" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-07-24T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1525,7 +1523,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day" style="grid-area: 32 / 5">
         <time datetime=2025-07-31>31</time>
         <a class="event" data-tip="Storytime in the Park
-Jul 31 11am–11am
+Jul 31 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-073125" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-07-31T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1575,7 +1573,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day first-week" style="grid-area: 33 / 5">
         <time datetime=2025-08-07>7</time>
         <a class="event" data-tip="Storytime in the Park
-Aug 7 11am–11am
+Aug 7 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-080725" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-08-07T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1625,7 +1623,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day" style="grid-area: 34 / 5">
         <time datetime=2025-08-14>14</time>
         <a class="event" data-tip="Storytime in the Park
-Aug 14 11am–11am
+Aug 14 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-081425" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-08-14T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1670,7 +1668,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day" style="grid-area: 35 / 5">
         <time datetime=2025-08-21>21</time>
         <a class="event" data-tip="Storytime in the Park
-Aug 21 11am–11am
+Aug 21 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-082125" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-08-21T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1720,7 +1718,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day" style="grid-area: 36 / 5">
         <time datetime=2025-08-28>28</time>
         <a class="event" data-tip="Storytime in the Park
-Aug 28 11am–11am
+Aug 28 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-082825" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-08-28T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1765,7 +1763,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument." href=
       <div class="day first-week" style="grid-area: 37 / 5">
         <time datetime=2025-09-04>4</time>
         <a class="event" data-tip="Storytime in the Park
-Sep 4 11am–11am
+Sep 4 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-090425" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-09-04T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1815,7 +1813,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day" style="grid-area: 38 / 5">
         <time datetime=2025-09-11>11</time>
         <a class="event" data-tip="Storytime in the Park
-Sep 11 11am–11am
+Sep 11 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-091125" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-09-11T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1865,7 +1863,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day" style="grid-area: 39 / 5">
         <time datetime=2025-09-18>18</time>
         <a class="event" data-tip="Storytime in the Park
-Sep 18 11am–11am
+Sep 18 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-091825" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-09-18T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -1960,7 +1958,7 @@ Hit the grass and push your body to new limits with Chelsea Pier’s Coach Decla
       <div class="day first-week" style="grid-area: 41 / 5">
         <time datetime=2025-10-02>2</time>
         <div class=space style="--num-places: 1"></div><a class="event" data-tip="Storytime in the Park
-Oct 2 11am–11am
+Oct 2 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-100225" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-10-02T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -2005,7 +2003,7 @@ Join Shala Yoga in Fort Greene Park on the Eastern Panel of the Monument." href=
       <div class="day" style="grid-area: 42 / 5">
         <time datetime=2025-10-09>9</time>
         <a class="event" data-tip="Storytime in the Park
-Oct 9 11am–11am
+Oct 9 11am–11:45am
 Sing, read, and play with librarians from Brooklyn Public Library! Have fun hearing great picture books read aloud and playing with other children during this program featuring guest musical artists from Urban Stages. For children of all ages and their caregivers." href="https://www.fortgreenepark.org/calendar/storytime-in-the-park-100925" data-image-url="https://images.squarespace-cdn.com/content/v1/63e12e443e0bde59091188ad/1737489085258-0P81Y17CUHV7GKNCBT2B/PXL_20230629_201001730+%282%29.jpg">
       <time datetime="2025-10-09T11:00:00-04:00">11am</time>
       Storytime in the Park
@@ -2623,5 +2621,5 @@ Alternate Side Parking suspended for Christmas Day. Parking meters will not be i
     </script>
   </body>
 </html>
-'
+
 `;

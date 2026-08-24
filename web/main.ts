@@ -1,4 +1,6 @@
-import { join } from "@std/path";
+import { readFileSync } from "node:fs";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export interface EventData {
   title: string;
@@ -22,18 +24,18 @@ function localDateTime(iso: string) {
 }
 
 function formatMonDate(date: Temporal.PlainDate) {
-  // toLocaleString() returns in the format "Jan 1, 2025", but the year should
-  // not be included. Explicitly remove it.
-  // See https://github.com/denoland/deno/issues/26076
-  const s = date.toLocaleString("en-US", { month: "short", day: "numeric" });
-  return s.split(",")[0];
+  return date.toLocaleString("en-US", { month: "short", day: "numeric" });
 }
 
 function formatBriefTime(time: Temporal.PlainTime) {
   const s = time
     .toLocaleString([], { hour: "numeric", minute: "numeric" })
-    // Explicitly remove seconds from toLocaleString() result.
-    .toLowerCase().replace(/:\d\d\s/, "").replace(":00", "");
+    .toLowerCase()
+    // Drop seconds if the locale added them anyway, close up the space before
+    // the meridiem, and leave off ":00" minutes entirely.
+    .replace(/(:\d\d):\d\d/, "$1")
+    .replace(/\s+(?=[ap]m$)/, "")
+    .replace(":00", "");
   if (s === "12pm") return "noon";
   return s;
 }
@@ -48,7 +50,11 @@ export function escapeHtml(s: string) {
 }
 
 abstract class Event {
-  constructor(protected readonly data: EventData) {}
+  protected readonly data: EventData;
+
+  constructor(data: EventData) {
+    this.data = data;
+  }
 
   abstract get startDate(): Temporal.PlainDate;
   abstract get endDate(): Temporal.PlainDate;
@@ -354,8 +360,9 @@ export class CalendarRenderer {
   private static readonly PLACEHOLDER = /\{\{ (\w+) \}\}/g;
 
   async render(data: CalendarData, extra: Record<string, string> = {}) {
-    const template = await Deno.readTextFile(
-      join(import.meta.dirname!, "template.html"),
+    const template = await readFile(
+      join(import.meta.dirname, "template.html"),
+      "utf-8",
     );
     const vars: Record<string, string> = { ...this.renderVariables(data), ...extra };
     return template.replace(
@@ -366,29 +373,30 @@ export class CalendarRenderer {
 }
 
 if (import.meta.main) {
+  const args = process.argv.slice(2);
   let from: Temporal.PlainDate | undefined;
   let to: Temporal.PlainDate | undefined;
   const positional: string[] = [];
 
-  for (let i = 0; i < Deno.args.length; i++) {
-    if (Deno.args[i] === "--from") {
-      from = Temporal.PlainDate.from(Deno.args[++i]);
-    } else if (Deno.args[i] === "--to") {
-      to = Temporal.PlainDate.from(Deno.args[++i]);
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === "--from") {
+      from = Temporal.PlainDate.from(args[++i]);
+    } else if (args[i] === "--to") {
+      to = Temporal.PlainDate.from(args[++i]);
     } else {
-      positional.push(Deno.args[i]);
+      positional.push(args[i]);
     }
   }
 
   if (positional.length !== 1) {
     console.error("usage: main.ts [--from YYYY-MM-DD] [--to YYYY-MM-DD] calendar.json");
-    Deno.exit(1);
+    process.exit(1);
   }
 
   const year = (from ?? to ?? Temporal.Now.plainDateISO()).year;
   const range = from && to ? { from, to } : undefined;
 
-  const data = JSON.parse(Deno.readTextFileSync(positional[0]));
+  const data = JSON.parse(readFileSync(positional[0], "utf-8"));
   const renderer = new CalendarRenderer(year, range);
 
   console.log(await renderer.render(data));

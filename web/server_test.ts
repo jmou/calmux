@@ -1,6 +1,10 @@
-import { join } from "@std/path";
-import { assert, assertEquals, assertThrows } from "@std/assert";
+import assert from "node:assert/strict";
+import { mkdtemp, rm, stat, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { test } from "node:test";
 
+import { serve } from "./http.ts";
 import type { EventData } from "./main.ts";
 import {
   calendarWindow,
@@ -17,57 +21,57 @@ function form(fields: Record<string, string>): FormData {
   return fd;
 }
 
-Deno.test("formDataToEvent - a date plus both times produces a UTC instant", () => {
+test("formDataToEvent - a date plus both times produces a UTC instant", () => {
   const event = formDataToEvent(form({
     title: "Standup",
     date: "2026-08-24",
     startTime: "09:00",
     endTime: "09:15",
   }));
-  assertEquals(event.title, "Standup");
-  assert(event.startAt.includes("T"));
-  assert(event.startAt.endsWith("Z"));
-  assert(event.endAt.endsWith("Z"));
+  assert.deepEqual(event.title, "Standup");
+  assert.ok(event.startAt.includes("T"));
+  assert.ok(event.startAt.endsWith("Z"));
+  assert.ok(event.endAt.endsWith("Z"));
   // The instants land on the given date in the local zone.
   const zone = Temporal.Now.timeZoneId();
   const start = Temporal.Instant.from(event.startAt).toZonedDateTimeISO(zone);
-  assertEquals(start.toPlainDate().toString(), "2026-08-24");
-  assertEquals(start.toPlainTime().toString(), "09:00:00");
-  assertEquals(
+  assert.deepEqual(start.toPlainDate().toString(), "2026-08-24");
+  assert.deepEqual(start.toPlainTime().toString(), "09:00:00");
+  assert.deepEqual(
     Temporal.Instant.from(event.endAt).toZonedDateTimeISO(zone).toPlainTime().toString(),
     "09:15:00",
   );
 });
 
-Deno.test("formDataToEvent - no times makes an all-day event with an exclusive endAt", () => {
+test("formDataToEvent - no times makes an all-day event with an exclusive endAt", () => {
   const event = formDataToEvent(form({
     title: "Conference",
     date: "2026-08-24",
     startTime: "",
     endTime: "",
   }));
-  assertEquals(event.startAt, "2026-08-24");
-  assertEquals(event.endAt, "2026-08-25");
+  assert.deepEqual(event.startAt, "2026-08-24");
+  assert.deepEqual(event.endAt, "2026-08-25");
 });
 
-Deno.test("formDataToEvent - rejects only one of the two times", () => {
+test("formDataToEvent - rejects only one of the two times", () => {
   const cases: Record<string, string>[] = [{ startTime: "09:00" }, { endTime: "09:15" }];
   for (const times of cases) {
-    assertThrows(
+    assert.throws(
       () => formDataToEvent(form({ title: "Standup", date: "2026-08-24", ...times })),
       ValidationError,
     );
   }
 });
 
-Deno.test("formDataToEvent - rejects a missing date", () => {
-  assertThrows(
+test("formDataToEvent - rejects a missing date", () => {
+  assert.throws(
     () => formDataToEvent(form({ title: "Standup" })),
     ValidationError,
   );
 });
 
-Deno.test("formDataToEvent - blank optional fields are omitted, not empty", () => {
+test("formDataToEvent - blank optional fields are omitted, not empty", () => {
   const event = formDataToEvent(form({
     title: "Standup",
     date: "2026-08-24",
@@ -78,10 +82,10 @@ Deno.test("formDataToEvent - blank optional fields are omitted, not empty", () =
     imageUrl: "",
     categories: "",
   }));
-  assertEquals(Object.keys(event).sort(), ["endAt", "startAt", "title"]);
+  assert.deepEqual(Object.keys(event).sort(), ["endAt", "startAt", "title"]);
 });
 
-Deno.test("formDataToEvent - categories are split, trimmed, and empties dropped", () => {
+test("formDataToEvent - categories are split, trimmed, and empties dropped", () => {
   const event = formDataToEvent(form({
     title: "Standup",
     date: "2026-08-24",
@@ -89,11 +93,11 @@ Deno.test("formDataToEvent - categories are split, trimmed, and empties dropped"
     endTime: "09:15",
     categories: " Work, , Standup ,Daily",
   }));
-  assertEquals(event.categories, ["Work", "Standup", "Daily"]);
+  assert.deepEqual(event.categories, ["Work", "Standup", "Daily"]);
 });
 
-Deno.test("formDataToEvent - rejects an empty title", () => {
-  assertThrows(
+test("formDataToEvent - rejects an empty title", () => {
+  assert.throws(
     () =>
       formDataToEvent(form({
         title: "   ",
@@ -105,8 +109,8 @@ Deno.test("formDataToEvent - rejects an empty title", () => {
   );
 });
 
-Deno.test("formDataToEvent - rejects an end time before the start time", () => {
-  assertThrows(
+test("formDataToEvent - rejects an end time before the start time", () => {
+  assert.throws(
     () =>
       formDataToEvent(form({
         title: "Standup",
@@ -118,8 +122,8 @@ Deno.test("formDataToEvent - rejects an end time before the start time", () => {
   );
 });
 
-Deno.test("formDataToEvent - rejects a javascript: url", () => {
-  assertThrows(
+test("formDataToEvent - rejects a javascript: url", () => {
+  assert.throws(
     () =>
       formDataToEvent(form({
         title: "Standup",
@@ -132,8 +136,8 @@ Deno.test("formDataToEvent - rejects a javascript: url", () => {
   );
 });
 
-Deno.test("formDataToEvent - rejects an unparseable date", () => {
-  assertThrows(
+test("formDataToEvent - rejects an unparseable date", () => {
+  assert.throws(
     () =>
       formDataToEvent(form({
         title: "Standup",
@@ -143,8 +147,8 @@ Deno.test("formDataToEvent - rejects an unparseable date", () => {
   );
 });
 
-Deno.test("POST /events with invalid data does not create the events dir", async () => {
-  const dir = await Deno.makeTempDir({ dir: "." });
+test("POST /events with invalid data does not create the events dir", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "calmux-"));
   try {
     const eventsDir = join(dir, "events");
     const outPath = join(dir, "index.html");
@@ -155,96 +159,96 @@ Deno.test("POST /events with invalid data does not create the events dir", async
       body: new URLSearchParams({ title: "" }),
     });
     const res = await app.handler(req);
-    assertEquals(res.status, 400);
+    assert.deepEqual(res.status, 400);
     await res.body?.cancel();
 
     let exists = true;
     try {
-      await Deno.stat(eventsDir);
+      await stat(eventsDir);
     } catch (e) {
-      if (!(e instanceof Deno.errors.NotFound)) throw e;
+      if ((e as NodeJS.ErrnoException).code !== "ENOENT") throw e;
       exists = false;
     }
-    assert(!exists, "events dir should not have been created for a rejected submission");
+    assert.ok(!exists, "events dir should not have been created for a rejected submission");
   } finally {
-    await Deno.remove(dir, { recursive: true });
+    await rm(dir, { recursive: true });
   }
 });
 
-Deno.test("calendarWindow - today is a Sunday", () => {
+test("calendarWindow - today is a Sunday", () => {
   const today = Temporal.PlainDate.from("2026-08-23"); // dayOfWeek === 7
   const { from, to } = calendarWindow(today);
-  assertEquals(from.toString(), "2026-08-23");
-  assertEquals(from.until(to).days, 41);
+  assert.deepEqual(from.toString(), "2026-08-23");
+  assert.deepEqual(from.until(to).days, 41);
 });
 
-Deno.test("calendarWindow - today is a Wednesday", () => {
+test("calendarWindow - today is a Wednesday", () => {
   const today = Temporal.PlainDate.from("2026-08-26"); // dayOfWeek === 3
   const { from, to } = calendarWindow(today);
-  assertEquals(from.toString(), "2026-08-23");
-  assertEquals(from.until(to).days, 41);
+  assert.deepEqual(from.toString(), "2026-08-23");
+  assert.deepEqual(from.until(to).days, 41);
 });
 
-Deno.test("calendarWindow - today is a Saturday", () => {
+test("calendarWindow - today is a Saturday", () => {
   const today = Temporal.PlainDate.from("2026-08-29"); // dayOfWeek === 6
   const { from, to } = calendarWindow(today);
-  assertEquals(from.toString(), "2026-08-23");
-  assertEquals(from.until(to).days, 41);
+  assert.deepEqual(from.toString(), "2026-08-23");
+  assert.deepEqual(from.until(to).days, 41);
 });
 
-Deno.test("loadEvents - aggregates files in filename order and skips a malformed one", async () => {
-  const dir = await Deno.makeTempDir({ dir: "." });
+test("loadEvents - aggregates files in filename order and skips a malformed one", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "calmux-"));
   try {
-    await Deno.writeTextFile(
+    await writeFile(
       join(dir, "20260825T090000Z-aaaaaaaa.json"),
       JSON.stringify(
         { title: "B", startAt: "2026-08-25T09:00:00Z", endAt: "2026-08-25T09:15:00Z" },
       ),
     );
-    await Deno.writeTextFile(
+    await writeFile(
       join(dir, "20260824T090000Z-bbbbbbbb.json"),
       JSON.stringify(
         { title: "A", startAt: "2026-08-24T09:00:00Z", endAt: "2026-08-24T09:15:00Z" },
       ),
     );
-    await Deno.writeTextFile(join(dir, "broken.json"), "{not json");
-    await Deno.writeTextFile(join(dir, "ignored.txt"), "should not be read");
+    await writeFile(join(dir, "broken.json"), "{not json");
+    await writeFile(join(dir, "ignored.txt"), "should not be read");
 
     const events = await loadEvents(dir);
-    assertEquals(events.map((e) => e.title), ["A", "B"]);
+    assert.deepEqual(events.map((e) => e.title), ["A", "B"]);
   } finally {
-    await Deno.remove(dir, { recursive: true });
+    await rm(dir, { recursive: true });
   }
 });
 
-Deno.test("loadEvents - a missing directory yields no events", async () => {
-  const dir = await Deno.makeTempDir({ dir: "." });
+test("loadEvents - a missing directory yields no events", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "calmux-"));
   try {
     const events = await loadEvents(join(dir, "does-not-exist"));
-    assertEquals(events, []);
+    assert.deepEqual(events, []);
   } finally {
-    await Deno.remove(dir, { recursive: true });
+    await rm(dir, { recursive: true });
   }
 });
 
-Deno.test("inWindow - drops events outside the 6-week range", () => {
+test("inWindow - drops events outside the 6-week range", () => {
   const range = calendarWindow(Temporal.PlainDate.from("2026-08-23"));
   const inside: EventData = { title: "In", startAt: "2026-08-25", endAt: "2026-08-26" };
   const outside: EventData = { title: "Out", startAt: "2026-11-01", endAt: "2026-11-02" };
-  assert(inWindow(inside, range));
-  assert(!inWindow(outside, range));
+  assert.ok(inWindow(inside, range));
+  assert.ok(!inWindow(outside, range));
 });
 
-Deno.test("end-to-end: POST writes the event, GET serves the rendered page", async () => {
-  const dir = await Deno.makeTempDir({ dir: "." });
+test("end-to-end: POST writes the event, GET serves the rendered page", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "calmux-"));
   try {
     const eventsDir = join(dir, "events");
     const outPath = join(dir, "index.html");
     const app = createApp({ eventsDir, outPath });
     await app.rerender();
 
-    const server = Deno.serve({ port: 0, onListen: () => {} }, app.handler);
-    const base = `http://localhost:${(server.addr as Deno.NetAddr).port}`;
+    const server = await serve(app.handler, { port: 0, hostname: "127.0.0.1" });
+    const base = `http://127.0.0.1:${server.port}`;
     try {
       const today = Temporal.Now.plainDateISO().toString();
       const postRes = await fetch(`${base}/events`, {
@@ -257,18 +261,18 @@ Deno.test("end-to-end: POST writes the event, GET serves the rendered page", asy
         }),
         redirect: "manual",
       });
-      assertEquals(postRes.status, 303);
-      assertEquals(postRes.headers.get("location"), "/");
+      assert.deepEqual(postRes.status, 303);
+      assert.deepEqual(postRes.headers.get("location"), "/");
       await postRes.body?.cancel();
 
       const getRes = await fetch(base);
-      assertEquals(getRes.status, 200);
+      assert.deepEqual(getRes.status, 200);
       const html = await getRes.text();
-      assert(html.includes("Smoke Test Event"));
+      assert.ok(html.includes("Smoke Test Event"));
     } finally {
       await server.shutdown();
     }
   } finally {
-    await Deno.remove(dir, { recursive: true });
+    await rm(dir, { recursive: true });
   }
 });

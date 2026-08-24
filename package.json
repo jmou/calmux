@@ -1,0 +1,20 @@
+{
+  "name": "calmux",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=26"
+  },
+  "scripts": {
+    "test": "node --test",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "linkedom": "^0.18.11"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "temporal-spec": "^1.0.1",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["esnext"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "types": ["node", "temporal-spec/global"],
+
+    "strict": true,
+    "noUncheckedIndexedAccess": false,
+    "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": true,
+    // Node runs these files by stripping types, never by compiling them.
+    "erasableSyntaxOnly": true,
+    "noEmit": true,
+
+    "skipLibCheck": true
+  },
+  "include": ["web/**/*.ts", "ftgreene-park/**/*.ts"]
+}

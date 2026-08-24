@@ -1,8 +1,20 @@
-import { DOMParser, Element } from "jsr:@b-fuze/deno-dom";
-import { parseArgs } from "jsr:@std/cli/parse-args";
+import { readFile } from "node:fs/promises";
+import { parseArgs } from "node:util";
+
+import { parseHTML } from "linkedom";
+
+type Element = ReturnType<typeof parseHTML>["document"]["documentElement"];
+
+function must<T>(value: T | null | undefined, what: string): T {
+  if (value == null) throw new Error(`missing ${what}`);
+  return value;
+}
+
+function query(elem: Element, selector: string) {
+  return must(elem.querySelector(selector), selector);
+}
 
 // We are not a true DOM, so use getAttribute instead of properties like href.
-// See https://github.com/b-fuze/deno-dom/issues/72
 function resolveHref(elem: Element, baseUrl: string) {
   const href = elem.getAttribute("href");
   if (!href) return undefined;
@@ -11,37 +23,37 @@ function resolveHref(elem: Element, baseUrl: string) {
 
 function parseEvent(elem: Element, baseUrl: string) {
   // The encoded Google Calender URL uses UTC time which we prefer.
-  const gCalUrl = elem.querySelector("a.eventlist-meta-export-google")
-    .getAttribute("href");
-  const dates = new URL(gCalUrl).searchParams.get("dates").split("/");
+  const gCalUrl = must(
+    query(elem, "a.eventlist-meta-export-google").getAttribute("href"),
+    "Google Calendar href",
+  );
+  const dates = must(new URL(gCalUrl).searchParams.get("dates"), "dates").split("/");
   return {
-    title: elem.querySelector(".eventlist-title").textContent,
-    url: resolveHref(elem.querySelector("a"), baseUrl),
-    imageUrl: elem.querySelector("a img").getAttribute("src"),
-    categories: [...elem.querySelectorAll(".eventlist-cats a")].map((e) =>
-      e.textContent
-    ),
+    title: query(elem, ".eventlist-title").textContent,
+    url: resolveHref(query(elem, "a"), baseUrl),
+    imageUrl: query(elem, "a img").getAttribute("src"),
+    categories: [...elem.querySelectorAll(".eventlist-cats a")].map((e) => e.textContent),
     startAt: dates[0],
     endAt: dates[1],
-    description: elem.querySelector(".eventlist-excerpt").innerText,
+    description: query(elem, ".eventlist-excerpt").innerText,
   };
 }
 
 if (import.meta.main) {
-  const flags = parseArgs(Deno.args, {
-    string: ["base-url"],
+  const { values, positionals } = parseArgs({
+    options: { "base-url": { type: "string" } },
+    allowPositionals: true,
   });
 
-  if (flags._.length != 1 || !flags["base-url"]) {
+  const baseUrl = values["base-url"];
+  if (positionals.length != 1 || !baseUrl) {
     console.error("usage: parse.ts --base-url <base-url> <scrape.html>");
-    Deno.exit(1);
+    process.exit(1);
   }
 
-  const text = await Deno.readTextFile("cal.html");
-  const document = new DOMParser().parseFromString(text, "text/html");
-  const data = { name: document.title, events: [] };
-  for (const elem of document.querySelectorAll(".eventlist-event--upcoming")) {
-    data.events.push(parseEvent(elem, flags["base-url"]));
-  }
-  console.log(JSON.stringify(data, null, 2));
+  const text = await readFile(positionals[0], "utf-8");
+  const { document } = parseHTML(text);
+  const events = [...document.querySelectorAll(".eventlist-event--upcoming")]
+    .map((elem) => parseEvent(elem, baseUrl));
+  console.log(JSON.stringify({ name: document.title, events }, null, 2));
 }
