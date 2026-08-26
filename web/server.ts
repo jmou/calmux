@@ -241,6 +241,32 @@ export interface ServerConfig {
   outPath: string;
 }
 
+// Everything the server writes lives under one state directory, kept outside
+// the deployed code so it can be a systemd StateDirectory= that the unit owns.
+export function stateConfig(stateDir: string): ServerConfig {
+  return { eventsDir: join(stateDir, "events"), outPath: join(stateDir, "index.html") };
+}
+
+function stateDir(): string {
+  // systemd sets STATE_DIRECTORY for StateDirectory=; it is a colon-separated
+  // list, and we only ever declare one.
+  const fromSystemd = process.env.STATE_DIRECTORY?.split(":")[0];
+  // Otherwise fall back to a scratch dir beside the checkout for development.
+  return fromSystemd || join(import.meta.dirname, "..", "var");
+}
+
+function port(): number {
+  const raw = process.env.PORT;
+  if (!raw) return 8000;
+  const n = Number(raw);
+  // Node would happily bind a random port for NaN, which is worse than dying.
+  if (!Number.isInteger(n) || n < 0 || n > 65535) {
+    console.error(`PORT is not a valid port number: ${raw}`);
+    process.exit(1);
+  }
+  return n;
+}
+
 export function createApp(config: ServerConfig) {
   let queue: Promise<void> = Promise.resolve();
 
@@ -329,25 +355,10 @@ function scheduleMidnightRerender(rerender: () => Promise<unknown>): void {
   scheduleNext();
 }
 
+// Configured entirely by the environment: PORT and systemd's STATE_DIRECTORY.
 if (import.meta.main) {
-  const args = process.argv.slice(2);
-  let port = 8000;
-  let outPath = join(import.meta.dirname, "_site", "index.html");
-  const eventsDir = join(import.meta.dirname, "events");
-
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--port") {
-      port = Number(args[++i]);
-    } else if (args[i] === "--out") {
-      outPath = args[++i];
-    } else {
-      console.error("usage: server.ts [--port N] [--out path]");
-      process.exit(1);
-    }
-  }
-
-  const app = createApp({ eventsDir, outPath });
+  const app = createApp(stateConfig(stateDir()));
   await app.rerender();
   scheduleMidnightRerender(app.rerender);
-  await serve(app.handler, { port, hostname: "0.0.0.0" });
+  await serve(app.handler, { port: port(), hostname: "0.0.0.0" });
 }

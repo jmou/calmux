@@ -7,9 +7,8 @@ test:
 update-snapshots:
 	node --test --test-update-snapshots
 
-# TODO should ignore data directories
 deploy:
-	rsync -av --exclude node_modules . elmo:/opt/cal/
+	rsync -av --del --exclude _site . elmo:/opt/cal/
 	ssh elmo sudo systemctl restart cal.service
 
 serve:
