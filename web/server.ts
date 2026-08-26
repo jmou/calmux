@@ -1,7 +1,7 @@
 import { mkdir, readdir, readFile, rename, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import { serve } from "./http.ts";
+import { listenFd, serve } from "./http.ts";
 import { CalendarRenderer, escapeHtml, type EventData } from "./main.ts";
 
 const CALENDAR_NAME = "Calendar";
@@ -355,10 +355,12 @@ function scheduleMidnightRerender(rerender: () => Promise<unknown>): void {
   scheduleNext();
 }
 
-// Configured entirely by the environment: PORT and systemd's STATE_DIRECTORY.
+// Configured entirely by the environment: systemd's STATE_DIRECTORY and either
+// an activated socket (LISTEN_FDS) or, failing that, PORT.
 if (import.meta.main) {
   const app = createApp(stateConfig(stateDir()));
   await app.rerender();
   scheduleMidnightRerender(app.rerender);
-  await serve(app.handler, { port: port(), hostname: "0.0.0.0" });
+  const fd = listenFd();
+  await serve(app.handler, fd === null ? { port: port(), hostname: "0.0.0.0" } : { fd });
 }
