@@ -207,6 +207,12 @@ export class CalendarRenderer {
     return ord % 7 + 1;
   }
 
+  private overlapsGrid(event: Event) {
+    const start = this.gridOrd(event.startDate);
+    const end = start + Math.max(event.multiLength(), 1);
+    return end > 0 && start < this.calendarDays;
+  }
+
   private renderDay(
     ord: number,
     stack: Event[],
@@ -241,14 +247,23 @@ export class CalendarRenderer {
   private decomposeMultiEdges(events: Event[]): MultiEventEdge[] {
     const edges = [];
     for (const event of events) {
+      // Clip to the calendar grid. A clipped side is drawn as indefinite.
+      const unclippedStart = this.gridOrd(event.startDate);
+      const unclippedEnd = unclippedStart + event.multiLength();
+      const start = Math.max(unclippedStart, 0);
+      const end = Math.min(unclippedEnd, this.calendarDays);
+
       // Leading edge.
-      const start = this.gridOrd(event.startDate);
-      let prev = { gridOrd: start, event, prev: null, definite: true };
+      let prev = {
+        gridOrd: start,
+        event,
+        prev: null,
+        definite: start === unclippedStart,
+      };
       edges.push(prev);
 
       // Add indefinite edges (week boundaries) starting from Sunday.
       const followingSunday = start - (start % 7) + 7;
-      const end = start + event.multiLength();
       for (let gridOrd = followingSunday; gridOrd < end; gridOrd += 7) {
         edges.push({ gridOrd, event, prev, definite: false });
         prev = { gridOrd, event, prev: null, definite: false };
@@ -256,7 +271,7 @@ export class CalendarRenderer {
       }
 
       // Final trailing edge.
-      edges.push({ gridOrd: end, event, prev, definite: true });
+      edges.push({ gridOrd: end, event, prev, definite: end === unclippedEnd });
     }
     return edges;
   }
@@ -315,20 +330,30 @@ export class CalendarRenderer {
   }
 
   private renderVariables(data: CalendarData) {
-    const normal: DateTimeEvent[] = [];
+    const normal: Event[] = [];
     const multi: Event[] = [];
+    let skipped = 0;
     for (const eventData of data.events) {
       const hasTime = eventData.startAt.includes("T");
       if (eventData.endAt.includes("T") != hasTime) {
         throw new Error("Date/DateTime mismatch");
       }
-      if (hasTime) {
-        const event = new DateTimeEvent(eventData);
-        const queue = event.multiLength() > 0 ? multi : normal;
-        queue.push(event);
+      const event = hasTime
+        ? new DateTimeEvent(eventData)
+        : new DateEvent(eventData);
+      if (!this.overlapsGrid(event)) {
+        skipped++;
+      } else if (hasTime && event.multiLength() === 0) {
+        normal.push(event);
       } else {
-        multi.push(new DateEvent(eventData));
+        multi.push(event);
       }
+    }
+    if (skipped > 0) {
+      const last = this.calendarStart.add({ days: this.calendarDays - 1 });
+      console.warn(
+        `Skipped ${skipped} event(s) outside the calendar range.`,
+      );
     }
 
     // Place multi events first, so we know how much space to allocate for them
