@@ -1,0 +1,366 @@
+import { mkdir, readdir, readFile, rename, writeFile } from "node:fs/promises";
+import { join } from "node:path";
+
+import { listenFd, serve } from "./http.ts";
+import { CalendarRenderer, escapeHtml, type EventData } from "./main.ts";
+
+const CALENDAR_NAME = "Calendar";
+const MAX_TITLE_LENGTH = 200;
+const MAX_DESCRIPTION_LENGTH = 2000;
+
+export class ValidationError extends Error {}
+
+function isNotFound(e: unknown): boolean {
+  return (e as NodeJS.ErrnoException)?.code === "ENOENT";
+}
+
+function getTrimmed(form: FormData, key: string): string {
+  const v = form.get(key);
+  return typeof v === "string" ? v.trim() : "";
+}
+
+function parseDate(raw: string, field: string): Temporal.PlainDate {
+  try {
+    return Temporal.PlainDate.from(raw);
+  } catch {
+    throw new ValidationError(`${field} is invalid.`);
+  }
+}
+
+function parseTimeOnDate(
+  date: Temporal.PlainDate,
+  raw: string,
+  field: string,
+): Temporal.Instant {
+  try {
+    return date.toPlainDateTime(Temporal.PlainTime.from(raw))
+      .toZonedDateTime(Temporal.Now.timeZoneId())
+      .toInstant();
+  } catch {
+    throw new ValidationError(`${field} is invalid.`);
+  }
+}
+
+// The form is one date plus two optional times: leaving both times blank is how
+// you get an all-day event, which is a bare date whose endAt is exclusive.
+function parseRange(form: FormData): { startAt: string; endAt: string } {
+  const date = parseDate(getTrimmed(form, "date"), "Date");
+  const startTime = getTrimmed(form, "startTime");
+  const endTime = getTrimmed(form, "endTime");
+
+  if (!startTime && !endTime) {
+    return { startAt: date.toString(), endAt: date.add({ days: 1 }).toString() };
+  }
+  if (!startTime || !endTime) {
+    throw new ValidationError("Give both a start and end time, or neither.");
+  }
+
+  const start = parseTimeOnDate(date, startTime, "Start time");
+  const end = parseTimeOnDate(date, endTime, "End time");
+  if (Temporal.Instant.compare(end, start) < 0) {
+    throw new ValidationError("End time must not be before start time.");
+  }
+  return { startAt: start.toString(), endAt: end.toString() };
+}
+
+function parseOptionalUrl(form: FormData, key: string, label: string): string | undefined {
+  const raw = getTrimmed(form, key);
+  if (!raw) return undefined;
+  let url: URL;
+  try {
+    url = new URL(raw);
+  } catch {
+    throw new ValidationError(`${label} is not a valid URL.`);
+  }
+  // renderEvent() puts url straight into an href; javascript: would be XSS.
+  if (url.protocol !== "http:" && url.protocol !== "https:") {
+    throw new ValidationError(`${label} must be an http or https URL.`);
+  }
+  return raw;
+}
+
+function parseCategories(form: FormData): string[] | undefined {
+  const raw = getTrimmed(form, "categories");
+  if (!raw) return undefined;
+  const categories = raw.split(",").map((s) => s.trim()).filter((s) => s.length > 0);
+  return categories.length > 0 ? categories : undefined;
+}
+
+export function formDataToEvent(form: FormData): EventData {
+  const title = getTrimmed(form, "title");
+  if (!title) throw new ValidationError("Title is required.");
+  if (title.length > MAX_TITLE_LENGTH) throw new ValidationError("Title is too long.");
+
+  const { startAt, endAt } = parseRange(form);
+  // Structurally guaranteed by parseRange(); assert it anyway.
+  if (startAt.includes("T") !== endAt.includes("T")) {
+    throw new Error("Date/DateTime mismatch");
+  }
+
+  const event: EventData = { title, startAt, endAt };
+
+  const description = getTrimmed(form, "description");
+  if (description) {
+    if (description.length > MAX_DESCRIPTION_LENGTH) {
+      throw new ValidationError("Description is too long.");
+    }
+    event.description = description;
+  }
+
+  const url = parseOptionalUrl(form, "url", "Web page");
+  if (url) event.url = url;
+  const imageUrl = parseOptionalUrl(form, "imageUrl", "Image link");
+  if (imageUrl) event.imageUrl = imageUrl;
+
+  const categories = parseCategories(form);
+  if (categories) event.categories = categories;
+
+  return event;
+}
+
+// --- Event store, one JSON file per submission ------------------------------
+
+export async function loadEvents(dir: string): Promise<EventData[]> {
+  const names: string[] = [];
+  try {
+    for (const entry of await readdir(dir, { withFileTypes: true })) {
+      if (entry.isFile() && entry.name.endsWith(".json")) names.push(entry.name);
+    }
+  } catch (e) {
+    if (isNotFound(e)) return [];
+    throw e;
+  }
+  names.sort(); // filenames start with startAt, so this is chronological
+
+  const events: EventData[] = [];
+  for (const name of names) {
+    try {
+      events.push(JSON.parse(await readFile(join(dir, name), "utf-8")));
+    } catch (e) {
+      console.warn(`Skipping malformed event file ${name}:`, e);
+    }
+  }
+  return events;
+}
+
+export async function writeEvent(dir: string, event: EventData): Promise<string> {
+  await mkdir(dir, { recursive: true });
+  const basic = event.startAt.replaceAll(/[-:]/g, "");
+  const path = join(dir, `${basic}-${crypto.randomUUID().slice(0, 8)}.json`);
+  await writeFile(path, JSON.stringify(event));
+  return path;
+}
+
+async function atomicWrite(path: string, content: string): Promise<void> {
+  const tmp = `${path}.tmp-${crypto.randomUUID()}`;
+  await writeFile(tmp, content);
+  await rename(tmp, path);
+}
+
+// --- The 6-week render window ------------------------------------------------
+
+export function calendarWindow(
+  today: Temporal.PlainDate,
+): { from: Temporal.PlainDate; to: Temporal.PlainDate } {
+  // Sunday's dayOfWeek is 7 but the grid starts the week on Sunday.
+  const from = today.subtract({ days: today.dayOfWeek % 7 });
+  return { from, to: from.add({ days: 41 }) };
+}
+
+export function inWindow(
+  event: EventData,
+  range: { from: Temporal.PlainDate; to: Temporal.PlainDate },
+): boolean {
+  const hasTime = event.startAt.includes("T");
+  const zone = Temporal.Now.timeZoneId();
+  const startDate = hasTime
+    ? Temporal.Instant.from(event.startAt).toZonedDateTimeISO(zone).toPlainDate()
+    : Temporal.PlainDate.from(event.startAt);
+  // event.endAt is already exclusive for all-day events; a timed event can
+  // still touch the local day its end instant falls in, so make that
+  // exclusive too before comparing.
+  const endExclusive = hasTime
+    ? Temporal.Instant.from(event.endAt).toZonedDateTimeISO(zone).toPlainDate().add({ days: 1 })
+    : Temporal.PlainDate.from(event.endAt);
+  return Temporal.PlainDate.compare(startDate, range.to) <= 0 &&
+    Temporal.PlainDate.compare(endExclusive, range.from) > 0;
+}
+
+// --- HTTP server --------------------------------------------------------------
+
+const FORM_HTML = `
+<details class=add-event>
+<summary>Add event</summary>
+<form method=post action="/events">
+  <label class=field>
+    Title
+    <input type=text name=title required maxlength="200">
+  </label>
+  <div class=field-row>
+    <label class=field>
+      Date
+      <input type=date name=date required>
+    </label>
+    <label class=field>
+      Start
+      <input type=time name=startTime>
+    </label>
+    <label class=field>
+      End
+      <input type=time name=endTime>
+    </label>
+  </div>
+  <p class=hint>Leave the times blank for an all-day event.</p>
+  <label class=field>
+    Web page
+    <input type=url name=url>
+  </label>
+  <label class=field>
+    Image link
+    <input type=url name=imageUrl>
+  </label>
+  <button type=submit>Add event</button>
+</form>
+</details>
+`;
+
+function renderErrorPage(message: string): string {
+  return `<!doctype html>
+<html>
+  <head><meta charset="utf-8"><title>Could not add event</title></head>
+  <body>
+    <p>${escapeHtml(message)}</p>
+    <p>Use your browser's back button to return to the form; your entries are preserved.</p>
+  </body>
+</html>
+`;
+}
+
+export interface ServerConfig {
+  eventsDir: string;
+  outPath: string;
+}
+
+// Everything the server writes lives under one state directory, kept outside
+// the deployed code so it can be a systemd StateDirectory= that the unit owns.
+export function stateConfig(stateDir: string): ServerConfig {
+  return { eventsDir: join(stateDir, "events"), outPath: join(stateDir, "index.html") };
+}
+
+function stateDir(): string {
+  // systemd sets STATE_DIRECTORY for StateDirectory=; it is a colon-separated
+  // list, and we only ever declare one.
+  const fromSystemd = process.env.STATE_DIRECTORY?.split(":")[0];
+  // Otherwise fall back to a scratch dir beside the checkout for development.
+  return fromSystemd || join(import.meta.dirname, "..", "var");
+}
+
+function port(): number {
+  const raw = process.env.PORT;
+  if (!raw) return 8000;
+  const n = Number(raw);
+  // Node would happily bind a random port for NaN, which is worse than dying.
+  if (!Number.isInteger(n) || n < 0 || n > 65535) {
+    console.error(`PORT is not a valid port number: ${raw}`);
+    process.exit(1);
+  }
+  return n;
+}
+
+export function createApp(config: ServerConfig) {
+  let queue: Promise<void> = Promise.resolve();
+
+  async function doRerender(): Promise<void> {
+    const range = calendarWindow(Temporal.Now.plainDateISO());
+    const renderer = new CalendarRenderer(range.from.year, range);
+    const events = (await loadEvents(config.eventsDir)).filter((e) => inWindow(e, range));
+    const html = await renderer.render({ name: CALENDAR_NAME, events }, { form: FORM_HTML });
+    await atomicWrite(config.outPath, html);
+  }
+
+  // Serialize rerenders: two concurrent POSTs must not interleave a read of
+  // all events with a write of stale HTML. Never rejects, so that one failed
+  // render cannot break the chain for later ones or take the process down as
+  // an unhandled rejection from the midnight timer.
+  function rerender(): Promise<Error | null> {
+    const next: Promise<Error | null> = queue.then(doRerender).then(() => null, (e) => {
+      console.error("rerender failed:", e);
+      return e instanceof Error ? e : new Error(String(e));
+    });
+    queue = next.then(() => {});
+    return next;
+  }
+
+  async function handler(req: Request): Promise<Response> {
+    const url = new URL(req.url);
+
+    if (req.method === "GET" && url.pathname === "/") {
+      try {
+        const html = await readFile(config.outPath);
+        return new Response(html, {
+          headers: {
+            "content-type": "text/html; charset=utf-8",
+            "cache-control": "no-store",
+          },
+        });
+      } catch (e) {
+        if (isNotFound(e)) {
+          return new Response("Calendar not yet rendered.", { status: 503 });
+        }
+        throw e;
+      }
+    }
+
+    if (req.method === "POST" && url.pathname === "/events") {
+      const form = await req.formData();
+      let event: EventData;
+      try {
+        event = formDataToEvent(form);
+      } catch (e) {
+        if (e instanceof ValidationError) {
+          return new Response(renderErrorPage(e.message), {
+            status: 400,
+            headers: { "content-type": "text/html; charset=utf-8" },
+          });
+        }
+        throw e;
+      }
+      await writeEvent(config.eventsDir, event);
+      const failure = await rerender();
+      if (failure) {
+        // The event file is already saved, so a later render will pick it up.
+        return new Response(
+          renderErrorPage("The event was saved, but the calendar could not be rerendered."),
+          { status: 500, headers: { "content-type": "text/html; charset=utf-8" } },
+        );
+      }
+      return new Response(null, { status: 303, headers: { location: "/" } });
+    }
+
+    return new Response("Not found", { status: 404 });
+  }
+
+  return { handler, rerender };
+}
+
+function scheduleMidnightRerender(rerender: () => Promise<unknown>): void {
+  const scheduleNext = () => {
+    const now = Temporal.Now.zonedDateTimeISO();
+    const midnight = now.toPlainDate().add({ days: 1 }).toZonedDateTime(now.timeZoneId);
+    const delayMs = midnight.epochMilliseconds - now.epochMilliseconds;
+    setTimeout(() => {
+      rerender().finally(scheduleNext);
+    }, delayMs);
+  };
+  scheduleNext();
+}
+
+// Configured entirely by the environment: systemd's STATE_DIRECTORY and either
+// an activated socket (LISTEN_FDS) or, failing that, PORT.
+if (import.meta.main) {
+  const app = createApp(stateConfig(stateDir()));
+  await app.rerender();
+  scheduleMidnightRerender(app.rerender);
+  const fd = listenFd();
+  await serve(app.handler, fd === null ? { port: port(), hostname: "0.0.0.0" } : { fd });
+}

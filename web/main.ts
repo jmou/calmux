@@ -1,4 +1,8 @@
-interface EventData {
+import { readFileSync } from "node:fs";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+
+export interface EventData {
   title: string;
   startAt: string;
   endAt: string;
@@ -8,7 +12,7 @@ interface EventData {
   categories?: string[];
 }
 
-interface CalendarData {
+export interface CalendarData {
   name: string;
   events: EventData[];
 }
@@ -20,23 +24,23 @@ function localDateTime(iso: string) {
 }
 
 function formatMonDate(date: Temporal.PlainDate) {
-  // toLocaleString() returns in the format "Jan 1, 2025", but the year should
-  // not be included. Explicitly remove it.
-  // See https://github.com/denoland/deno/issues/26076
-  const s = date.toLocaleString("en-US", { month: "short", day: "numeric" });
-  return s.split(",")[0];
+  return date.toLocaleString("en-US", { month: "short", day: "numeric" });
 }
 
 function formatBriefTime(time: Temporal.PlainTime) {
   const s = time
     .toLocaleString([], { hour: "numeric", minute: "numeric" })
-    // Explicitly remove seconds from toLocaleString() result.
-    .toLowerCase().replace(/:\d\d\s/, "").replace(":00", "");
+    .toLowerCase()
+    // Drop seconds if the locale added them anyway, close up the space before
+    // the meridiem, and leave off ":00" minutes entirely.
+    .replace(/(:\d\d):\d\d/, "$1")
+    .replace(/\s+(?=[ap]m$)/, "")
+    .replace(":00", "");
   if (s === "12pm") return "noon";
   return s;
 }
 
-function escapeHtml(s: string) {
+export function escapeHtml(s: string) {
   return s
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
@@ -46,7 +50,11 @@ function escapeHtml(s: string) {
 }
 
 abstract class Event {
-  constructor(protected readonly data: EventData) {}
+  protected readonly data: EventData;
+
+  constructor(data: EventData) {
+    this.data = data;
+  }
 
   abstract get startDate(): Temporal.PlainDate;
   abstract get endDate(): Temporal.PlainDate;
@@ -67,9 +75,21 @@ abstract class Event {
   abstract renderHeadline(): string;
 
   renderTitleAttr() {
-    const title = `${escapeHtml(this.data.title)}\n${(this).formatTime()}`;
+    const title = `${this.data.title}\n${this.formatTime()}`;
     if (this.data.description == null) return title;
-    return `${title}\n${escapeHtml(this.data.description)}`;
+    return `${title}\n${this.data.description}`;
+  }
+
+  renderEvent(classes: string[], style?: string) {
+    const attrs: Record<string, string> = {
+      class: classes.join(" "),
+      "data-tip": this.renderTitleAttr(),
+    };
+    if (style) attrs.style = style;
+    if (this.data.url) attrs.href = this.data.url;
+    if (this.data.imageUrl) attrs["data-image-url"] = this.data.imageUrl;
+    const attrStr = Object.entries(attrs).map(([k, v]) => `${k}="${escapeHtml(v)}"`).join(" ");
+    return `<a ${attrStr}>${this.renderHeadline()}</a>`;
   }
 }
 
@@ -93,11 +113,9 @@ class DateEvent extends Event {
     } else if (
       this.startDate.with({ day: inclusiveEnd.day }).equals(inclusiveEnd)
     ) {
-      return `${formatMonDate(this.startDate)}&ndash;${inclusiveEnd.day}`;
+      return `${formatMonDate(this.startDate)}–${inclusiveEnd.day}`;
     } else {
-      return `${formatMonDate(this.startDate)}&ndash;${
-        formatMonDate(inclusiveEnd)
-      }`;
+      return `${formatMonDate(this.startDate)}–${formatMonDate(inclusiveEnd)}`;
     }
   }
 
@@ -139,8 +157,8 @@ class DateTimeEvent extends Event {
     const prettyEndDate = formatMonDate(this.endDate);
     const briefEndTime = formatBriefTime(this.endAt.toPlainTime());
     return this.startDate.equals(this.endDate)
-      ? `${prettyStartDate} ${this.briefStartTime}&ndash;${briefEndTime}`
-      : `${prettyStartDate} ${this.briefStartTime}&ndash;${prettyEndDate} ${briefEndTime}`;
+      ? `${prettyStartDate} ${this.briefStartTime}–${briefEndTime}`
+      : `${prettyStartDate} ${this.briefStartTime}–${prettyEndDate} ${briefEndTime}`;
   }
 
   renderHeadline() {
@@ -164,12 +182,16 @@ export class CalendarRenderer {
   private calendarStart: Temporal.PlainDate;
   private calendarDays: number;
 
-  constructor(year: number) {
-    const jan1 = new Temporal.PlainDate(year, 1, 1);
-    this.calendarStart = jan1.subtract({ days: jan1.dayOfWeek });
+  constructor(
+    year: number,
+    range?: { from: Temporal.PlainDate; to: Temporal.PlainDate },
+  ) {
+    const start = range?.from ?? new Temporal.PlainDate(year, 1, 1);
+    const end = range?.to ?? new Temporal.PlainDate(year, 12, 31);
 
-    const dec31 = new Temporal.PlainDate(year, 12, 31);
-    const inclusiveEnd = dec31.add({ days: 6 - dec31.dayOfWeek });
+    // Sunday's dayOfWeek is 7 but we want it to be 0 to start the week.
+    this.calendarStart = start.subtract({ days: start.dayOfWeek % 7 });
+    const inclusiveEnd = end.add({ days: 6 - (end.dayOfWeek % 7) });
     this.calendarDays = this.calendarStart.until(inclusiveEnd).days + 1;
   }
 
@@ -201,11 +223,7 @@ export class CalendarRenderer {
     }
     while (stack.at(-1)?.startDate?.equals(date)) {
       const event = stack.pop() as Event;
-      content.push(`
-        <div class=event title="${event.renderTitleAttr()}">
-          ${event.renderHeadline()}
-        </div>
-      `);
+      content.push(event.renderEvent(["event"]));
     }
 
     const row = this.gridRow(ord);
@@ -290,13 +308,10 @@ export class CalendarRenderer {
     const classes = ["event", "multi"];
     if (!prev.definite) classes.push("indefinite-start");
     if (!edge.definite) classes.push("indefinite-end");
-    return `
-      <div class="${classes.join(" ")}"
-           style="grid-area: ${gridArea}; --place: ${prev.place}"
-           title="${event.renderTitleAttr()}">
-        ${event.renderHeadline()}
-      </div>
-    `;
+    return event.renderEvent(
+      classes,
+      `grid-area: ${gridArea}; --place: ${prev.place}`,
+    );
   }
 
   private renderVariables(data: CalendarData) {
@@ -342,23 +357,47 @@ export class CalendarRenderer {
     };
   }
 
-  async render(data: CalendarData) {
-    const template = await Deno.readTextFile("template.html");
-    const { name, content } = this.renderVariables(data);
-    return template
-      .replace("{{ name }}", name)
-      .replace("{{ content }}", content);
+  private static readonly PLACEHOLDER = /\{\{ (\w+) \}\}/g;
+
+  async render(data: CalendarData, extra: Record<string, string> = {}) {
+    const template = await readFile(
+      join(import.meta.dirname, "template.html"),
+      "utf-8",
+    );
+    const vars: Record<string, string> = { ...this.renderVariables(data), ...extra };
+    return template.replace(
+      CalendarRenderer.PLACEHOLDER,
+      (_, key: string) => vars[key] ?? "",
+    );
   }
 }
 
 if (import.meta.main) {
-  if (Deno.args.length !== 1) {
-    console.error("usage: main.ts calendar.json");
-    Deno.exit(1);
+  const args = process.argv.slice(2);
+  let from: Temporal.PlainDate | undefined;
+  let to: Temporal.PlainDate | undefined;
+  const positional: string[] = [];
+
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === "--from") {
+      from = Temporal.PlainDate.from(args[++i]);
+    } else if (args[i] === "--to") {
+      to = Temporal.PlainDate.from(args[++i]);
+    } else {
+      positional.push(args[i]);
+    }
   }
 
-  const data = JSON.parse(Deno.readTextFileSync(Deno.args[0]));
-  const renderer = new CalendarRenderer(2025);
+  if (positional.length !== 1) {
+    console.error("usage: main.ts [--from YYYY-MM-DD] [--to YYYY-MM-DD] calendar.json");
+    process.exit(1);
+  }
+
+  const year = (from ?? to ?? Temporal.Now.plainDateISO()).year;
+  const range = from && to ? { from, to } : undefined;
+
+  const data = JSON.parse(readFileSync(positional[0], "utf-8"));
+  const renderer = new CalendarRenderer(year, range);
 
   console.log(await renderer.render(data));
 }

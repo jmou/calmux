@@ -1,10 +1,17 @@
-_site/index.html: _params/merge.json main.ts template.html deno.json deno.lock
-	deno run --allow-read=.. main.ts $< > $@
+_site/index.html: _params/merge.json main.ts template.html
+	node main.ts --from 2025-01-01 --to 2025-12-31 $< > $@
 
 test:
-	deno test --allow-read=.
+	node --test
 
 update-snapshots:
-	deno test --allow-read=. --allow-write=__snapshots__ -- --update
+	node --test --test-update-snapshots
 
-.PHONY: test update-snapshots
+deploy:
+	rsync -av --del --exclude _site . elmo:/opt/cal/
+	ssh elmo sudo systemctl restart cal.service
+
+serve:
+	node server.ts
+
+.PHONY: test update-snapshots deploy serve

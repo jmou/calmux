@@ -1,6 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Calendar</title>
     <style>
       body {
@@ -10,6 +12,7 @@
         background: var(--bg-color);
         font-family: Helvetica, Arial, sans-serif;
         font-size: 14px;
+        min-width: 700px;
       }
 
       .calendar {
@@ -22,8 +25,8 @@
         --accent-border: 2px solid var(--border-color);
         --indefinite-border: var(--border-width) dashed var(--border-color);
         --margin-offset: calc(-1 * var(--border-width));
-        --gutter-demi-width: .05lh;
-        --placement-height: calc(1lh + 2 * var(--gutter-demi-width));
+        --gutter-demi-width: 0.05lh;
+        --placement-height: calc(2lh + 2 * var(--gutter-demi-width));
         border: var(--border);
 
         > header {
@@ -40,7 +43,7 @@
       }
 
       .day {
-        min-height: calc(4 * var(--placement-height));
+        min-height: calc(1lh + 3 * var(--gutter-demi-width) + 2 * var(--placement-height));
         border: solid transparent;
         /* Avoid the negative margins from .first-week */
         border-width: 0 var(--border-width) var(--border-width) 0;
@@ -75,12 +78,23 @@
         height: calc(var(--num-places) * var(--placement-height));
       }
       .event {
-        height: 1lh;
+        /* Reset <a> styles. */
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        cursor: default;
+        &[href] {
+          cursor: pointer;
+        }
+
+        height: 2lh;
         margin: var(--gutter-demi-width);
         border: solid transparent;
         border-width: 0 var(--gutter-demi-width);
         overflow: hidden;
-        white-space: nowrap;
+        &[href] {
+          background: var(--header-bg-color);
+        }
         > time {
           font-style: italic;
         }
@@ -91,11 +105,12 @@
       }
       .multi {
         margin: var(--gutter-demi-width);
-        margin-top: calc((1 + var(--place)) * var(--placement-height) + var(--gutter-demi-width));
+        margin-top: calc(
+          1lh + 3 * var(--gutter-demi-width) + var(--place) * var(--placement-height)
+        );
         /* Match .day border-right */
         margin-right: calc(var(--border-width) + var(--gutter-demi-width));
-        border-radius: .3lh;
-        background: var(--header-bg-color);
+        border-radius: 0.3lh;
       }
       .indefinite-start {
         border-top-left-radius: 0;
@@ -110,11 +125,122 @@
         margin-right: 0;
         border-right: var(--indefinite-border);
       }
+
+      #tip-anchor {
+        position: fixed;
+        width: 1px;
+        height: 1px;
+        anchor-name: --tip;
+        pointer-events: none;
+      }
+      #tip {
+        position: fixed;
+        position-anchor: --tip;
+        top: anchor(bottom);
+        left: anchor(right);
+        margin-top: 8px;
+        margin-left: 8px;
+        position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+        background: #333;
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        white-space: pre;
+        text-decoration: inherit;
+        display: none;
+        &[href] > div:first-child {
+          text-decoration: underline;
+        }
+        z-index: 100;
+      }
+
+      .add-event {
+        margin-top: 1em;
+
+        > summary {
+          font-size: 12px;
+          cursor: pointer;
+        }
+      }
+
+      form {
+        border: var(--border);
+        max-width: 32em;
+        margin-top: 0.5em;
+        padding: 0.5em 0.75em 0.75em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        .field {
+          display: flex;
+          flex-direction: column;
+          gap: 0.15em;
+          font-size: 12px;
+        }
+        .hint {
+          margin: 0;
+          font-size: 12px;
+          color: #666;
+        }
+        .field-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5em 1em;
+          > .field {
+            flex: 1;
+            min-width: 8em;
+          }
+        }
+        .hint + .field {
+          margin-top: 0.25em;
+        }
+        input, button {
+          font: inherit;
+        }
+        button {
+          align-self: flex-start;
+        }
+      }
+
+      @media print {
+        html, body {
+          height: 100%;
+        }
+        body {
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+          font-size: 10px;
+        }
+        .calendar {
+          flex: 1;
+          align-content: stretch;
+          grid-template-rows: auto;
+          grid-auto-rows: 1fr;
+        }
+        .calendar > header, .event {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .calendar > header {
+          position: static;
+        }
+        .today > time {
+          outline: var(--accent-border);
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .day {
+          break-inside: avoid;
+        }
+      }
     </style>
   </head>
   <body>
     <h1>{{ name }}</h1>
-    <div class=calendar>
+    <div class="calendar">
       <header>Sunday</header>
       <header>Monday</header>
       <header>Tuesday</header>
@@ -124,13 +250,93 @@
       <header>Saturday</header>
       {{ content }}
     </div>
+    {{ form }}
     <script>
       // Hackily relies on en-CA locale date format to be %Y-%m-%d.
       const today = new Date().toLocaleDateString("en-CA");
       document.querySelector(`[datetime="${today}"]`).parentElement.classList.add("today");
       if (window.scrollY === 0) {
-        document.querySelector(".today").scrollIntoView({behavior: "smooth", block: "center"});
+        document.querySelector(".today").scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
       }
+
+      const tipAnchor = document.createElement("div");
+      tipAnchor.id = "tip-anchor";
+      tipAnchor.inert = true;
+      document.body.appendChild(tipAnchor);
+
+      const tip = document.createElement("a");
+      tip.id = "tip";
+      document.body.appendChild(tip);
+
+      function showTip(el) {
+        tip.innerHTML = "";
+        const text = document.createElement("div");
+        text.textContent = el.dataset.tip;
+        tip.appendChild(text);
+        if (el.dataset.imageUrl) {
+          const img = document.createElement("img");
+          img.src = el.dataset.imageUrl;
+          img.style.cssText = "display:block;max-width:200px;margin-top:4px";
+          tip.appendChild(img);
+        }
+        if (el.href) tip.href = el.href;
+        else tip.removeAttribute("href");
+        tip.style.display = "block";
+      }
+
+      function anchorToCursor(x, y) {
+        tipAnchor.style.width = "1px";
+        tipAnchor.style.height = "1px";
+        tipAnchor.style.left = x + "px";
+        tipAnchor.style.top = y + "px";
+      }
+
+      let currentTip = null;
+      let suppressClick = false;
+
+      document.addEventListener("pointerover", (e) => {
+        if (e.pointerType === "touch") return;
+        const el = e.target.closest(".event[data-tip]");
+        if (el) {
+          showTip(el);
+          currentTip = el;
+        }
+      });
+      document.addEventListener("pointerout", (e) => {
+        if (e.pointerType === "touch") return;
+        const from = e.target;
+        if (!from.closest(".event[data-tip]") && !tip.contains(from)) return;
+        const to = e.relatedTarget;
+        if (to && (tip.contains(to) || to.closest(".event[data-tip]"))) return;
+        tip.style.display = "none";
+        currentTip = null;
+      });
+      document.addEventListener("pointermove", (e) => {
+        if (tip.contains(e.target)) return;
+        anchorToCursor(e.clientX, e.clientY);
+      });
+      document.addEventListener("pointerdown", (e) => {
+        if (tip.contains(e.target)) return;
+        const el = e.target.closest(".event[data-tip]");
+        if (el) {
+          currentTip = el;
+          suppressClick = true;
+          anchorToCursor(e.clientX, e.clientY);
+          showTip(el);
+        } else if (currentTip) {
+          currentTip = null;
+          tip.style.display = "none";
+        }
+      });
+      document.addEventListener("click", (e) => {
+        if (suppressClick) {
+          e.preventDefault();
+          suppressClick = false;
+        }
+      });
     </script>
   </body>
 </html>

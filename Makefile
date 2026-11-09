@@ -6,7 +6,7 @@ merge.json: asp/asp.json ftgreene-park/cal.json
 asp/asp.json:
 	$(MAKE) -C asp asp.json
 
-ftgreene-park/cal.json:
+ftgreene-park/cal.json: node_modules
 	$(MAKE) -C ftgreene-park cal.json
 
 web/_params/: merge.json
@@ -14,5 +14,9 @@ web/_params/: merge.json
 
 web/_site/index.html: web/_params/
 	$(MAKE) -C web _site/index.html
+
+node_modules: package.json pnpm-lock.yaml
+	pnpm install --frozen-lockfile
+	@touch $@
 
 .PHONY: all
